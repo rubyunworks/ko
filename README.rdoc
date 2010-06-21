@@ -1,9 +1,9 @@
 = KO
 
+This is KDD! This is Kickass Driven Development!
+
 Knockout is  Ruby testing framework that thinks the way
 a tester does.
-
-This is KDD! This is Kickass Driven Development!
 
 KO is a BDD/TDD framework for Ruby. It was created to 
 fill in the void left by the discontinuation of shoulda's
@@ -26,38 +26,40 @@ excellent AE system.
 
 KO specifications... well here's an fracking example.
 
-  Scenario "String Instance" do
-    Setup do
+  context "String Instance" do
+    setup do
       @string = "Hello World"
     end
 
-    Cleanup do
+    cleanup do
     end
   end
 
-  Feature "String Indexing" do
-    Use "String Instance"
+  feature "String Indexing" do
+    use "String Instance"
 
-    Behavior "index of substring" do
+    behavior "index by substring" do
       @string.index('H').assert == 0
       @string.index('l').assert == 2
       @string.index('ld').assert == 9
     end
 
-    Behavior "index of regular expression" do
+    behavior "index by regular expression" do
       @string.index(/H/).assert == 0
       @string.index(/l/).assert == 2
       @string.index(/o\ /).assert == 4
     end
   end
 
-Get it? You create reusable scenarios --they can load libraries,
+Get it? You create reusable contexts --they can load libraries,
 build out mocks, setup fixtures, etc. Then use use them to 
 test out features.
 
-Of course, generally you won't define the scenario in the same file
-with the features. You will put it in the a file in the scenarios
+Of course, generally you won't define the contexts in the same file
+with the features. You will put it in the a file in the context
 drectory where it will be loaded up automatically ready to be used.
+
+Oh, if you are a Cuke you can use captialized method names instead.
 
 === Running those suckers
 

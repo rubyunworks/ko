@@ -1,0 +1,20 @@
+--- 
+title  : KO
+summary: Knockout Testing
+suite  : proutils
+contact: trans <transfire@gmail.com>
+created: 2010-06-21 09:00:06
+authors: Thomas Sawyer
+license: GPLv3
+
+description:
+  Knockout is testing framwork for doing BDD development. It was
+  designed to fill in gap left from the demise of Shoulda's 
+  Context as well as provide a next-gen conceptual model
+  and a sexy implmentation for a Ruby specification system.
+
+resources:
+  homepage: http://proutils.github.com/ko
+  repository: git://github.com/proutils/ko.git
+
+copyright: Copyright (c) 2010 Thomas Sawyer

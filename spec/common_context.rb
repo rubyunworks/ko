@@ -1,6 +1,6 @@
-Scenario "String Instance" do
+context "String Instance" do
 
-  Setup do
+  setup do
     @string = "Hello World"
   end
 

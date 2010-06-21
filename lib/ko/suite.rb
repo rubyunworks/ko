@@ -1,4 +1,4 @@
-require 'ko/scenario'
+require 'ko/context'
 require 'ko/feature'
 require 'ko/scope'
 
@@ -10,7 +10,7 @@ module KO
     def initialize(files)
       @files   = files
 
-      @scenarios = []
+      @contexts = []
       @features  = []
     end
 
@@ -18,7 +18,7 @@ module KO
     attr :files
 
     #
-    attr :scenarios
+    attr :contexts
 
     #
     attr :features
@@ -47,14 +47,18 @@ module KO
       end
 
       #
-      def Scenario(label,&block)
-        @_suite.scenarios << Scenario.new(label,&block)
+      def Context(label,&block)
+        @_suite.contexts << Context.new(label,&block)
       end
 
       #
       def Feature(label,&block)
         @_suite.features << Feature.new(label,&block)
       end
+
+      #
+      alias_method :context, :Context
+      alias_method :feature, :Feature
 
     end
 
@@ -70,9 +74,9 @@ module KO
       def run(reporter)
         reporter.start(self)
         @suite.features.each do |feature|
-          feature.scenarios.each do |scenario|
+          feature.contexts.each do |context|
             feature_scope = Object.new
-            feature_scenerios = @suite.scenarios.select{ |s| s.label == scenario } # TODO: use regex to match too
+            feature_scenerios = @suite.contexts.select{ |s| s.label == context } # TODO: use regex to match too
 
             reporter.start_feature(feature)
 

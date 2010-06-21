@@ -25,12 +25,12 @@ module KO
     end
 
     #
-    def scenarios
-      @scenarios ||= (
+    def contexts
+      @contexts ||= (
         src = []
         @files.each do |file|
           dir = File.dirname(file)
-          src.concat(Dir[File.join(dir, '*_scenario.rb')] + Dir[File.join(dir, 'scenario/*.rb')])
+          src.concat(Dir[File.join(dir, '*_context.rb')] + Dir[File.join(dir, 'context/*.rb')])
         end
         src
       )
@@ -38,7 +38,7 @@ module KO
 
     #
     def suite
-      @suite ||= Suite.new(scenarios + files)
+      @suite ||= Suite.new(contexts + files)
     end
 
     #

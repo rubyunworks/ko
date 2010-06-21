@@ -14,8 +14,8 @@ module KO
       @block = block
 
       @behaviors = []
-      @concerns  = []
-      @scenarios = []
+      #@concerns  = []
+      @contexts = []
 
       parse
     end
@@ -27,10 +27,10 @@ module KO
     attr :behaviors
 
     #
-    attr :concerns
+    #attr :concerns
 
     #
-    attr :scenarios
+    attr :contexts
 
     #
     def parse
@@ -46,16 +46,16 @@ module KO
       end
 
       def Use(label_match)
-        @_feature.scenarios << label_match
+        @_feature.contexts << label_match
       end
 
       def Behavior(label, &block)
         @_feature.behaviors << KO::Behavior.new(label, &block)
       end
 
-      def Concern(label, &block)
-        @_feature.concerns << KO::Concern.new(label, &block)
-      end
+      #def Concern(label, &block)
+      #  @_feature.concerns << KO::Concern.new(label, &block)
+      #end
 
       alias_method :use, :Use
       alias_method :behavior, :Behavior
