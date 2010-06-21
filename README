@@ -1,0 +1,46 @@
+= KO
+
+Knockout is  Ruby testing framework that thinks the way
+a tester does.
+
+This is KDD! This is Kickass Driven Development!
+
+
+== SYNOPSIS
+
+KO specifications... well here's an fracking example.
+
+  Scenario "String Instance" do
+
+    @string = "Hello World"
+
+  end
+
+  Feature "String Indexing" do
+
+    Use "String Instance"
+
+    Behavior "index of substring" do
+      @string.index('H').assert == 0
+      @string.index('l').assert == 2
+      @string.index('ld').assert == 9
+    end
+
+    Behavior "index of regular expression" do
+      @string.index(/H/).assert == 0
+      @string.index(/l/).assert == 2
+      @string.index(/o\ /).assert == 4
+    end
+
+  end
+
+Get it? You create reusable scenarios --the can load libraries,
+build out mocks, setup fixtures, etc. Then use use them to 
+test out features.
+
+
+== LICENCE
+
+(GPL v3)
+
+Copyright (c) 2010 Thomas Sawyer
