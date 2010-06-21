@@ -63,6 +63,10 @@ module KO
           @format = type
         end
 
+        opt.on('--verbose', '-v', 'output with verbose format') do |type|
+          @format = 'verbose'
+        end
+
         opt.on('--debug', 'runin debug mode') do
           $DEBUG = true
         end
