@@ -20,9 +20,11 @@ excellent AE system.
 
   Scenario "Calculator Instance" do
 
-    require 'calculator'
+    Setup do
+      require 'calculator'
 
-    calculator = Calculater.new
+      calculator = Calculater.new
+    end
 
   end
 

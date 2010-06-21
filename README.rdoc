@@ -5,13 +5,34 @@ a tester does.
 
 This is KDD! This is Kickass Driven Development!
 
+KO is a BDD/TDD framework for Ruby. It was created to 
+fill in the void left by the discontinuation of shoulda's
+context system --and slao because it was about time Ruby
+had a lean but elegant test system.
+
+KO "tests" are devided up into *scenarios*, *features*,
+*concerns*, *behaviors* and *assertions*.
+
+Features define the overarching goal of a set of tests.
+Scenarios, on the other hand, define reusable setups the
+features utilize. Behaviors compose the descriptive units
+of a feature, which contain assertions. Concerns are optional
+and are simply a way to divide complex features into subgroups.
+
+Rather than define yet another assertions system KO uses the 
+excellent AE system.
 
 == SYNOPSIS
 
 KO specifications... well here's an fracking example.
 
   Scenario "String Instance" do
-    @string = "Hello World"
+    Setup do
+      @string = "Hello World"
+    end
+
+    Cleanup do
+    end
   end
 
   Feature "String Indexing" do
