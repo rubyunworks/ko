@@ -49,10 +49,30 @@ module KO
       def finish(suite)
       end
 
+      #
       def tally
         text = "%s behaviors: %s passed, %s failed, %s errored (%s/%s assertions failed)"
         total = @passed.size + @failed.size + @raised.size
-        text % [total, @passed.size, @failed.size, @raised.size, $failures, $assertions]
+        text = text % [total, @passed.size, @failed.size, @raised.size, $failures, $assertions]
+        if @failed.size > 0
+          text.ansi(:red)
+        elsif @raised.size > 0
+          text.ansi(:yellow)
+        else
+          text.ansi(:green)
+        end
+      end
+
+      # Clean the backtrace of any reference to ko/ paths and code.
+      def clean_backtrace(backtrace)
+        trace = backtrace.reject{ |bt| bt.index('ko/') }
+        trace.map do |bt| 
+          if i = bt.index(':in')
+            bt[0...i]
+          else
+            bt
+          end
+        end
       end
 
     end#class Abstract
@@ -60,3 +80,4 @@ module KO
   end#module Reporters
 
 end
+
