@@ -57,6 +57,9 @@ module KO
         @_feature.concerns << KO::Concern.new(label, &block)
       end
 
+      alias_method :use, :Use
+      alias_method :behavior, :Behavior
+
     end
 
   end

@@ -15,16 +15,43 @@ module KO
     def initialize(label, &block)
       @label = label
       @block = block
+
+      parse
     end
 
     #
     attr :label
 
     #
-    attr :block
+    attr_accessor :setup
+
+    #
+    attr_accessor :cleanup
+
+    #
+    def parse
+      parser = Parser.new(self)
+      parser.instance_eval(&@block)
+    end
 
     #
     class Parser
+
+      def initialize(scenario)
+        @_scenario = scenario
+      end
+
+      def Setup(&block)
+        @_scenario.setup = block
+      end
+
+      def Cleanup(&block)
+        @_sceanrio.cleanup = block
+      end
+
+      alias_method :setup, :Setup
+      alias_method :cleanup, :Cleanup
+
     end
 
   end

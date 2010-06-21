@@ -16,6 +16,11 @@ module KO
     #
     attr :block
 
+    #
+    def to_proc
+      @block
+    end
+
   end
 
 end

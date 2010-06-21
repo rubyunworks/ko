@@ -8,19 +8,13 @@ module KO
     def initialize(scenarios)
       # setup scenario
       scenarios.each do |scenario|
-        instance_eval(&scenario.block) #, scenario.block.file)
+        instance_eval(&scenario.setup) #, scenario.block.file)
       end
     end
 
     #
     def eval(behavior)
-      begin
-        instance_eval(&behavior.block) #, behavior.block.file)
-      rescue Assertion => error
-        reporter.puts error
-      rescue Exception => error
-        reporter.puts error
-      end
+      instance_eval(&behavior.block) #, behavior.block.file)
     end
 
   end

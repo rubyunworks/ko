@@ -24,7 +24,8 @@ module KO
     attr :features
 
     #
-    def parse
+    def parse #(files=nil)
+      #files = files || self.files
       parser = Parser.new(self)
       files.each do |file|
         parser.instance_eval(File.read(file), file)
@@ -70,12 +71,18 @@ module KO
         reporter.start(self)
         @suite.features.each do |feature|
           feature.scenarios.each do |scenario|
-            reporter.start_feature(feature)
+            feature_scope = Object.new
             feature_scenerios = @suite.scenarios.select{ |s| s.label == scenario } # TODO: use regex to match too
-            scope = Scope.new(feature_scenerios)
+
+            reporter.start_feature(feature)
+
+            feature_scenerios.each do |fs|
+              feature_scope.instance_eval(&fs.setup) if fs.setup
+            end
+
             feature.behaviors.each do |behavior|
               begin
-                scope.eval(behavior)
+                feature_scope.instance_eval(&behavior)
                 reporter.pass(behavior)
               rescue Assertion => exception
                 reporter.fail(behavior, exception)
@@ -83,8 +90,14 @@ module KO
                 reporter.err(behavior, exception)
               end
             end
+
+            feature_scenerios.each do |fs|
+              feature_scope.instance_eval(&fs.cleanup) if fs.cleanup
+            end
+
             reporter.finish_feature(feature)
           end
+
         end
         reporter.finish(self)
       end

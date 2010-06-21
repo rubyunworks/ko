@@ -15,9 +15,44 @@ module KO
       @format = :dotprogress
     end
 
+    #
+    attr :files
+
+    #
     def run(argv)
       parse(argv)
       execute
+    end
+
+    #
+    def scenarios
+      @scenarios ||= (
+        src = []
+        @files.each do |file|
+          dir = File.dirname(file)
+          src.concat(Dir[File.join(dir, '*_scenario.rb')] + Dir[File.join(dir, 'scenario/*.rb')])
+        end
+        src
+      )
+    end
+
+    #
+    def suite
+      @suite ||= Suite.new(scenarios + files)
+    end
+
+    #
+    def execute
+      reporter = Reporters.factory(@format).new
+
+      suite.parse
+      suite.run(reporter)
+    end
+
+    #
+    def parse(argv=ARGV.dup)
+      parser.parse!(argv)
+      @files = argv
     end
 
     #
@@ -35,21 +70,7 @@ module KO
       end
     end
 
-    #
-    def parse(argv=ARGV.dup)
-      parser.parse!(argv)
-      @files = argv
-    end
-
-    #
-    def execute
-      reporter = Reporters.factory(@format).new
-
-      suite = Suite.new(@files)
-      suite.parse
-      suite.run(reporter)
-    end
-
   end
 
 end
+
