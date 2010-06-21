@@ -11,13 +11,10 @@ This is KDD! This is Kickass Driven Development!
 KO specifications... well here's an fracking example.
 
   Scenario "String Instance" do
-
     @string = "Hello World"
-
   end
 
   Feature "String Indexing" do
-
     Use "String Instance"
 
     Behavior "index of substring" do
@@ -31,12 +28,21 @@ KO specifications... well here's an fracking example.
       @string.index(/l/).assert == 2
       @string.index(/o\ /).assert == 4
     end
-
   end
 
-Get it? You create reusable scenarios --the can load libraries,
+Get it? You create reusable scenarios --they can load libraries,
 build out mocks, setup fixtures, etc. Then use use them to 
 test out features.
+
+Of course, generally you won't define the scenario in the same file
+with the features. You will put it in the a file in the scenarios
+drectory where it will be loaded up automatically ready to be used.
+
+=== Running those suckers
+
+Running KO test scripts is like this.
+
+  $ ko path/to/feature
 
 
 == LICENCE
