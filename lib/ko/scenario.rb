@@ -1,41 +1,31 @@
 module KO
 
-  # A Concern groups tests togther into focused groups.
-  # Each concerns belong to one and only one scenario.
-  class Concern
+  # A Scenario groups tests togther into focused groups.
+  # Each scenario belong to one and only one feature.
+  class Scenario
 
     #
-    def initialize(label, &block)
-      @label = label
-      @block = block
-
-      @behaviors = []
-
-      parse
+    def initialize(feature, label, &block)
+      @feature = feature
+      @label   = label
+      @block   = block
     end
 
     #
-    attr :behaviors
+    attr :feature
 
     #
-    def parse
-      parser = Parser.new(self)
-      parser.instance_eval(&@block)
-    end
+    attr :label
 
     #
-    class Parser
+    attr :block
 
-      def initialize(concern)
-        @_concern = concern
-      end
-
-      def Bahavior(label, &block)
-        @_concern.behaviors << KO::Behavior.new(label, &block)
-      end
-
+    #
+    def to_proc
+      @block
     end
 
   end
 
 end
+

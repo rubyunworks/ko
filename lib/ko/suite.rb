@@ -24,19 +24,20 @@ module KO
     attr :features
 
     #
+    def run(reporter=nil)
+      reporter ||= Reporters::DotProgress.new
+      parse
+      evaluator = Evaluator.new(self)
+      evaluator.run(reporter)
+    end
+
+    #
     def parse #(files=nil)
       #files = files || self.files
       parser = Parser.new(self)
       files.each do |file|
         parser.instance_eval(File.read(file), file)
       end
-    end
-
-    #
-    def run(reporter=nil)
-      reporter ||= Reporters::DotProgress.new
-      evaluator = Evaluator.new(self)
-      evaluator.run(reporter)
     end
 
     #
@@ -59,7 +60,6 @@ module KO
       #
       alias_method :context, :Context
       alias_method :feature, :Feature
-
     end
 
     #
@@ -72,38 +72,44 @@ module KO
 
       #
       def run(reporter)
-        reporter.start(self)
+        reporter.start(@suite)
         @suite.features.each do |feature|
-          feature.contexts.each do |context|
-            feature_scope = Object.new
-            feature_scenerios = @suite.contexts.select{ |s| s.label == context } # TODO: use regex to match too
+          feature_scope = Object.new
 
-            reporter.start_feature(feature)
+          feature_contexts = []
 
-            feature_scenerios.each do |fs|
-              feature_scope.instance_eval(&fs.setup) if fs.setup
-            end
-
-            feature.behaviors.each do |behavior|
-              begin
-                feature_scope.instance_eval(&behavior)
-                reporter.pass(behavior)
-              rescue Assertion => exception
-                reporter.fail(behavior, exception)
-              rescue Exception => exception
-                reporter.err(behavior, exception)
+          feature.contexts.each do |label|
+            @suite.contexts.each do |context|
+              if context.label == label  # TODO: use regex to match too
+                feature_contexts << context
               end
             end
-
-            feature_scenerios.each do |fs|
-              feature_scope.instance_eval(&fs.cleanup) if fs.cleanup
-            end
-
-            reporter.finish_feature(feature)
           end
 
+          reporter.start_feature(feature)
+
+          feature_contexts.each do |fs|
+            feature_scope.instance_eval(&fs.setup) if fs.setup
+          end
+
+          feature.scenarios.each do |scenario|
+            begin
+              feature_scope.instance_eval(&scenario)
+              reporter.pass(scenario)
+            rescue Assertion => exception
+              reporter.fail(scenario, exception)
+            rescue Exception => exception
+              reporter.err(scenario, exception)
+            end
+          end
+
+          feature_contexts.each do |fs|
+            feature_scope.instance_eval(&fs.cleanup) if fs.cleanup
+          end
+
+          reporter.finish_feature(feature)
         end
-        reporter.finish(self)
+        reporter.finish(@suite)
       end
 
     end

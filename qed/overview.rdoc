@@ -1,45 +1,52 @@
 = Knock Out!
 
-KO is a BDD/TDD framework for Ruby. It was created to 
-fill in the void left by the discontinuation of shoulda's
-context system --and slao because it was about time Ruby
-had a lean but elegant test system.
+KO! is a BDD framework for Ruby. Inspired by the discontinuation of Shoulda
+excellent context system, it seemed time Ruby had a lean but elegant
+behavior-oriented test system.
 
-KO "tests" are devided up into *scenarios*, *features*,
-*concerns*, *behaviors* and *assertions*.
+KO! specifications are composed of *contexts*, *features*, "scenarios" and,
+of course, *assertions*.
 
-Features define the overarching goal of a set of tests.
-Scenarios, on the other hand, define reusable setups the
-features utilize. Behaviors compose the descriptive units
-of a feature, which contain assertions. Concerns are optional
-and are simply a way to divide complex features into subgroups.
+Contexts are used to setup and teardown reusable fixtures.
 
-Rather than define yet another assertions system KO uses the 
-excellent AE system.
+Features define the overall requirements that a set of scenarios are intended
+to demonstrate.
 
+Scenarios compose the descriptive "proof" of a feature, via assertions.
 
-  Scenario "Calculator Instance" do
+Rather than define yet another assertions system KO! uses the excellent
+AE[http://protuils.github.com/ae] system.
 
-    Setup do
+Here is a simple example. First we will define a reusable fixture:
+
+  context "Calculator Instance" do
+
+    setup do
       require 'calculator'
-
       calculator = Calculater.new
     end
 
   end
 
+Then when we define a feature which utilizes the fixture:
 
-  Feature "Calculator Additon" do
+  feature "Calculator Additon" do
 
-    Use "Calculator Instance"
+    use "Calculator Instance"
 
-    Behavior "add two numbers" do
+    scenario "add two positive numbers" do
       calculator.push 2
       calculator.push 2
       calculator.add
       calculator.output.assert == 4
     end
 
-  end
+    scenario "add two negative numbers" do
+      calculator.push -2
+      calculator.push -2
+      calculator.add
+      calculator.output.assert == -4
+    end
 
+  end
 

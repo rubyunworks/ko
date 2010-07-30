@@ -37,20 +37,21 @@ module KO
     #
     class Parser
 
-      def initialize(scenario)
-        @_scenario = scenario
+      def initialize(context)
+        @_context = context
       end
 
       def Setup(&block)
-        @_scenario.setup = block
+        @_context.setup = block
       end
 
       def Cleanup(&block)
-        @_sceanrio.cleanup = block
+        @_context.cleanup = block
       end
 
       alias_method :setup, :Setup
       alias_method :cleanup, :Cleanup
+      alias_method :teardown, :Cleanup
 
     end
 

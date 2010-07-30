@@ -23,7 +23,7 @@ stats:
 rdoc:
   service : rdoc
   template: darkfish
-  exclude : [Syckfile, PACKAGE, PROFILE, REQUIRE]
+  exclude : [Syckfile, PACKAGE, PROFILE]
 
 ridoc:
   service: RIDoc

@@ -1,30 +1,25 @@
-= KO
+= KO!
 
-This is KDD! This is Kickass Driven Development!
+This is KDD --Kickass Driven Development!
 
-Knockout is  Ruby testing framework that thinks the way
-a tester does.
+Knockout is a Ruby test framework that thinks the way a tester does.
+More specifically, KO! is a behavior-driven design system created to 
 
-KO is a BDD/TDD framework for Ruby. It was created to 
-fill in the void left by the discontinuation of shoulda's
-context system --and slao because it was about time Ruby
-had a lean but elegant test system.
+KO! was inspired in part by the void left behind with the discontinuation
+Shoulda. It seemed like it was about time time Ruby had a elegant, modern
+and *lean* testing framework.
 
-KO "tests" are devided up into *scenarios*, *features*,
-*concerns*, *behaviors* and *assertions*.
+KO "tests" are devided up into *contexts*, *features*, *scenarios*,  and
+*assertions*.
 
-Features define the overarching goal of a set of tests.
-Scenarios, on the other hand, define reusable setups the
-features utilize. Behaviors compose the descriptive units
-of a feature, which contain assertions. Concerns are optional
-and are simply a way to divide complex features into subgroups.
-
-Rather than define yet another assertions system KO uses the 
-excellent AE system.
+Rather than define yet another assertions system KO! uses the excellent
+AE[http://proutils.github.com/ae] system.
 
 == SYNOPSIS
 
-KO specifications... well here's an fracking example.
+=== Writing Specs
+
+KO! specifications... well here's an fracking example.
 
   context "String Instance" do
     setup do
@@ -38,38 +33,37 @@ KO specifications... well here's an fracking example.
   feature "String Indexing" do
     use "String Instance"
 
-    behavior "index by substring" do
+    scenario "index by substring" do
       @string.index('H').assert == 0
       @string.index('l').assert == 2
       @string.index('ld').assert == 9
     end
 
-    behavior "index by regular expression" do
+    scenario "index by regular expression" do
       @string.index(/H/).assert == 0
       @string.index(/l/).assert == 2
       @string.index(/o\ /).assert == 4
     end
   end
 
-Get it? You create reusable contexts --they can load libraries,
-build out mocks, setup fixtures, etc. Then use use them to 
-test out features.
+Get it? You create reusable contexts --they can load libraries, build out mocks,
+setup fixtures, etc. Then use use them to test out feature scenarios.
 
 Of course, generally you won't define the contexts in the same file
-with the features. You will put it in the a file in the context
+with the features. You will put those in separate files in the context
 drectory where it will be loaded up automatically ready to be used.
 
 Oh, if you are a Cuke you can use captialized method names instead.
 
-=== Running those suckers
+=== Running Those Suckers
 
-Running KO test scripts is like this.
+Running KO! scripts is like this.
 
-  $ ko path/to/feature
+  $ ko -Ilib path/to/feature
 
 
-== LICENCE
+== LEGAL
 
-(GPL v3)
+Copyright (c) 2010 Thomas Sawyer, Apache License 2.0
 
-Copyright (c) 2010 Thomas Sawyer
+

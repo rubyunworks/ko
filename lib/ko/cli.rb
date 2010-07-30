@@ -1,3 +1,4 @@
+require 'optparse'
 require 'ko/suite'
 require 'ko/reporters'
 
@@ -45,7 +46,7 @@ module KO
     def execute
       reporter = Reporters.factory(@format).new
 
-      suite.parse
+      #suite.parse
       suite.run(reporter)
     end
 
@@ -65,6 +66,14 @@ module KO
 
         opt.on('--verbose', '-v', 'output with verbose format') do |type|
           @format = 'verbose'
+        end
+
+        opt.on('-I PATH', 'add directory to loadpath') do |path|
+          $LOAD_PATH.unshift(path)
+        end
+
+        opt.on('-r PATH', 'require path before running') do |path|
+          require path
         end
 
         opt.on('--debug', 'runin debug mode') do
