@@ -1,6 +1,6 @@
 name      : ko
-version   : 0.0.1
-date      : 2010-06-21
+version   : 1.0.0
+date      : 2010-07-30
 namespace : KO
 
 requires:

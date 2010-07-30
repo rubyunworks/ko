@@ -1,4 +1,4 @@
-#!mast -x Sycklefile bin lib qed spec [A-Z]*
+#!mast -x Syckfile bin lib qed sample [A-Z]*
 bin/ko
 lib/ko/behavior.rb
 lib/ko/cli.rb
@@ -13,11 +13,11 @@ lib/ko/scope.rb
 lib/ko/suite.rb
 lib/ko.rb
 qed/overview.rdoc
-spec/common_context.rb
-spec/example.rb
-spec/failure.rb
+sample/common_context.rb
+sample/example.rb
+sample/failure.rb
 PROFILE
 PACKAGE
 LICENSE
 README.rdoc
-Syckfile
+NOTICE

@@ -5,13 +5,11 @@ suite  : proutils
 contact: trans <transfire@gmail.com>
 created: 2010-06-21 09:00:06
 authors: Thomas Sawyer
-license: GPLv3
+license: Apache 2.0
 
 description:
-  Knockout is testing framwork for doing BDD development. It was
-  designed to fill in gap left from the demise of Shoulda's 
-  Context as well as provide a next-gen conceptual model
-  and a sexy implmentation for a Ruby specification system.
+  Knockout is BDD test framework, with next-gen conceptual model
+  and a sexy light-weight implmentation.
 
 resources:
   homepage: http://proutils.github.com/ko
