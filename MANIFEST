@@ -1,0 +1,23 @@
+#!mast -x Sycklefile bin lib qed spec [A-Z]*
+bin/ko
+lib/ko/behavior.rb
+lib/ko/cli.rb
+lib/ko/context.rb
+lib/ko/feature.rb
+lib/ko/reporters/abstract.rb
+lib/ko/reporters/dotprogress.rb
+lib/ko/reporters/verbose.rb
+lib/ko/reporters.rb
+lib/ko/scenario.rb
+lib/ko/scope.rb
+lib/ko/suite.rb
+lib/ko.rb
+qed/overview.rdoc
+spec/common_context.rb
+spec/example.rb
+spec/failure.rb
+PROFILE
+PACKAGE
+LICENSE
+README.rdoc
+Syckfile
