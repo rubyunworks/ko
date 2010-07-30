@@ -69,7 +69,15 @@ Oh, if you are a Cuke you can use captialized method names instead.
 
 Running KO! scripts is like this.
 
-  $ ko -Ilib path/to/feature
+  $ ko -Ilib path/to/requirements/*.rb
+
+
+== STATUS
+
+KO! is pretty new, but it's also pretty straight-forward. It still needs
+some work, for instance, on they way in which context are injected into 
+features and/or sceanrios, but it works well enough as it is for general
+wide-spread use.
 
 
 == LEGAL
