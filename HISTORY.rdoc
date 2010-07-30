@@ -1,0 +1,13 @@
+= RELEASE HISTORY
+
+== 1.0.0 / 2010-08-30
+
+This is the first public release of KO!, a BDD test framework.
+KO!, or Knockout, was partially inspired by Shoulda, which served
+as a nice and fairly light-weight alternative to RSpec. With
+Shoulda's discontinuation, it seemed an oportune time to build a
+truely light-weight next-generation BDD system.
+
+Changes:
+
+* Happy Birthday!

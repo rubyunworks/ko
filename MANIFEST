@@ -1,4 +1,5 @@
-#!mast -x Syckfile bin lib qed sample [A-Z]*
+#!mast -x Syckfile .ruby bin lib qed sample [A-Z]*
+.ruby
 bin/ko
 lib/ko/behavior.rb
 lib/ko/cli.rb
@@ -16,6 +17,7 @@ qed/overview.rdoc
 sample/common_context.rb
 sample/example.rb
 sample/failure.rb
+HISTORY.rdoc
 PROFILE
 PACKAGE
 LICENSE
