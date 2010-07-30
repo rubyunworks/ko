@@ -2,18 +2,28 @@
 
 This is KDD --Kickass Driven Development!
 
-Knockout is a Ruby test framework that thinks the way a tester does.
+Knockout is a Ruby test framework that reads like a developer thinks.
 More specifically, KO! is a behavior-driven design system created to 
-
-KO! was inspired in part by the void left behind with the discontinuation
-Shoulda. It seemed like it was about time time Ruby had a elegant, modern
-and *lean* testing framework.
-
-KO "tests" are devided up into *contexts*, *features*, *scenarios*,  and
+breakdown the systems analysis proccess into clear and obvious divisions.
+KO "tests" are divided-up into *contexts*, *features*, *scenarios*,  and
 *assertions*.
 
+Contexts are used to setup and teardown reusable fixtures. They can be
+used as the feature or scenario level.
+
+Features delineate the overall requirement that a set of scenarios are
+designed to demonstrate.
+
+Scenarios compose the descriptive "proof" of a feature, via assertions.
+
 Rather than define yet another assertions system KO! uses the excellent
-AE[http://proutils.github.com/ae] system.
+AE[http://proutils.github.com/ae] framework.
+
+KO! was inspired in part by the void left behind by the discontinuation of
+Shoulda. It seemed like an opportune time to give Ruby an elegant, modern 
+and light-weight BDD framework to serve as an alternative to the monolithic
+RSpec.
+
 
 == SYNOPSIS
 
