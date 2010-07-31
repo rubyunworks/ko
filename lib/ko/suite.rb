@@ -1,6 +1,10 @@
 require 'ko/context'
 require 'ko/feature'
-require 'ko/scope'
+#require 'ko/scope'
+
+#( load assertion framwork )
+require 'ae'
+require 'ae/should' # b/c this is BDD
 
 module KO
 
@@ -75,7 +79,7 @@ module KO
         reporter.start(@suite)
 
         @suite.features.each do |feature|
-          scope = Object.new
+          scope = Object.new  # Scope.new
 
           # gather applicable contexts
           contexts = []
