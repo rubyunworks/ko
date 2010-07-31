@@ -1,11 +1,10 @@
 require 'ko/scenario'
-#require 'ko/behavior'
 
 module KO
 
-  # A Feature defines the over arching test-goal 
+  # A Feature defines the over-arching test goal 
   # of a set of scenarios and their subsequent
-  # tests concersna and behaaviors.
+  # asserstions.
   class Feature
 
     #

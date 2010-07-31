@@ -32,11 +32,8 @@ RSpec.
 KO! specifications... well here's an fracking example.
 
   context "String Instance" do
-    setup do
+    before :all do
       @string = "Hello World"
-    end
-
-    cleanup do
     end
   end
 

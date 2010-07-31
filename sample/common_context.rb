@@ -1,6 +1,6 @@
 context "String Instance" do
 
-  setup do
+  before :all do
     @string = "Hello World"
   end
 

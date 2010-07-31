@@ -28,6 +28,10 @@ module KO
       end
 
       #
+      def start_scenario(scenario)
+      end
+
+      #
       def pass(scenario)
         @passed << scenario
       end
@@ -40,6 +44,10 @@ module KO
       #
       def err(scenario, exception)
         @raised << [scenario, exception]
+      end
+
+      #
+      def finish_scenario(scenario)
       end
 
       #

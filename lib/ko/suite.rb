@@ -73,42 +73,57 @@ module KO
       #
       def run(reporter)
         reporter.start(@suite)
+
         @suite.features.each do |feature|
-          feature_scope = Object.new
+          scope = Object.new
 
-          feature_contexts = []
-
+          # gather applicable contexts
+          contexts = []
           feature.contexts.each do |label|
             @suite.contexts.each do |context|
               if context.label == label  # TODO: use regex to match too
-                feature_contexts << context
+                contexts << context
               end
             end
           end
 
           reporter.start_feature(feature)
 
-          feature_contexts.each do |fs|
-            feature_scope.instance_eval(&fs.setup) if fs.setup
+          contexts.each do |context|
+            context.start_feature(scope)
           end
 
           feature.scenarios.each do |scenario|
+
+            reporter.start_scenario(scenario)
+
+            contexts.each do |context|
+              context.start_scenario(scope)
+            end
+
             begin
-              feature_scope.instance_eval(&scenario)
+              scope.instance_eval(&scenario)
               reporter.pass(scenario)
             rescue Assertion => exception
               reporter.fail(scenario, exception)
             rescue Exception => exception
               reporter.err(scenario, exception)
             end
+
+            contexts.each do |context|
+              context.finish_scenario(scope)
+            end
+
+            reporter.finish_scenario(scenario)
           end
 
-          feature_contexts.each do |fs|
-            feature_scope.instance_eval(&fs.cleanup) if fs.cleanup
+          contexts.each do |context|
+            context.finish_feature(scope)
           end
 
           reporter.finish_feature(feature)
         end
+
         reporter.finish(@suite)
       end
 
