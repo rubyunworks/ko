@@ -1,6 +1,18 @@
 = RELEASE HISTORY
 
-== 1.0.0 / 2010-08-30
+== 1.1.0 / 2010-08-01
+
+This release adds support for before and after each context advice for 
+scenarios. It also adds ae/should nomenclature out-of-the-box.
+
+Changes:
+
+* Add before and after scenario advice to contexts.
+* Deprecate #cleanup in favor of #teardown.
+* Add #should nomenclature (require 'ae/should').
+
+
+== 1.0.0 / 2010-07-30
 
 This is the first public release of KO!, a BDD test framework.
 KO!, or Knockout, was partially inspired by Shoulda, which served
