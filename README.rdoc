@@ -20,9 +20,9 @@ Rather than define yet another assertions system KO! uses the excellent
 AE[http://proutils.github.com/ae] framework.
 
 KO! was inspired in part by the void left behind by the discontinuation of
-Shoulda. It seemed like an opportune time to give Ruby an elegant, modern 
-and light-weight BDD framework to serve as an alternative to the monolithic
-RSpec.
+Shoulda as a test framework. It seemed like an opportune time to give Ruby an
+elegant, modern and light-weight BDD framework to serve as an alternative to
+the monolithic RSpec.
 
 
 == SYNOPSIS
@@ -41,15 +41,23 @@ KO! specifications... well here's an fracking example.
     use "String Instance"
 
     scenario "index by substring" do
-      @string.index('H').assert == 0
-      @string.index('l').assert == 2
-      @string.index('ld').assert == 9
+      to do |substring|
+        @string.index(substring)
+      end
+
+      ok 'H'  => 0
+      ok 'l'  => 2
+      ok 'ld' => 9
     end
 
     scenario "index by regular expression" do
-      @string.index(/H/).assert == 0
-      @string.index(/l/).assert == 2
-      @string.index(/o\ /).assert == 4
+      to do |regular_expression|
+        @string.index(regular_expression)
+      end
+
+      ok /H/   => 0
+      ok /l/   => 2
+      ok /o\ / => 4
     end
   end
 
