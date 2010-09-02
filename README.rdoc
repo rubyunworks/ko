@@ -8,15 +8,15 @@ breakdown the systems analysis proccess into clear and obvious divisions.
 KO "tests" are divided-up into *contexts*, *features*, *scenarios*,  and
 *assertions*.
 
-Contexts are used to setup and teardown reusable fixtures. They can be
+* *Contexts* are used to setup and teardown reusable fixtures. They can be
 used as the feature or scenario level.
 
-Features delineate the overall requirement that a set of scenarios are
+* *Features* delineate the overall requirement that a set of scenarios are
 designed to demonstrate.
 
-Scenarios compose the descriptive "proof" of a feature, via assertions.
+* *Scenarios* compose the descriptive "proof" of a feature, via assertions.
 
-Rather than define yet another assertions system KO! uses the excellent
+* *Assertions* are  Rather than define yet another assertions system KO! uses the excellent
 AE[http://proutils.github.com/ae] framework.
 
 KO! was inspired in part by the void left behind by the discontinuation of
@@ -27,18 +27,17 @@ the monolithic RSpec.
 
 == SYNOPSIS
 
-=== Writing Specs
+=== Writing Kick-Ass Specs
 
 KO! specifications... well here's an fracking example.
 
-  context "String Instance" do
-    before :all do
-      @string = "Hello World"
-    end
-  end
-
   feature "String Indexing" do
-    use "String Instance"
+
+    context "String Instance" do
+      before :all do
+        @string = "Hello World"
+      end
+    end
 
     scenario "index by substring" do
       to do |substring|
@@ -61,14 +60,72 @@ KO! specifications... well here's an fracking example.
     end
   end
 
-Get it? You create reusable contexts --they can load libraries, build out mocks,
-setup fixtures, etc. Then use use them to test out feature scenarios.
+It should be pretty clear how this plays out just by looking at it. When KO
+tests a feature it run each scenario, which consists of trying each +ok+
+assertion. There are run thru the "to do" procedure, the result of which is
+compared to the ok expectation given after the `=>`.
+
+=== Alternate Assertions
+
+KO! handles assertions in a rather unique way. By default only one type of
+assertion is available, equality (==). This is by far the most common means
+of test validation, but obviously it is not alwasy the validation required.
+In these cases an alternate validation procedure can be defined.
+
+  feature "Calculator Addition" do
+
+    require 'calculator'
+
+    scenario "a Calculator can add two numbers"
+
+      calculator = Calculater.new
+
+      to do |input1, input2|
+        calculator.push input1
+        calculator.push input2
+        calculator.add
+      end
+
+      valid do |result, todo|
+        calculator.output == result
+      end
+
+      ok [2, 2] => 4
+      ok [2, 1] => 3
+      ok [2, 0] => 2
+    end
+
+  end
+
+A scenario can only ever have one +todo+ procedure and one +validation+ procedure.
+This might seem somewhat limiting, but it helps keep a clean separation of concern
+between scenarios.
+
+=== Reusable Contexts
+
+KO has a nice feature for creating reusable contexts. They can be defined 
+outside of any featurem and then called upon by their description for use
+in any feature.
+
+  context "String Instance" do
+    before :all do
+      @string = "Hello World"
+    end
+  end
+
+  feature "String Indexing" do
+    use "String Instance"
+
+    ...
+
+Get it? You create a reusable contexts --they can load libraries, build out mocks,
+setup fixtures, etc. Then use +use+ to use them in your feature scenarios.
 
 Of course, generally you won't define the contexts in the same file
 with the features. You will put those in separate files in the context
-drectory where it will be loaded up automatically ready to be used.
+drectory where it will be loaded up automatically ready for, yep, use.
 
-Oh, if you are a Cuke you can use captialized method names instead.
+Oh, if you are a Cuke, you can use captialized method names instead.
 
 === Running Those Suckers
 
