@@ -1,3 +1,5 @@
+# DEPRECATED
+
 module KO
 
   class Behavior

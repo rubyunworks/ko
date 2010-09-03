@@ -8,16 +8,13 @@ breakdown the systems analysis proccess into clear and obvious divisions.
 KO "tests" are divided-up into *contexts*, *features*, *scenarios*,  and
 *assertions*.
 
-* *Contexts* are used to setup and teardown reusable fixtures. They can be
-used as the feature or scenario level.
+* *Contexts* are used to setup and teardown reusable fixtures. They can be used as the feature or scenario level.
 
-* *Features* delineate the overall requirement that a set of scenarios are
-designed to demonstrate.
+* *Features* delineate the overall requirement that a set of scenarios are designed to demonstrate.
 
 * *Scenarios* compose the descriptive "proof" of a feature, via assertions.
 
-* *Assertions* are  Rather than define yet another assertions system KO! uses the excellent
-AE[http://proutils.github.com/ae] framework.
+* *Assertions* are the final validators, handled by simple conditional procedures.
 
 KO! was inspired in part by the void left behind by the discontinuation of
 Shoulda as a test framework. It seemed like an opportune time to give Ruby an

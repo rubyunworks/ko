@@ -9,7 +9,7 @@ license: Apache 2.0
 
 description:
   Knockout is BDD test framework, with next-gen conceptual model
-  and a sexy light-weight implmentation.
+  and a sexy light-weight implementation.
 
 resources:
   homepage: http://proutils.github.com/ko

@@ -15,30 +15,32 @@ module KO::Reporters
       $stdout.puts feature.label.ansi(:bold)
     end
 
-    def pass(scenario)
-      super(scenario)
-      $stdout.puts "* " + scenario.label.ansi(:green)
+    def pass(ok)
+      super(ok)
+      $stdout.puts "* " + ok.scenario.label.ansi(:green) + " #{ok.arguments.inspect}"
     end
 
-    def fail(scenario, exception)
-      super(scenario, exception)
-      $stdout.puts "* " + scenario.label.ansi(:red)
+    def fail(ok, exception)
+      super(ok, exception)
+      scenario = ok.scenario
+      $stdout.puts "* " + scenario.label.ansi(:red) + " #{ok.arguments.inspect}"
       $stdout.puts
       $stdout.puts "    #{exception}"
-      $stdout.puts "    " + clean_backtrace(exception.backtrace)[0]
+      $stdout.puts "    " + ok.caller #clean_backtrace(exception.backtrace)[0]
       $stdout.puts
-      $stdout.puts code_snippet(exception)
+      $stdout.puts code_snippet(ok.file, ok.line)
       $stdout.puts
     end
 
-    def err(scenario, exception)
-      super(scenario, exception)
-      $stdout.puts "* " + scenario.label.ansi(:yellow)
+    def err(ok, exception)
+      super(ok, exception)
+      scenario = ok.scenario
+      $stdout.puts "* " + scenario.label.ansi(:yellow) + " #{ok.arguments.inspect}"
       $stdout.puts
       $stdout.puts "    #{exception.class}: #{exception.message}"
-      $stdout.puts "    " + clean_backtrace(exception.backtrace)[0..2].join("    \n")
+      $stdout.puts "    " + ok.caller #clean_backtrace(exception.backtrace)[0..2].join("    \n")
       $stdout.puts
-      $stdout.puts code_snippet(exception)
+      $stdout.puts code_snippet(ok.file, ok.line)
       $stdout.puts
     end
 

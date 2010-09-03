@@ -43,13 +43,14 @@ module KO
       def Use(label_match)
         @_feature.contexts << label_match
       end
+      alias_method :use, :Use
 
-      def Scenario(label, &block)
+      def scenario(*labeling, &block)
+        label = labeling.join(' ')
         @_feature.scenarios << KO::Scenario.new(@_feature, label, &block)
       end
 
-      alias_method :use, :Use
-      alias_method :scenario, :Scenario
+      alias_method :Scenario, :scenario
 
     end
 

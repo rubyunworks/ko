@@ -32,18 +32,26 @@ module KO
       end
 
       #
-      def pass(scenario)
-        @passed << scenario
+      def start_ok(ok)
       end
 
       #
-      def fail(scenario, exception)
-        @failed << [scenario, exception]
+      def pass(ok)
+        @passed << ok
       end
 
       #
-      def err(scenario, exception)
-        @raised << [scenario, exception]
+      def fail(ok, exception)
+        @failed << [ok, exception]
+      end
+
+      #
+      def err(ok, exception)
+        @raised << [ok, exception]
+      end
+
+      #
+      def finish_ok(ok)
       end
 
       #
@@ -78,24 +86,28 @@ module KO
       # Clean the backtrace of any reference to ko/ paths and code.
       def clean_backtrace(backtrace)
         trace = backtrace.reject{ |bt| bt =~ INTERNALS }
-        trace.map do |bt| 
+        trace = trace.map do |bt| 
           if i = bt.index(':in')
             bt[0...i]
           else
             bt
           end
         end
+        trace = backtrace if trace.empty?
+        trace = trace.map{ |bt| bt.sub(Dir.pwd+File::SEPARATOR,'') }
+        trace
       end
 
       # Have to thank Suraj N. Kurapati for the crux of this code.
-      def code_snippet(exception)
-        backtrace = exception.backtrace.reject{ |bt| bt =~ INTERNALS }
-        backtrace.first =~ /(.+?):(\d+(?=:|\z))/ or return ""
-        source_file, source_line = $1, $2.to_i
+      def code_snippet(source_file, source_line) #exception
+        ##backtrace = exception.backtrace.reject{ |bt| bt =~ INTERNALS }
+        ##backtrace.first =~ /(.+?):(\d+(?=:|\z))/ or return ""
+        #caller =~ /(.+?):(\d+(?=:|\z))/ or return ""
+        #source_file, source_line = $1, $2.to_i
 
         source = source(source_file)
-        
-        radius = 4 # number of surrounding lines to show
+
+        radius = 3 # number of surrounding lines to show
         region = [source_line - radius, 1].max ..
                  [source_line + radius, source.length].min
 
@@ -114,6 +126,20 @@ module KO
         @source[file] ||= (
           File.readlines(file)
         )
+      end
+
+      # Parse source location from caller, caller[0] or an Exception object.
+      def parse_source_location(caller)
+        case caller
+        when Exception
+          trace  = caller.backtrace.reject{ |bt| bt =~ INTERNALS }
+          caller = trace.first
+        when Array
+          caller = caller.first
+        end
+        caller =~ /(.+?):(\d+(?=:|\z))/ or return ""
+        source_file, source_line = $1, $2.to_i
+        returnf source_file, source_line
       end
 
     end#class Abstract

@@ -1,25 +1,27 @@
-#!mast -x Syckfile .ruby bin lib qed sample [A-Z]*
+#!mast -x Syckfile .ruby bin expo lib qed [A-Z]*
 .ruby
 bin/ko
+expo/common_context.rb
+expo/example.rb
+expo/failure.rb
+expo/website_example.rb
 lib/ko/behavior.rb
 lib/ko/cli.rb
 lib/ko/context.rb
 lib/ko/feature.rb
+lib/ko/pry.rb
 lib/ko/reporters/abstract.rb
 lib/ko/reporters/dotprogress.rb
+lib/ko/reporters/tap.rb
 lib/ko/reporters/verbose.rb
 lib/ko/reporters.rb
+lib/ko/runner.rb
 lib/ko/scenario.rb
 lib/ko/scope.rb
 lib/ko/suite.rb
 lib/ko.rb
 qed/overview.rdoc
-sample/common_context.rb
-sample/example.rb
-sample/failure.rb
 HISTORY.rdoc
-PROFILE
-PACKAGE
 LICENSE
 README.rdoc
 NOTICE
