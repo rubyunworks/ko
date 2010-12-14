@@ -1,11 +1,11 @@
 --- 
 title  : KO
 summary: Knockout Testing
-suite  : proutils
 contact: trans <transfire@gmail.com>
-created: 2010-06-21 09:00:06
-authors: Thomas Sawyer
-license: Apache 2.0
+
+requires:
+- ansi
+- syckle (build)
 
 description:
   Knockout is BDD test framework, with next-gen conceptual model
@@ -15,4 +15,11 @@ resources:
   homepage: http://proutils.github.com/ko
   repository: git://github.com/proutils/ko.git
 
+company: RubyWorks
+authors: Thomas Sawyer
+created: 2010-06-21 09:00:06
+license: Apache 2.0
+
 copyright: Copyright (c) 2010 Thomas Sawyer
+
+namespace : KO

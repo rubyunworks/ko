@@ -1,14 +1,13 @@
-#!mast -x Syckfile .ruby bin expo lib qed [A-Z]*
+#!mast -x Syckfile -x PROFILE .ruby bin expo lib man qed spec test [A-Z]*
 .ruby
 bin/ko
-expo/common_context.rb
-expo/example.rb
-expo/failure.rb
-expo/website_example.rb
-lib/ko/behavior.rb
+lib/ko/check.rb
 lib/ko/cli.rb
+lib/ko/concern.rb
 lib/ko/context.rb
-lib/ko/feature.rb
+lib/ko/core_ext/exception.rb
+lib/ko/core_ext.rb
+lib/ko/ok.rb
 lib/ko/pry.rb
 lib/ko/reporters/abstract.rb
 lib/ko/reporters/dotprogress.rb
@@ -16,12 +15,12 @@ lib/ko/reporters/tap.rb
 lib/ko/reporters/verbose.rb
 lib/ko/reporters.rb
 lib/ko/runner.rb
-lib/ko/scenario.rb
 lib/ko/scope.rb
 lib/ko/suite.rb
+lib/ko/world.rb
 lib/ko.rb
-qed/overview.rdoc
 HISTORY.rdoc
 LICENSE
 README.rdoc
 NOTICE
+VERSION

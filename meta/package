@@ -1,8 +1,0 @@
-name      : ko
-version   : 1.1.0
-date      : 2010-08-01
-namespace : KO
-
-requires:
-- ansi
-
