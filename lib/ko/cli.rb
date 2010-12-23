@@ -4,6 +4,7 @@ require 'ko/reporters'
 
 module KO
 
+  #
   class CLI
 
     #
@@ -27,28 +28,31 @@ module KO
     end
 
     #
-    def contexts
-      @contexts ||= (
-        src = []
-        @files.each do |file|
-          dir = File.dirname(file)
-          src.concat(Dir[File.join(dir, '*_context.rb')] + Dir[File.join(dir, 'context/*.rb')])
-        end
-        src
-      )
-    end
+    #def contexts
+    #  @contexts ||= (
+    #    src = []
+    #    @files.each do |file|
+    #      dir = File.dirname(file)
+    #      src.concat(Dir[File.join(dir, '*_context.rb')] + Dir[File.join(dir, 'context/*.rb')])
+    #    end
+    #    src
+    #  )
+    #end
 
     #
-    def suite
-      @suite ||= Suite.new(contexts + files)
-    end
+    #def suite
+    #  @suite ||= Suite.new(contexts + files)
+    #end
 
     #
     def execute
+      #(contexts + files).each{ |f| require f }
+      files.uniq.each do |file|
+        require file
+        #suite.load(file)
+      end
       reporter = Reporters.factory(@format).new
-
-      #suite.parse
-      suite.run(reporter)
+      KO.run(reporter)
     end
 
     #
