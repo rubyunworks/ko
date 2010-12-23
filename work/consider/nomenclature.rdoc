@@ -1,0 +1,31 @@
+= Custom Nomenclatures
+
+KO's design is stratight forward enough
+
+  KO.nomenclature(:feature, :scenario)
+
+Repeating a concern name tells KO that the heirarchy of concerns can be
+of any depth. For example, Shoulda's nomencalture can be emulated by 
+repaeting the term `context`.
+
+  KO.nomenclature(:context, :context, :should)
+
+versus
+
+  module KO
+
+    def KO.feature(label, &block)
+      @_concern.concerns << Feature.new(:feature, label, @_concern, &block)
+    end
+
+    class Feature < Concern
+      class Parser < Concern::Parser
+        def scenario
+          @_concern.concerns << Concern.new(:scenario, label, @_concern, &block)
+        end
+      end
+    end
+
+  end
+
+Example

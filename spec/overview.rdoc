@@ -14,9 +14,6 @@ to demonstrate.
 
 Scenarios compose the descriptive "proof" of a feature, via assertions.
 
-Rather than define yet another assertions system KO! uses the excellent
-AE[http://protuils.github.com/ae] system.
-
 Here is a simple example. First we will define a reusable fixture:
 
   context "Calculator Instance" do
@@ -30,23 +27,31 @@ Here is a simple example. First we will define a reusable fixture:
 
 Then when we define a feature which utilizes the fixture:
 
-  feature "Calculator Additon" do
+  KO.case "Addition" do
 
     use "Calculator Instance"
 
-    scenario "add two positive numbers" do
-      calculator.push 2
-      calculator.push 2
+    test "addition of two numbers" do |a,b,c|
+      calculator.push a
+      calculator.push b
       calculator.add
-      calculator.output.assert == 4
+      calculator.output == c
     end
 
-    scenario "add two negative numbers" do
-      calculator.push -2
-      calculator.push -2
-      calculator.add
-      calculator.output.assert == -4
+    ok 2,2,4
+  end
+
+  KO.case "Subtraction" do
+
+    use "Calculator Instance"
+
+    test "subtraction of two numbers" do |a,b,c|
+      calculator.push a
+      calculator.push b
+      calculator.subtract
+      calculator.output == c
     end
 
+    ok 2,2,0
   end
 

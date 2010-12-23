@@ -41,10 +41,17 @@ module KO
     attr_accessor :validate
 
     #
+    attr_accessor :before
+
+    #
     class Parser
 
       def initialize(scenario)
         @_scenario = scenario
+      end
+
+      def before(&block)
+        @_scenario.before = block
       end
 
       def to(&block)

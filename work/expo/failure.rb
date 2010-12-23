@@ -1,19 +1,22 @@
-Feature "Demonstration of Failure" do
+feature "Demonstration of Failure" do
 
-  Use "String Instance"
+  use "String Instance"
 
-  Scenario "index of substring" do
-    @string.index('H').assert == 1
-    @string.index('l').assert == 2
-    @string.index('ld').assert == 9
+  test "index of substring" do |s|
+    @string.index(s)
   end
 
-  Scenario "index of regular expression" do
-    raise "demonstrate an error"
-    @string.index(/H/).assert == 0
-    @string.index(/l/).assert == 2
-    @string.index(/o\ /).assert == 4
+  ok 'H' => 1
+  ok 'l' => 2
+  ok 'ld'=> 9
+
+  test "index of regular expression" do |r|
+    @string.index(r)
   end
+
+  ok /H/   => 0
+  ok /l/   => 2
+  ok /o\ / => 4
 
 end
 
