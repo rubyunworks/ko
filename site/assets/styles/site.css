@@ -10,30 +10,34 @@ li { padding: 5px; text-align: left; font-size: 0.9em; }
 h1 { font-size: 64px; margin: 0 0; color: #FF5599; line-height: 1em; }
 h2 { margin-top: 30px; }
 
-pre { background: white; -moz-border-radius: 10px; color: #FF5599; font-weight: bold; padding: 20px 10px 10px 10px; }
+pre { background: white; -moz-border-radius: 5px; color: #FF5599; font-weight: bold; padding: 0; }
 
 
 .page { margin: 0 auto; width: 700px; }
 
+#backdrop {
+  position: absolute; top: 0; left: 0; font-size: 600px;
+  color: #FFcccc;
+  z-index: -10;
+}
+
 .header {
-  text-align: center; height: 260px;
+  text-align: center; height: 300px;
   margin-left: 0; padding: 40px 0 0 0;
   text-align: left;
-  background: url(../images/boxing-sm.jpg) top left no-repeat;
+  background: url(../images/boxing-sm.png) bottom left no-repeat;
 }
-.header .quote { width: 300px; margin: 20px 0 0 375px; text-align: right; }
+.header .quote { width: 275px; margin: 20px 0 0 375px; text-align: right; }
 
 .quote { font-size: 0.7em; font-style: italic; font-weight: normal; }
 .quote cite { padding-left: 10px; font-style: normal; font-size: 0.9em; text-align: right; }
 
-
 .title {
-  text-align: center;
-  margin-left: 0; padding: 20px 0 0;
-  text-align: left;
+  margin-right: 50px; padding: 0;
+  text-align: right;
  }
-.title h1 { color: #FF5599; font-weight: bold; color: black; padding-bottom: 20px; }
-
+.title h1 { font-size: 72px; color: #FF5599; font-weight: bold; color: black; margin-bottom: 0; padding-bottom: 0; }
+.title h2 { margin-top: 0; padding-top: 0; }
 
 .nav {
    float: left; width: 80px;

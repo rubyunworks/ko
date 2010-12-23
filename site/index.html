@@ -8,19 +8,26 @@
 </HEAD>
 <BODY>
 
+<div id="backdrop">
+  K O !
+</div>
+
 <div class="page">
 
   <div class="header">
-    <p class="quote">"Boxing is the ultimate challenge. There's nothing that can 
-    compare to testing yourself the way you do every time you step in the ring."
-    <cite>--Sugar Ray Leonard</cite></p>
+    <div class="title">
+      <h1><b class="expressive">K</b><b class="expressive">O</b>!</h1>
+    </div>
 
-    <p class="quote">"s/Boxing/Debugging/"
+    <p class="quote">
+    "Boxing is the ultimate challenge.<br/>
+     There's nothing that can compare<br/>
+     to testing yourself the way you do<br/>
+     every time you step in the ring."<br/>
+     <cite>--Sugar Ray Leonard</cite></p>
+
+    <p class="quote">"s/Boxing/Debugging/"<br/>
     <cite>--Programmer</cite></p>
-  </div>
-
-  <div class="title">
-    <h1><b class="expressive">K</b>nock<b class="expressive">O</b>ut!</h1>
   </div>
 
   <div class="nav oldtimes">
@@ -33,19 +40,57 @@
   
   <div class="main oldtimes">
     <p style="padding-top: 15px; padding-bottom: 22px;">
-    KO! is test framework ... It is light-weight, easy to use and  versitle.</p>
+    KO! (aka Knockout) is a next-generation unit testing framework for the Ruby
+    programming language. What makes KO! so modern?</p>
 
     <ul>
-      <li>Clear, simple and concise syntax.</li>
-      <li>No assertions frameworks required!</li>
+      <li>Clear and concise syntax.</li>
+      <li>No assertions framework required!</li>
       <li>Rapidly test multiple parameter sets on a test scenario.</li>
+      <li>Reusable contexts (before, after, etc).</li>
+      <li>Tests are run from temporary directory.</li>
+      <li>Easily stage test fixture files.</li>
       <li>Core extensions are standardized around Ruby Facets.</li>
-      <li>Eats it's own dog food.</li>
+      <li>And yes, it eats it's own dog food.</li>
     </ul>
 
     <br/>
 
-    <p>KO! is ...</p>
+    <p>KO reads like a developer thinks.  More specifically, KO! breaks down
+    the systems analysis proccess into clear and obvious divisions. KO "specifications"
+    are divided-up into <i>test cases</i>, <i>contexts</i>, <i>concerns</i> 
+    and <i>test assertions</i>.
+
+    <ul>
+    <li><i>Test Cases</i> delineate the overall requirement that is to be demonstrated.</li>
+    <li><i>Contexts</i> are used to setup and teardown test fixtures.</li>
+    <li><i>Concerns</i> break-up testcases into separate areas of concern.</li>
+    <li><i>Test Assertions</i> compose the proof of a testcase as a set of assertions.</li>
+    </ul>
+
+    <br/>
+
+    <p>Here is simple example.</p>
+
+    <pre>
+    KO.case "example" do
+
+      test "equality" do |a,b|
+        a == b
+      end
+
+      ok 1, 1.0
+      no 1, 2.0
+
+    end
+    </pre>
+
+    <p>KO! was inspired in part by the void left behind by the discontinuation of
+    Shoulda as a test framework. It seemed like an opportune time to give Ruby an
+    elegant, modern and light-weight test framework to serve as an alternative to
+    the monolithic RSpec.</p>
+
+    <p>Future versions of KO! may also support Lemon's unit test coverage system.</p>
 
     <!-- <p>Put on the Red Boxing Gloves!</p> -->
   </div>
