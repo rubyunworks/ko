@@ -5,6 +5,7 @@ contact: trans <transfire@gmail.com>
 
 requires:
 - ansi
+- facets 2.9.1+
 - syckle (build)
 
 description:

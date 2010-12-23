@@ -8,7 +8,7 @@ breakdown the systems analysis proccess into clear and obvious divisions.
 KO "tests" are divided-up into *contexts*, *features*, *scenarios*,  and
 *assertions*.
 
-* *Contexts* are used to setup and teardown reusable fixtures. They can be used as the feature or scenario level.
+* *Contexts* are used to setup and teardown test fixtures.
 
 * *Features* delineate the overall requirement that a set of scenarios are designed to demonstrate.
 
@@ -30,15 +30,11 @@ KO! specifications... well here's an fracking example.
 
   feature "String Indexing" do
 
-    context "String Instance" do
-      before :all do
-        @string = "Hello World"
-      end
-    end
+    string = "Hello World"
 
     scenario "index by substring" do
       to do |substring|
-        @string.index(substring)
+        string.index(substring)
       end
 
       ok 'H'  => 0
@@ -73,10 +69,9 @@ In these cases an alternate validation procedure can be defined.
 
     require 'calculator'
 
+    calculator = Calculater.new
+
     scenario "a Calculator can add two numbers"
-
-      calculator = Calculater.new
-
       to do |input1, input2|
         calculator.push input1
         calculator.push input2
@@ -111,9 +106,15 @@ in any feature.
   end
 
   feature "String Indexing" do
+
     use "String Instance"
 
-    ...
+    scenario "index by substring" do
+      to do |substring|
+        @string.index(substring)
+      end
+
+      ...
 
 Get it? You create a reusable contexts --they can load libraries, build out mocks,
 setup fixtures, etc. Then use +use+ to use them in your feature scenarios.
