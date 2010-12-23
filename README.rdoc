@@ -3,109 +3,124 @@
 This is KDD --Kickass Driven Development!
 
 Knockout is a Ruby test framework that reads like a developer thinks.
-More specifically, KO! is a behavior-driven design system created to 
-breakdown the systems analysis proccess into clear and obvious divisions.
-KO "tests" are divided-up into *contexts*, *features*, *scenarios*,  and
-*assertions*.
+More specifically, KO! is a test system created to breakdown the systems
+analysis proccess into clear and obvious divisions. KO "specifications"
+are divided-up into *testcases*, *contexts*, *concnerns*, *tests*.
+
+* *Testcases* delineate the overall requirement that is to be demonstrated.
 
 * *Contexts* are used to setup and teardown test fixtures.
 
-* *Features* delineate the overall requirement that a set of scenarios are designed to demonstrate.
+* *Concerns* break-up testcases into separate areas of concern.
 
-* *Scenarios* compose the descriptive "proof" of a feature, via assertions.
-
-* *Assertions* are the final validators, handled by simple conditional procedures.
+* *Tests* compose the proof of a testcase as a set of assertions.
 
 KO! was inspired in part by the void left behind by the discontinuation of
 Shoulda as a test framework. It seemed like an opportune time to give Ruby an
-elegant, modern and light-weight BDD framework to serve as an alternative to
+elegant, modern and light-weight test framework to serve as an alternative to
 the monolithic RSpec.
 
 
 == SYNOPSIS
 
-=== Writing Kick-Ass Specs
+=== Writing Kick-Ass Tests
 
 KO! specifications... well here's an fracking example.
 
-  feature "String Indexing" do
+  KO.case "String Indexing" do
 
     string = "Hello World"
 
-    scenario "index by substring" do
-      to do |substring|
-        string.index(substring)
-      end
-
-      ok 'H'  => 0
-      ok 'l'  => 2
-      ok 'ld' => 9
+    test "index by substring" do |substring, index|
+      string.index(substring) == index
     end
 
-    scenario "index by regular expression" do
-      to do |regular_expression|
-        @string.index(regular_expression)
-      end
+    ok 'H' , 0
+    ok 'l' , 2
+    ok 'ld', 9
 
-      ok /H/   => 0
-      ok /l/   => 2
-      ok /o\ / => 4
+    test "index by regular expression" do |regular_expression, index|
+      @string.index(regular_expression, index)
     end
+
+    ok /H/  , 0
+    ok /l/  , 2
+    ok /o\ /, 4
+
   end
 
 It should be pretty clear how this plays out just by looking at it. When KO
-tests a feature it run each scenario, which consists of trying each +ok+
-assertion. There are run thru the "to do" procedure, the result of which is
-compared to the ok expectation given after the `=>`.
+runs a testcase it run each +test+, which consists of trying each +ok+
+assertion. These are run thru the test procedure, if the result of which
+evaluates as true then the test passes.
 
-=== Alternate Assertions
+KO! handles assertions in a rather unique way. As shown only truth of the
+test can be asserted. But since equality (==) is by far the most common means
+of test validation, KO! offers an alternative notation for specifiying the `ok`
+expectation using `=>`. For example, the above example can also be written
+as follows.
 
-KO! handles assertions in a rather unique way. By default only one type of
-assertion is available, equality (==). This is by far the most common means
-of test validation, but obviously it is not alwasy the validation required.
-In these cases an alternate validation procedure can be defined.
+  KO.case "String Indexing" do
 
-  feature "Calculator Addition" do
+    string = "Hello World"
 
-    require 'calculator'
-
-    calculator = Calculater.new
-
-    scenario "a Calculator can add two numbers"
-      to do |input1, input2|
-        calculator.push input1
-        calculator.push input2
-        calculator.add
-      end
-
-      valid do |result, todo|
-        calculator.output == result
-      end
-
-      ok [2, 2] => 4
-      ok [2, 1] => 3
-      ok [2, 0] => 2
+    test "index by substring" do |substring|
+      string.index(substring)
     end
+
+    ok 'H'  => 0
+    ok 'l'  => 2
+    ok 'ld' => 9
+
+    test "index by regular expression" do |regular_expression|
+      @string.index(regular_expression)
+    end
+
+    ok /H/   => 0
+    ok /l/   => 2
+    ok /o\ / => 4
 
   end
 
-A scenario can only ever have one +todo+ procedure and one +validation+ procedure.
-This might seem somewhat limiting, but it helps keep a clean separation of concern
-between scenarios.
+Taking this one step further the validation routine can be overridden as
+well. Consider the next example.
+
+  KO.case "Calculator Addition" do
+
+    require 'calculator'
+  
+    calculator = Calculator.new
+
+    test "a Calculator can add two numbers" do |input1, input2|
+      calculator.push input1
+      calculator.push input2
+      calculator.add
+      calculator
+    end
+
+    valid do |calculator, expect|
+      calculator.output == expect
+    end
+
+    ok [2, 2] => 4
+    ok [2, 1] => 3
+    ok [2, 0] => 2
+
+  end
 
 === Reusable Contexts
 
-KO has a nice feature for creating reusable contexts. They can be defined 
-outside of any featurem and then called upon by their description for use
-in any feature.
+KO! has a nice feature for creating reusable contexts. They can be defined 
+outside of any testcase and then called upon by their description for use
+in any testcase.
 
-  context "String Instance" do
+  KO.context "String Instance" do
     before :all do
       @string = "Hello World"
     end
   end
 
-  feature "String Indexing" do
+  KO.case "String Indexing" do
 
     use "String Instance"
 
@@ -117,13 +132,13 @@ in any feature.
       ...
 
 Get it? You create a reusable contexts --they can load libraries, build out mocks,
-setup fixtures, etc. Then use +use+ to use them in your feature scenarios.
+setup fixtures, etc. Then use +use+ to use them in your testcases.
 
 Of course, generally you won't define the contexts in the same file
-with the features. You will put those in separate files in the context
+with the testcase. You will put those in separate files in a context
 drectory where it will be loaded up automatically ready for, yep, use.
 
-Oh, if you are a Cuke, you can use captialized method names instead.
+Btw, if you are a Cuke, you can use captialized KO's method names.
 
 === Running Those Suckers
 
@@ -132,16 +147,19 @@ Running KO! scripts is like this.
   $ ko -Ilib path/to/requirements/*.rb
 
 
-== STATUS
-
-KO! is pretty new, but it's also pretty straight-forward. It still needs
-some work, for instance, on they way in which context are injected into 
-features and/or sceanrios, but it works well enough as it is for general
-wide-spread use.
-
-
 == LEGAL
 
-Copyright (c) 2010 Thomas Sawyer, Apache License 2.0
+Copyright (c) 2010 Thomas Sawyer
 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 

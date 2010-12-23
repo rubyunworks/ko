@@ -1,41 +1,30 @@
 = Knock Out!
 
-KO! is a BDD framework for Ruby. Inspired by the discontinuation of Shoulda
-excellent context system, it seemed time Ruby had a lean but elegant
-behavior-oriented test system.
+KO! is a test framework for Ruby. Inspired by the discontinuation of Shoulda
+excellent context system, it seemed time Ruby had a lean but elegant test system.
 
-KO! specifications are composed of *contexts*, *features*, "scenarios" and,
-of course, *assertions*.
-
-Contexts are used to setup and teardown reusable fixtures.
-
-Features define the overall requirements that a set of scenarios are intended
-to demonstrate.
-
-Scenarios compose the descriptive "proof" of a feature, via assertions.
-
-Here is a simple example. First we will define a reusable fixture:
+Here is a simple example. First we will define a reusable context:
 
   context "Calculator Instance" do
 
     setup do
       require 'calculator'
-      calculator = Calculater.new
+      @calculator = Calculater.new
     end
 
   end
 
-Then when we define a feature which utilizes the fixture:
+Then when we define a testcase which utilizes the context:
 
   KO.case "Addition" do
 
     use "Calculator Instance"
 
     test "addition of two numbers" do |a,b,c|
-      calculator.push a
-      calculator.push b
-      calculator.add
-      calculator.output == c
+      @calculator.push a
+      @calculator.push b
+      @calculator.add
+      @calculator.output == c
     end
 
     ok 2,2,4
@@ -46,10 +35,10 @@ Then when we define a feature which utilizes the fixture:
     use "Calculator Instance"
 
     test "subtraction of two numbers" do |a,b,c|
-      calculator.push a
-      calculator.push b
-      calculator.subtract
-      calculator.output == c
+      @calculator.push a
+      @calculator.push b
+      @calculator.subtract
+      @calculator.output == c
     end
 
     ok 2,2,0

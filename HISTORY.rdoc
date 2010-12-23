@@ -1,5 +1,20 @@
 = RELEASE HISTORY
 
+== 1.2.0 / 2010-12-23
+
+KO! no longer requires an assertion framework. The design has been modified to fail when
+a test block returns false or nil. This requires the test writter to keep test block small
+and focused. In conjunction with this, test nomencalture has been reduced to the basics of 
+`case`, `test` and `ok`/`no`. BDD nomenclature is no longer supported (though a plugin would
+be easy enough to make if someone prefered it). In addition, all tests are now run from with
+a system-based temporary directory (e.g. /tmp/ko).
+
+Changes:
+
+* Simplified nomenclature to case/test/ok.
+* Run tests form tmpdir.
+
+
 == 1.1.0 / 2010-08-01
 
 This release adds support for before and after each context advice for 
@@ -23,3 +38,4 @@ truely light-weight next-generation BDD system.
 Changes:
 
 * Happy Birthday!
+
