@@ -2,14 +2,15 @@ module KO
 
   #
   class Ok
-    def initialize(concern, check, arguments, caller, negate=false)
+    def initialize(concern, valid, check, arguments, caller, negate=false)
       @concern   = concern
       @check     = check
+      @valid     = valid
       @negate    = negate
 
       @arguments = arguments.dup
 
-      # Only problem here is that Hash's can be passed a parameters to #ok.
+      # TODO: Only problem here is that Hash's can be passed a parameters to #ok.
       if Hash === @arguments.last
         h = @arguments.pop
         @has_return_value = true
@@ -54,7 +55,7 @@ module KO
     def pass?(scope)
       result = scope.instance_exec(*arguments, &check)
       if return_value?
-        pass = (result == return_value) #compare
+        pass = compare(result, return_value) #(result == return_value)
       else
         pass = result
       end
@@ -64,6 +65,15 @@ module KO
     #
     def fail?(scope)
       ! pass?(scope)
+    end
+
+    #
+    def compare(a,b)
+      if @valid
+        @valid.call(a,b)
+      else
+        a == b
+      end
     end
 
     #

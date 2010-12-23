@@ -190,6 +190,7 @@ module KO
       #
       def initialize(concern)
         @_concern = concern
+        @_valid = nil
       end
 
       #
@@ -217,22 +218,27 @@ module KO
         if block.arity == -1   # -1, not 0?
           trace = caller[0]
           test = Check.new(@_concern, label, &block)
-          @_concern.ok << Ok.new(@_concern, test, [], trace)
+          @_concern.ok << Ok.new(@_concern, @_valid, test, [], trace)
         else
           @_test = Check.new(@_concern, label, &block)
         end
       end
 
       #
+      def valid(&block)
+        @_valid = block
+      end
+
+      #
       def ok(*arguments)
         trace = caller[0]
-        @_concern.ok << Ok.new(@_concern, @_test, arguments, trace)
+        @_concern.ok << Ok.new(@_concern, @_valid, @_test, arguments, trace)
       end
 
       #
       def no(*arguments)
         trace = caller[0]
-        @_concern.ok << Ok.new(@_concern, @_test, arguments, trace, true)
+        @_concern.ok << Ok.new(@_concern, @_valid, @_test, arguments, trace, true)
       end
 
       #
