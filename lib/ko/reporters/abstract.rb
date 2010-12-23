@@ -20,15 +20,39 @@ module KO
       end
 
       #
-      def start(suite)
+      def start(tag, *args)
+        case tag
+        when :suite
+          start_suite(*args)
+        when :all, :concern
+          start_concern(*args)
+        when :each, :test, :ok
+          start_ok(*args)
+        else
+          # ???
+        end
       end
 
       #
-      def start_feature(feature)
+      def finish(tag, *args)
+        case tag
+        when :suite
+          finish_suite(*args)
+        when :all, :concern
+          finish_concern(*args)
+        when :each, :test, :ok
+          finish_ok(*args)
+        else
+          # ???
+        end
       end
 
       #
-      def start_scenario(scenario)
+      def start_suite(suite)
+      end
+
+      #
+      def start_concern(concern)
       end
 
       #
@@ -55,20 +79,18 @@ module KO
       end
 
       #
-      def finish_scenario(scenario)
+      def finish_concern(concern)
       end
 
       #
-      def finish_feature(feature)
+      def finish_suite(suite)
       end
 
-      #
-      def finish(suite)
-      end
-
-      #
+      # FIXME: KO needs to track it;s own count b/x it no longer uses AE.
       def tally
-        text = "%s scenarios: %s passed, %s failed, %s errored (%s/%s assertions)"
+        return ""
+
+        text = "%s concerns: %s passed, %s failed, %s errored (%s/%s assertions)"
         total = @passed.size + @failed.size + @raised.size
         text = text % [total, @passed.size, @failed.size, @raised.size, $assertions - $failures, $assertions]
         if @failed.size > 0

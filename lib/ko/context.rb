@@ -1,5 +1,13 @@
 module KO
 
+  def self.contexts
+    @contexts ||= []
+  end
+
+  def self.context(label=nil, &block)
+    contexts << Context.new(label, &block)
+  end
+
   # Context defines a system "state". A context might
   # specify a set requirments, database fixtures,
   # objects, mocks, or file system setups --any presets
@@ -19,11 +27,11 @@ module KO
   class Context
 
     #
-    def initialize(label, &block)
+    def initialize(label=nil, &block)
       @label  = label
-      @block  = block
       @advice = Hash.new{|h,k|h[k]={}}
-      parse
+
+      parse(block) if block
     end
 
     #
@@ -31,6 +39,9 @@ module KO
 
     #
     attr_accessor :advice
+
+    # Options such as pwd, and stage.
+    attr_accessor :options
 
     def [](key)
       advice[key.to_sym]
@@ -41,35 +52,35 @@ module KO
     end
 
     #
-    def start_feature(scope)
-      eval(:before, :all, scope)
+    def before(tag=:each, &block)
+      self[:before][tag] = block
     end
 
     #
-    def start_scenario(scope)
-      eval(:before, :each, scope)
+    def after(tag=:each, &block)
+      self[:after][tag] = block
     end
 
-    #
-    def finish_scenario(scope)
-      eval(:after, :each, scope)
+    # Run before advice.
+    def start(tag, scope)
+      eval(:before, tag.to_sym, scope)
     end
 
-    #
-    def finish_feature(scope)
-      eval(:after, :all, scope)
+    # Run after advice.
+    def finish(tag, scope)
+      eval(:after, tag.to_sym, scope)
     end
 
-    #
+    # Run advice.
     def eval(which, tag, scope)
       block = self[which][tag]
       scope.instance_eval(&block) if block
     end
 
     #
-    def parse
+    def parse(block)
       parser = Parser.new(self)
-      parser.instance_eval(&@block)
+      parser.instance_eval(&block)
     end
 
     #
@@ -81,12 +92,12 @@ module KO
 
       #
       def before(tag=:each, &block)
-        @_context[:before][tag] = block
+        @_context.before(tag, &block)
       end
 
       #
       def after(tag=:each, &block)
-        @_context[:after][tag] = block
+        @_context.after(tag, &block)
       end
 
       alias_method :Before, :before
@@ -94,12 +105,12 @@ module KO
 
       #
       def setup(&block)
-        @_context[:before][:all] = block
+        @_context.before(:all, &block)
       end
 
       #
       def teardown(&block)
-        @_context[:before][:all] = block
+        @_context.after(:all, &block)
       end
 
       alias_method :Setup,    :setup

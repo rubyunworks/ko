@@ -6,24 +6,24 @@ module KO::Reporters
   class Verbose < Abstract
 
     #
-    def start(suite)
+    def start_suite(suite)
       @start_time = Time.now
     end
 
     #
-    def start_feature(feature)
-      $stdout.puts feature.label.ansi(:bold)
+    def start_concern(concern)
+      $stdout.puts concern.to_s.ansi(:bold)
     end
 
     def pass(ok)
       super(ok)
-      $stdout.puts "* " + ok.scenario.label.ansi(:green) + " #{ok.arguments.inspect}"
+      $stdout.puts "* " + ok.check.to_s.ansi(:green) + " #{ok}"
     end
 
     def fail(ok, exception)
       super(ok, exception)
-      scenario = ok.scenario
-      $stdout.puts "* " + scenario.label.ansi(:red) + " #{ok.arguments.inspect}"
+      concern = ok.concern
+      $stdout.puts "* " + ok.check.to_s.ansi(:red) + " #{ok}"
       $stdout.puts
       $stdout.puts "    #{exception}"
       $stdout.puts "    " + ok.caller #clean_backtrace(exception.backtrace)[0]
@@ -34,8 +34,8 @@ module KO::Reporters
 
     def err(ok, exception)
       super(ok, exception)
-      scenario = ok.scenario
-      $stdout.puts "* " + scenario.label.ansi(:yellow) + " #{ok.arguments.inspect}"
+      concern = ok.concern
+      $stdout.puts "* " + ok.check.to_s.ansi(:yellow) + " #{ok}"
       $stdout.puts
       $stdout.puts "    #{exception.class}: #{exception.message}"
       $stdout.puts "    " + ok.caller #clean_backtrace(exception.backtrace)[0..2].join("    \n")
@@ -45,7 +45,7 @@ module KO::Reporters
     end
 
     #
-    def finish(suite)
+    def finish_suite(suite)
       #$stderr.puts
       $stderr.print tally
       $stderr.puts " [%0.4fs] " % [Time.now - @start_time]

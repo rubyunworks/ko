@@ -6,23 +6,20 @@ module KO::Reporters
   class Tap < Abstract
 
     #
-    def start(suite)
+    def start_suite(suite)
       @start = Time.now
       @i = 0
       n = 0
-      suite.features.each{ |f| f.scenarios.each { |s| n += s.ok.size } }
+      suite.concerns.each{ |f| f.concerns.each { |s| n += s.ok.size } }
       puts "1..#{n}"
     end
 
     #
-    def start_feature(feature)
-      #$stdout.puts feature.label.ansi(:bold)
+    def start_concern(concern)
+      #$stdout.puts concern.label.ansi(:bold)
     end
 
     #
-    def start_scenario(scenario)
-    end
-
     def start_ok(ok)
       @i += 1
     end
@@ -31,7 +28,7 @@ module KO::Reporters
     def pass(ok)
       super(ok)
 
-      desc = ok.scenario.label + " #{ok.arguments.inspect}"
+      desc = ok.concern.label + " #{ok.arguments.inspect}"
 
       puts "ok #{@i} - #{desc}"
     end
@@ -40,7 +37,7 @@ module KO::Reporters
     def fail(ok, exception)
       super(ok, exception)
 
-      desc = ok.scenario.label + " #{ok.arguments.inspect}"
+      desc = ok.concern.label + " #{ok.arguments.inspect}"
 
       body = []
       body << "FAIL #{ok.file}:#{ok.line}" #clean_backtrace(exception.backtrace)[0]
@@ -56,7 +53,7 @@ module KO::Reporters
     def error(unit, exception)
       super(ok, exception)
 
-      desc = ok.scenario.label + " #{ok.arguments.inspect}"
+      desc = ok.concern.label + " #{ok.arguments.inspect}"
 
       body = []
       body << "ERROR #{ok.file}:#{ok.line}" #clean_backtrace(exception.backtrace)[0..2].join("    \n")

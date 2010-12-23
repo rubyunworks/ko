@@ -6,7 +6,7 @@ module KO::Reporters
   class Dotprogress < Abstract
 
     #
-    def start(suite)
+    def start_suite(suite)
       @start_time = Time.now
       $stdout.puts "Started\n"
     end
@@ -33,15 +33,15 @@ module KO::Reporters
     end
 
     #
-    def finish(suite)
+    def finish_suite(suite)
       $stdout.puts "\n\n"
 
       i = 1
 
       @failed.each do |(ok, exception)|
-        scenario  = ok.scenario
+        concern  = ok.concern
         #backtrace = clean_backtrace(exception.backtrace)
-        $stdout.puts "#{i}. " + (scenario.feature.label + ', ' + scenario.label).ansi(:red)
+        $stdout.puts "#{i}. " + (concern.full_label).ansi(:red)
         $stdout.puts
         $stdout.puts "    #{exception}"
         $stdout.puts "    #{ok.file}:#{ok.line}" #+ backtrace[0]
@@ -51,9 +51,9 @@ module KO::Reporters
       end
 
       @raised.each do |(ok, exception)|
-        scenario  = ok.senario
+        concern  = ok.concern
         #backtrace = clean_backtrace(exception.backtrace)
-        $stdout.puts "#{i}. " + (scenario.feature.label + ', ' + scenario.label).ansi(:yellow)
+        $stdout.puts "#{i}. " + (concern.full_label).ansi(:yellow)
         $stdout.puts
         $stdout.puts "    #{exception.class}: #{exception.message}"
         $stdout.puts "    #{ok.file}:#{ok.line}" #+ backtrace[0..2].join("    \n")
