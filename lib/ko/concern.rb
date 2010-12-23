@@ -84,16 +84,6 @@ module KO
       end
     end
 
-    # Set work location for test.
-    def work_location(directory)
-      if directory
-        dir = File.join(tmpdir, directory)
-      else
-        dir = tmpdir
-      end
-      @location = dir
-    end
-
     #
     def before(tag, &block)
       @context.before(tag, &block)
@@ -200,11 +190,6 @@ module KO
       #
       def initialize(concern)
         @_concern = concern
-      end
-
-      # Set work location for test.
-      def work_location(directory)
-        @_concern.work_location(directory)
       end
 
       #
