@@ -10,7 +10,7 @@ module KO
 
       @arguments = arguments.dup
 
-      # TODO: Only problem here is that Hash's can be passed a parameters to #ok.
+      # TODO: Only problem here is that Hash's can't be passed a parameters to #ok.
       if Hash === @arguments.last
         h = @arguments.pop
         @has_return_value = true
@@ -25,25 +25,25 @@ module KO
       @line = l.to_i
     end
 
-    #
+    # Concern this OK check belongs.
     attr :concern
 
-    #
+    # Test procedure.
     attr :check
 
-    #
+    # Arguments to pass the the test procedure.
     attr :arguments
 
-    #
+    # Is this a "no", a not ok check.
     attr :negate
 
-    #
+    # File in which the check is defined.
     attr :file
 
-    #
+    # The line number of the file on which it is found.
     attr :line
 
-    #
+    # The return value from the procedure.
     attr :return_value
 
     #

@@ -2,15 +2,17 @@
 
 == 1.2.0 / 2010-12-23
 
-KO! no longer requires an assertion framework. The design has been modified to fail when
-a test block returns false or nil. This requires the test writter to keep test block small
-and focused. In conjunction with this, test nomencalture has been reduced to the basics of 
-`case`, `test` and `ok`/`no`. BDD nomenclature is no longer supported (though a plugin would
-be easy enough to make if someone prefered it). In addition, all tests are now run from with
-a system-based temporary directory (e.g. /tmp/ko).
+KO! no longer requires an assertion framework. The design has been modified
+to fail when a test block returns false or nil, or a custom validation
+procedure. This requires the test writer to keep test block small and focused.
+In conjunction with this, test nomencalture has been reduced to the basics of 
+`case`, `test` and `ok`/`no`. BDD nomenclature is no longer supported (though
+a plugin would be easy enough to make if someone prefered it). In addition, all
+tests are now run from with a system-based temporary directory (e.g. /tmp/ko).
 
 Changes:
 
+* Removed need for an assertion framework.
 * Simplified nomenclature to case/test/ok.
 * Run tests form tmpdir.
 

@@ -1,7 +1,7 @@
 KO.case "test validation" do
 
-  valid do |obj, expect|
-    expect == obj.class
+  valid do |cls, expect|
+    expect === cls
   end
 
   test do |obj|

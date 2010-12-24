@@ -48,7 +48,7 @@ module KO
     def execute
       #(contexts + files).each{ |f| require f }
       files.uniq.each do |file|
-        require file
+        require File.expand_path(file)
         #suite.load(file)
       end
       reporter = Reporters.factory(@format).new
