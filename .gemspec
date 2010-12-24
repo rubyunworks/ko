@@ -1,13 +1,13 @@
 --- !ruby/object:Gem::Specification 
 name: ko
 version: !ruby/object:Gem::Version 
-  hash: 19
+  hash: 31
   prerelease: false
   segments: 
   - 1
-  - 1
+  - 2
   - 0
-  version: 1.1.0
+  version: 1.2.0
 platform: ruby
 authors: 
 - Thomas Sawyer
@@ -15,7 +15,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2010-12-14 00:00:00 -05:00
+date: 2010-12-24 00:00:00 -05:00
 default_executable: 
 dependencies: 
 - !ruby/object:Gem::Dependency 
@@ -33,9 +33,25 @@ dependencies:
   type: :runtime
   version_requirements: *id001
 - !ruby/object:Gem::Dependency 
-  name: syckle
+  name: facets
   prerelease: false
   requirement: &id002 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        hash: 41
+        segments: 
+        - 2
+        - 9
+        - 1
+        version: 2.9.1
+  type: :runtime
+  version_requirements: *id002
+- !ruby/object:Gem::Dependency 
+  name: syckle
+  prerelease: false
+  requirement: &id003 !ruby/object:Gem::Requirement 
     none: false
     requirements: 
     - - ">="
@@ -45,7 +61,7 @@ dependencies:
         - 0
         version: "0"
   type: :development
-  version_requirements: *id002
+  version_requirements: *id003
 description: Knockout is BDD test framework, with next-gen conceptual model and a sexy light-weight implementation.
 email: transfire@gmail.com
 executables: 
@@ -62,7 +78,9 @@ files:
 - lib/ko/concern.rb
 - lib/ko/context.rb
 - lib/ko/core_ext/exception.rb
+- lib/ko/core_ext/fileutils.rb
 - lib/ko/core_ext.rb
+- lib/ko/errors.rb
 - lib/ko/ok.rb
 - lib/ko/pry.rb
 - lib/ko/reporters/abstract.rb
@@ -75,11 +93,22 @@ files:
 - lib/ko/suite.rb
 - lib/ko/world.rb
 - lib/ko.rb
+- lib/ko.yml
+- spec/overview.rdoc
+- test/equality_case.rb
+- test/hash_case.rb
+- test/truth_case.rb
+- test/validation_case.rb
+- try/calculator/addition_case.rb
+- try/calculator/calculator.rb
+- try/calculator/calculator_context.rb
+- try/calculator/subtraction_case.rb
 - HISTORY.rdoc
+- Profile
 - LICENSE
 - README.rdoc
 - NOTICE
-- VERSION
+- Version
 has_rdoc: true
 homepage: http://proutils.github.com/ko
 licenses: 
