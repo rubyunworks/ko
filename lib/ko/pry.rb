@@ -1,7 +1,5 @@
 require 'facets/functor'
 
-$PRY_TABLE = {} #Hash.new{|h,k| h[k]=nil}
-
 module Kernel
 
   # Pry allows you to test private and protected methods,
@@ -15,7 +13,7 @@ module Kernel
   # coverage*, say in mission critical systems.
 
   def pry
-    $PRY_TABLE[self] ||= Functor.new do |op, *a, &b|
+    Functor.new do |op, *a, &b|
       __send__(op, *a, &b)
     end
   end

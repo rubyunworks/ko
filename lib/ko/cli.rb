@@ -1,6 +1,6 @@
+require 'ko/testcase'
+
 require 'optparse'
-require 'ko/suite'
-require 'ko/reporters'
 
 module KO
 
@@ -15,7 +15,7 @@ module KO
     #
     def initialize
       @files  = []
-      @format = :dotprogress
+      @format = :dot
     end
 
     #
@@ -51,8 +51,8 @@ module KO
         require File.expand_path(file)
         #suite.load(file)
       end
-      reporter = Reporters.factory(@format).new
-      KO.run(reporter)
+      #reporter = Reporters.factory(@format).new
+      KO.run(@format)
     end
 
     #
@@ -65,9 +65,29 @@ module KO
     def parser
       OptionParser.new do |opt|
 
-        opt.on('--format', '-f TYPE', 'output format') do |type|
+        opt.separator "FORMATS: (pick one)"
+
+        opt.on('--tapy', '-y', 'TAP-Y format') do |type|
+          @format = 'tap_y'
+        end
+
+        opt.on('--tapj', '-j', 'TAP-J format') do |type|
+          @format = 'tap_j'
+        end
+
+        opt.on('--tap', '-t', 'TAP format') do |type|
+          @format = 'tap'
+        end
+
+        opt.on('--dot', 'DOT format [default]') do |type|
+          @format = 'dot'
+        end
+
+        opt.on('--format', '-f TYPE', 'pipe output thru this koax format') do |type|
           @format = type
         end
+
+        opt.separator ""
 
         opt.on('--verbose', '-v', 'output with verbose format') do |type|
           @format = 'verbose'
@@ -85,6 +105,10 @@ module KO
           $DEBUG = true
         end
 
+        opt.on_tail('--help') do
+          puts opt
+          exit
+        end
       end
     end
 

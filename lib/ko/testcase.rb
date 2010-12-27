@@ -1,65 +1,181 @@
+require 'ko/formats'
+require 'ko/world'
+
+require 'fileutils'
+require 'tmpdir'
+
 #
 module KO
 
-  #
+  # TODO: Should we bother with this?
+  def self.case(desc, &block)
+    c = Class.new(TestCase, &block)
+    c.desc(desc)
+    c
+  end
+
+  # TestCase
   class TestCase
 
-    # Define a test scenario.
-    def self.test(label=nil, &block)
-      count = get_test_count("test #{label}")
-      if count > 0
-        @_test = "#{label} (#{count})"
+    include World
+
+    # TestCase DSL
+    module DSL
+
+      # Get or set a description for the test case.
+      def desc(description=nil)
+        @_desc = description if description
+        @_desc
+      end
+
+      # Define a per-test setup procedure.
+      def setup(&block)
+        remove_method(:setup) rescue nil #if method_defined?(:setup)
+        define_method(:setup, &block)
+      end
+
+      # Define a per-test teardown procedure.
+      def teardown(&block)
+        remove_method(:teardown) rescue nil #if method_defined?(:teardown)
+        define_method(:teardown, &block)
+      end
+
+      # Define an alternate validation procedure. This procedure is then used
+      # to validate ok's `=>` notation.
+      def valid(&block)
+        raise "validation method must take two arguments" unless block.arity == 2
+        @_valid = block
+        #remove_method(:valid) rescue nil #if method_defined?(:valid)
+        #define_method(:valid, &block)
+      end
+
+      # Define a test scenario.
+      def test(label=nil, &block)
+        count = _get_test_count("test #{label}")
+        if count > 0
+          @_test = "#{label} (#{count})"
+        else
+          @_test = "#{label}"
+        end
+      
+        define_method("test #{@_test}", &block)
+
+        # TODO: Problem here is block arity `||` looks like `|*args|`.
+        if block.arity == -1   # -1, not 0?
+          #trace = caller[0]
+          #test = Check.new(@_concern, label, &block)
+          #@_concern.ok << Ok.new(@_concern, @_valid, test, [], trace)
+          ok()
+        end
+      end
+
+      # Define a test try.
+      def ok(*args)
+        _define_check_method(args, caller, false)
+      end
+
+      # Define a negated test try.
+      def no(*args)
+        _define_check_method(args, caller, true)
+      end
+
+      private
+
+      def _define_check_method(args, trace, negate=false)
+        test  = @_test
+        count = _get_ok_count("ok #{test}")
+        ok = (negate ? "ok" : "no") + " #{test} #{count}"
+
+        if Hash === args.last
+          h = args.pop
+          raise SyntaxError, "invalid expectaiton" if h.size > 1
+          expect = h.values.first
+          args << h.keys.first
+
+          valid = @_valid || lambda{ |expect, result| expect == result }
+        else
+          expect = nil
+          valid  = lambda{ |expect, result| result }
+        end
+
+        define_method(ok) do
+          setup
+          result = __send__("test #{test}", *args)
+          unless negate ^ valid.call(expect, result)
+            raise Failure.new("#{test} failed", trace)
+          end
+          teardown
+          trace  # return caller ?
+        end
+      end
+
+      def _get_test_count(label)
+        @_test_cnt ||= Hash.new{|h,k| h[k]=-1 }
+        @_test_cnt[label] += 1
+      end
+
+      def _get_ok_count(label)
+        @_ok_cnt ||= Hash.new{|h,k| h[k]=0 }
+        @_ok_cnt[label] += 1
+      end
+
+    end
+
+    extend DSL
+
+    # Retrieve description from class definition. If it is +nil+ then
+    # simply return the name of the class.
+    def desc
+      self.class.desc || self.class.name
+    end
+
+    def label
+      lbl = self.class.name
+      if lbl.empty?
+        desc[0..19]
       else
-        @_test = "#{label}"
-      end
-    
-      define_method("test #{@_test}", &block)
-
-      # TODO: Problem here is block arity `||` looks like `|*args|`.
-      if block.arity == -1   # -1, not 0?
-        #trace = caller[0]
-        #test = Check.new(@_concern, label, &block)
-        #@_concern.ok << Ok.new(@_concern, @_valid, test, [], trace)
-        ok()
+        lbl
       end
     end
 
-    # Define a test try.
-    def self.ok(*args)
-      trace = caller
-      test  = @_test
-      count = get_ok_count("ok #{test}")
-      ok = "ok #{test} (#{count})"
+    # Noop setup method.
+    def setup
+    end
 
-      define_method(ok) do
-        unless __send__("test #{test}", *args)
-          raise Failure.new(test, trace)
-        end
+    # Noop teardown method.
+    def teardown
+    end
+
+    #
+    #def valid(expect, result)
+    #  expect == result
+    #end
+
+    # Copy fixture files into temporary working directory.
+    def stage_fixture(source_dir)
+      test_dir = File.dirname(caller[0])
+      ## a precaution against any unforseen bug
+      raise "bad test directory -- #{Dir.pwd}" unless /#{Dir.tmpdir}/ =~ Dir.pwd
+      ## clear out directory if it has contents
+      Dir['*'].each do |path|
+        FileUtils.rm_r(path)
+      end
+      srcdir = File.join(test_dir, source_dir)
+      Dir[File.join(srcdir, '*')].each do |path|
+        FileUtils.cp_r(path, '.')
       end
     end
 
-    # Define a negated test try.
-    def self.no(*args)
-      trace = caller
-      test  = @_test
-      count = get_ok_count("ok #{test}")
-      ok = "ok #{test} (#{count})"
-
-      define_method(ok) do
-        if __send__("test #{test}", *args)
-          raise Failure.new(test, trace)
-        end
+    # Access to FileUtils. Using this method rather than FileUtils itself
+    # allows ko command-line options to select FileUtils options.
+    def fileutils
+      if $DRYRUN
+        FileUtils::DryRun
+      elsif $DEBUG
+        FileUtils::Verbose
+      else
+        FileUtils
       end
-    end
-
-    def self.get_test_count(label)
-      @_test_cnt ||= Hash.new{|h,k| h[k]=-1 }
-      @_test_cnt[label] += 1
-    end
-
-    def self.get_ok_count(label)
-      @_ok_cnt ||= Hash.new{|h,k| h[k]=0 }
-      @_ok_cnt[label] += 1
     end
 
   end
@@ -75,48 +191,100 @@ end
 
 module KO
 
-  def self.run
-    runner = Runner.new
+  def self.run(format=nil)
+    runner = Runner.new(:format=>format)
     runner.run
   end
 
   class Runner
 
-    def initialize
+    def initialize(options={})
+      format = KO.const_get((options[:format]||'TAP').to_s.upcase)
+      extend(format)
       @source = {}
+      @pwd = Dir.pwd
+      @radius = 3
     end
 
     def run
-      tests = []
+      FileUtils.mkdir_p(tmpdir)
+      Dir.chdir(tmpdir) do
+        run_tests
+      end
+    end
+
+    private
+
+    def run_tests
+      cases = {}
+      count = 0
       ObjectSpace.each_object(Class) do |c|
         next unless c < KO::TestCase
         tc = c.new
         tc.methods.each do |m|
-          next unless m.to_s =~ /^ok/
-          tests << [tc, m]
+          next unless m.to_s =~ /^(ok|no)[_ ]/
+          cases[tc] ||= []
+          cases[tc] << m
+          count += 1
         end
       end
 
-      puts "1..#{tests.size}"
-      index = 0
-      tests.each do |(c, m)|
-        index += 1
-        begin
-          c.__send__(m)
-          puts "ok #{index} - #{m.sub('ok ','')}"
-        rescue Failure => err
-          file, line = source_location(err)
-          #source = code_snippet(file, line)
-          source = code_line(file, line)
+      tmpdir = tmpdir()
+      FileUtils.mkdir_p(tmpdir)
+      Dir.chdir do
+        tally = Hash.new{|h,k| h[k]=0 }
+        report(:type=>'header', :range=>"1..#{count}", :count=>count)
+        index = 0
+        #cases.sort_by{|a,b| a.desc <=> b.desc}
+        cases.each do |c, ts|
+          report(:type=>'case', :label=>c.label, :description=>c.desc)
+          ts.sort!  # TODO: randomization option
+          ts.each do |m|
+            index += 1
+            type = 'test'
+            label = m.to_s.sub(/(ok|no)\s+/,'')
 
-          puts "not ok #{index} - #{m.sub('ok ','')}"
-          puts "  ---"
-          puts "  description: #{err.message}"
-          puts "  file: #{file}"
-          puts "  line: #{line}"
-          puts "  raw_test: #{source}"
-          puts "  ..."
+            begin
+              trace = c.__send__(m)
+
+              status = 'pass'
+              file, line = source_location(trace)
+              message = nil
+              tally['pass'] += 1
+            rescue Failure => error
+              status = 'fail'
+              file, line = source_location(error)
+              message = "#{error.class}: #{error.to_s}"
+              tally['fail'] += 1
+            rescue StandardError => error
+              status = 'error'
+              file, line = source_location(error)
+              message = "#{error.class}: #{error.to_s}"
+              tally['error'] += 1
+            end
+
+            source  = code_line(file, line)
+            snippet = code_snippet(file, line)
+
+            file    = file.sub(@pwd+File::SEPARATOR, '')
+            #label   = m.sub(/(ok|no)\s+/,'')
+
+            entry = {
+              :type    => type,
+              :status  => status,
+              :index   => index,
+              :label   => label,
+              :file    => file,
+              :line    => line,
+              :source  => source,
+              :snippet => snippet,
+              :message => message
+            }
+
+            report(entry)
+          end
         end
+        report(:type=>'footer', :range=>"1..#{count}", :count=>count, :tally=>tally)
       end
     end
 
@@ -161,18 +329,22 @@ module KO
 
       source = source(source_file)
 
-      radius = 3 # number of surrounding lines to show
+      radius = @radius # number of surrounding lines to show
       region = [source_line - radius, 1].max ..
                [source_line + radius, source.length].min
 
       # ensure proper alignment by zero-padding line numbers
-      format = " %6s %0#{region.last.to_s.length}d %s"
+      #format = " %6s %0#{region.last.to_s.length}d %s"
+      #pretty = region.map do |n|
+      #  format % [('=>' if n == source_line), n, source[n-1].chomp]
+      #end #.unshift "[#{region.inspect}] in #{source_file}"
+      #pretty
 
-      pretty = region.map do |n|
-        format % [('=>' if n == source_line), n, source[n-1].chomp]
-      end #.unshift "[#{region.inspect}] in #{source_file}"
-
-      pretty
+      hash = {}
+      region.each do |n|
+        hash[n] = source[n-1].rstrip
+      end
+      hash
     end
 
     #
@@ -188,32 +360,12 @@ module KO
       )
     end
 
+    #
+    def tmpdir
+      File.join(Dir.tmpdir, 'ko', File.basename(Dir.pwd))
+    end
+
   end
 
 end
-
-
-
-
-# try it out
-
-class XCase < KO::TestCase
-
-  test 'general equality to one' do |a|
-    a == 1
-  end
-
-  ok 1
-  ok 2
-
-  test 'general equality to two' do |a|
-    a == 2
-  end
-
-  ok 1
-  no 2
-
-end
-
-KO.run
 
