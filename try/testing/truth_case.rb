@@ -1,6 +1,8 @@
-KO.case "test by true" do
+class TruthCase < KO::TestCase
 
-  test do |obj|
+  desc "test for truth"
+
+  test "pass-thru" do |obj|
     obj
   end
 

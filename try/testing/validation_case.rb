@@ -1,10 +1,10 @@
 KO.case "test validation" do
 
-  valid do |cls, expect|
+  valid do |expect, cls|
     expect === cls
   end
 
-  test do |obj|
+  test "pass-thru" do |obj|
     obj
   end
 
@@ -12,7 +12,7 @@ KO.case "test validation" do
   ok :a  => Symbol
   ok 'A' => String
 
-  no 1   => String
+  no 1   => Fixnum #String
 
 end
 

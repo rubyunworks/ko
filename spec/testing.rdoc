@@ -1,0 +1,83 @@
+== Testing for Truth
+
+    class TruthCase < KO::TestCase
+
+      desc "test for truth"
+
+      test "pass-thru" do |obj|
+        obj
+      end
+
+      ok true
+      ok Object.new
+
+      no false
+      no nil
+
+    end
+
+== Testing by Equality 
+
+The `ko` method supports a special trailing hash notation.
+
+    KO.case "test by equality" do
+
+      test "pass-thru" do |obj|
+        obj
+      end
+
+      ok 1   => 1.0
+      ok :a  => :a
+      ok 'A' => 'A'
+
+      no 1   => 2.0
+      no :a  => :b
+
+    end
+
+== Passing a Hash
+
+Because of the specialized notation of `ok`, it's not possible to pass
+a trailing hash as an argument to the test procedure as one is normally
+accustomed to in Ruby code. However, a work around to this is very simple.
+
+    KO.case "passing a hash to a test" do
+
+      test do |args|
+        arg1, arg2, opts = *args
+        opts.is_a? Hash
+      end
+
+      ok [1, 2, {:a => 1}]
+
+      # in 1.9+
+      #ok [1, 2, :a => 1]
+
+      no [1, 2]
+
+    end
+
+== Customized Validation
+
+While equality (==) is the normal validation procedure for the `ok` hash
+notation, this can be customized by supplying a validation procedure with
+the `valid` method.
+
+    KO.case "test validation" do
+
+      valid do |cls, expect|
+        expect === cls
+      end
+
+      test do |obj|
+        obj
+      end
+
+      ok 1   => Fixnum
+      ok :a  => Symbol
+      ok 'A' => String
+
+      no 1   => String
+
+    end
+
