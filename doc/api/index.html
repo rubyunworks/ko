@@ -5,7 +5,7 @@
 <head>
   <META CONTENT="text/html; charset=UTF-8" http-equiv="Content-Type" />
   <META NAME="generator" CONTENT="RDazzle Yardfish 2.0.0">
-  <META NAME="timestamp" CONTENT="Mon Apr 25 11:22:06 -0400 2011">
+  <META NAME="timestamp" CONTENT="Mon Apr 25 11:28:00 -0400 2011">
 
   <title>&quot;KO&quot;</title>
 
@@ -720,9 +720,9 @@
 
 <p>Knockout is a Ruby test framework that reads like a developer thinks. More
 specifically, <a href="KO.html">KO</a>! is a test system created to
-breakdown the systems analysis proccess into clear and obvious divisions.
-<a href="KO.html">KO</a> “specifications” are divided-up into
-<b>testcases</b>, <b>contexts</b>, <b>concnerns</b>, <b>tests</b>.</p>
+breakdown the systems analysis process into clear and obvious divisions. <a
+href="KO.html">KO</a> “specifications” are divided-up into
+<b>testcases</b>, <b>contexts</b>, <b>concerns</b>, <b>tests</b>.</p>
 <ul><li>
 <p><b>Testcases</b> delineate the overall requirement that is to be
 demonstrated.</p>
@@ -770,13 +770,14 @@ end</pre>
 
 <p>It should be pretty clear how this plays out just by looking at it. When <a
 href="KO.html">KO</a> runs a testcase it run each <tt>test</tt>, which
-consists of trying each <tt>ok</tt> assertion. These are run thru the test
-procedure, if the result of which evaluates as true then the test passes.</p>
+consists of trying each <tt>ok</tt> assertion. These are run through the
+test procedure, if the result of which evaluates as true then the test
+passes.</p>
 
 <p><a href="KO.html">KO</a>! handles assertions in a rather unique way. As
 shown only truth of the test can be asserted. But since equality (==) is by
 far the most common means of test validation, <a href="KO.html">KO</a>!
-offers an alternative notation for specifiying the `ok` expectation using
+offers an alternative notation for specifying the `ok` expectation using
 `=&gt;`. For example, the above example can also be written as follows.</p>
 
 <pre>KO.case &quot;String Indexing&quot; do
@@ -855,10 +856,10 @@ out mocks, setup fixtures, etc. Then use <tt>use</tt> to use them in your
 testcases.</p>
 
 <p>Of course, generally you won’t define the contexts in the same file with
-the testcase. You will put those in separate files in a context drectory
+the testcase. You will put those in separate files in a context directory
 where it will be loaded up automatically ready for, yep, use.</p>
 
-<p>Btw, if you are a Cuke, you can use captialized KO’s method names.</p>
+<p>BTW, if you are a Cuke, you can use capitalized KO’s method names.</p>
 
 <h3>Running Those Suckers</h3>
 
