@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>File: README.rdoc [KO]</title>
+
+	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+</head>
+
+<body class="file">
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+				
+					<li class="file"><a href="./LICENSE.html">LICENSE</a></li>
+				
+					<li class="file"><a href="./NOTICE.html">NOTICE</a></li>
+				
+					<li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./KO.html">KO</a></li>
+				
+					<li><a href="./KO/Behavior.html">KO::Behavior</a></li>
+				
+					<li><a href="./KO/CLI.html">KO::CLI</a></li>
+				
+					<li><a href="./KO/Context.html">KO::Context</a></li>
+				
+					<li><a href="./KO/Context/Parser.html">KO::Context::Parser</a></li>
+				
+					<li><a href="./KO/Feature.html">KO::Feature</a></li>
+				
+					<li><a href="./KO/Feature/Parser.html">KO::Feature::Parser</a></li>
+				
+					<li><a href="./KO/Reporters.html">KO::Reporters</a></li>
+				
+					<li><a href="./KO/Reporters/Abstract.html">KO::Reporters::Abstract</a></li>
+				
+					<li><a href="./KO/Reporters/Dotprogress.html">KO::Reporters::Dotprogress</a></li>
+				
+					<li><a href="./KO/Reporters/Verbose.html">KO::Reporters::Verbose</a></li>
+				
+					<li><a href="./KO/Scenario.html">KO::Scenario</a></li>
+				
+					<li><a href="./KO/Scope.html">KO::Scope</a></li>
+				
+					<li><a href="./KO/Suite.html">KO::Suite</a></li>
+				
+					<li><a href="./KO/Suite/Evaluator.html">KO::Suite::Evaluator</a></li>
+				
+					<li><a href="./KO/Suite/Parser.html">KO::Suite::Parser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1><a href="KO.html">KO</a>!</h1>
+<p>
+This is KDD &#8212;Kickass Driven Development!
+</p>
+<p>
+Knockout is a Ruby test framework that reads like a developer thinks. More
+specifically, <a href="KO.html">KO</a>! is a behavior-driven design system
+created to  breakdown the systems analysis proccess into clear and obvious
+divisions. <a href="KO.html">KO</a> &#8220;tests&#8221; are divided-up into
+<b>contexts</b>, <b>features</b>, <b>scenarios</b>,  and <b>assertions</b>.
+</p>
+<p>
+Contexts are used to setup and teardown reusable fixtures. They can be used
+as the feature or scenario level.
+</p>
+<p>
+Features delineate the overall requirement that a set of scenarios are
+designed to demonstrate.
+</p>
+<p>
+Scenarios compose the descriptive &#8220;proof&#8221; of a feature, via
+assertions.
+</p>
+<p>
+Rather than define yet another assertions system <a href="KO.html">KO</a>!
+uses the excellent <a href="http://proutils.github.com/ae">AE</a>
+framework.
+</p>
+<p>
+<a href="KO.html">KO</a>! was inspired in part by the void left behind by
+the discontinuation of Shoulda. It seemed like an opportune time to give
+Ruby an elegant, modern  and light-weight BDD framework to serve as an
+alternative to the monolithic RSpec.
+</p>
+<h2>SYNOPSIS</h2>
+<h3>Writing Specs</h3>
+<p>
+<a href="KO.html">KO</a>! specifications... well here&#8217;s an fracking
+example.
+</p>
+<pre>
+  context &quot;String Instance&quot; do
+    before :all do
+      @string = &quot;Hello World&quot;
+    end
+  end
+
+  feature &quot;String Indexing&quot; do
+    use &quot;String Instance&quot;
+
+    scenario &quot;index by substring&quot; do
+      @string.index('H').assert == 0
+      @string.index('l').assert == 2
+      @string.index('ld').assert == 9
+    end
+
+    scenario &quot;index by regular expression&quot; do
+      @string.index(/H/).assert == 0
+      @string.index(/l/).assert == 2
+      @string.index(/o\ /).assert == 4
+    end
+  end
+</pre>
+<p>
+Get it? You create reusable contexts &#8212;they can load libraries, build
+out mocks, setup fixtures, etc. Then use use them to test out feature
+scenarios.
+</p>
+<p>
+Of course, generally you won&#8217;t define the contexts in the same file
+with the features. You will put those in separate files in the context
+drectory where it will be loaded up automatically ready to be used.
+</p>
+<p>
+Oh, if you are a Cuke you can use captialized method names instead.
+</p>
+<h3>Running Those Suckers</h3>
+<p>
+Running <a href="KO.html">KO</a>! scripts is like this.
+</p>
+<pre>
+  $ ko -Ilib path/to/requirements/*.rb
+</pre>
+<h2>STATUS</h2>
+<p>
+<a href="KO.html">KO</a>! is pretty new, but it&#8217;s also pretty
+straight-forward. It still needs some work, for instance, on they way in
+which context are injected into  features and/or sceanrios, but it works
+well enough as it is for general wide-spread use.
+</p>
+<h2>LEGAL</h2>
+<p>
+Copyright &#169; 2010 Thomas Sawyer, Apache License 2.0
+</p>
+
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>
+

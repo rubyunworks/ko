@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: KO::Reporters::Verbose</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../lib/ko/reporters/verbose_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/ko/reporters/verbose.rb">lib/ko/reporters/verbose.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="Abstract.html">KO::Reporters::Abstract</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-err">#err</a></li>
+					
+					<li><a href="#method-i-fail">#fail</a></li>
+					
+					<li><a href="#method-i-finish">#finish</a></li>
+					
+					<li><a href="#method-i-pass">#pass</a></li>
+					
+					<li><a href="#method-i-start">#start</a></li>
+					
+					<li><a href="#method-i-start_feature">#start_feature</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+				
+					<li class="file"><a href="../../LICENSE.html">LICENSE</a></li>
+				
+					<li class="file"><a href="../../NOTICE.html">NOTICE</a></li>
+				
+					<li class="file"><a href="../../README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../KO.html">KO</a></li>
+				
+					<li><a href="../../KO/Behavior.html">KO::Behavior</a></li>
+				
+					<li><a href="../../KO/CLI.html">KO::CLI</a></li>
+				
+					<li><a href="../../KO/Context.html">KO::Context</a></li>
+				
+					<li><a href="../../KO/Context/Parser.html">KO::Context::Parser</a></li>
+				
+					<li><a href="../../KO/Feature.html">KO::Feature</a></li>
+				
+					<li><a href="../../KO/Feature/Parser.html">KO::Feature::Parser</a></li>
+				
+					<li><a href="../../KO/Reporters.html">KO::Reporters</a></li>
+				
+					<li><a href="../../KO/Reporters/Abstract.html">KO::Reporters::Abstract</a></li>
+				
+					<li><a href="../../KO/Reporters/Dotprogress.html">KO::Reporters::Dotprogress</a></li>
+				
+					<li><a href="../../KO/Reporters/Verbose.html">KO::Reporters::Verbose</a></li>
+				
+					<li><a href="../../KO/Scenario.html">KO::Scenario</a></li>
+				
+					<li><a href="../../KO/Scope.html">KO::Scope</a></li>
+				
+					<li><a href="../../KO/Suite.html">KO::Suite</a></li>
+				
+					<li><a href="../../KO/Suite/Evaluator.html">KO::Suite::Evaluator</a></li>
+				
+					<li><a href="../../KO/Suite/Parser.html">KO::Suite::Parser</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">KO::Reporters::Verbose</h1>
+
+		<div id="description">
+			<p>
+<a href="Verbose.html">Verbose</a> reporter.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="err-method" class="method-detail ">
+				<a name="method-i-err"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">err</span><span
+						class="method-args">(scenario, exception)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="err-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/ko/reporters/verbose.rb, line 34</span>
+34:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">err</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">exception</span>)
+35:       <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">exception</span>)
+36:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;* &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">scenario</span>.<span class="ruby-identifier">label</span>.<span class="ruby-identifier">ansi</span>(<span class="ruby-value">:yellow</span>)
+37:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span>
+38:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;    #{exception.class}: #{exception.message}&quot;</span>
+39:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;    &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">clean_backtrace</span>(<span class="ruby-identifier">exception</span>.<span class="ruby-identifier">backtrace</span>)[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">2</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;    \n&quot;</span>)
+40:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span>
+41:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">code_snippet</span>(<span class="ruby-identifier">exception</span>)
+42:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span>
+43:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="fail-method" class="method-detail ">
+				<a name="method-i-fail"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">fail</span><span
+						class="method-args">(scenario, exception)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="fail-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/ko/reporters/verbose.rb, line 23</span>
+23:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fail</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">exception</span>)
+24:       <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">scenario</span>, <span class="ruby-identifier">exception</span>)
+25:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;* &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">scenario</span>.<span class="ruby-identifier">label</span>.<span class="ruby-identifier">ansi</span>(<span class="ruby-value">:red</span>)
+26:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span>
+27:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;    #{exception}&quot;</span>
+28:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;    &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">clean_backtrace</span>(<span class="ruby-identifier">exception</span>.<span class="ruby-identifier">backtrace</span>)[<span class="ruby-value">0</span>]
+29:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span>
+30:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">code_snippet</span>(<span class="ruby-identifier">exception</span>)
+31:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span>
+32:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="finish-method" class="method-detail ">
+				<a name="method-i-finish"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">finish</span><span
+						class="method-args">(suite)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="finish-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/ko/reporters/verbose.rb, line 46</span>
+46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">finish</span>(<span class="ruby-identifier">suite</span>)
+47:       <span class="ruby-comment cmt">#$stderr.puts</span>
+48:       <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">print</span> <span class="ruby-identifier">tally</span>
+49:       <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot; [%0.4fs] &quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@start_time</span>]
+50:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="pass-method" class="method-detail ">
+				<a name="method-i-pass"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">pass</span><span
+						class="method-args">(scenario)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="pass-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/ko/reporters/verbose.rb, line 18</span>
+18:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">pass</span>(<span class="ruby-identifier">scenario</span>)
+19:       <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">scenario</span>)
+20:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;* &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">scenario</span>.<span class="ruby-identifier">label</span>.<span class="ruby-identifier">ansi</span>(<span class="ruby-value">:green</span>)
+21:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="start-method" class="method-detail ">
+				<a name="method-i-start"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">start</span><span
+						class="method-args">(suite)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="start-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/ko/reporters/verbose.rb, line 9</span>
+ 9:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start</span>(<span class="ruby-identifier">suite</span>)
+10:       <span class="ruby-ivar">@start_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+11:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="start-feature-method" class="method-detail ">
+				<a name="method-i-start_feature"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">start_feature</span><span
+						class="method-args">(feature)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="start-feature-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/ko/reporters/verbose.rb, line 14</span>
+14:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start_feature</span>(<span class="ruby-identifier">feature</span>)
+15:       <span class="ruby-identifier">$stdout</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">feature</span>.<span class="ruby-identifier">label</span>.<span class="ruby-identifier">ansi</span>(<span class="ruby-value">:bold</span>)
+16:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

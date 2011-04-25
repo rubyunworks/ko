@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+  <TITLE>KO!</TITLE>
+  <link REL="SHORTCUT ICON" HREF="assets/images/logo1.jpg"/>
+
+  <link href="assets/styles/reset.css"  rel="stylesheet" type="text/css" />
+  <link href="assets/styles/site.css"  rel="stylesheet" type="text/css" />
+</HEAD>
+<BODY>
+
+<div id="backdrop">
+  K O !
+</div>
+
+<div class="page">
+
+  <div class="header">
+    <div class="title">
+      <h1><b class="expressive">K</b><b class="expressive">O</b>!</h1>
+    </div>
+
+    <p class="quote">
+    "Boxing is the ultimate challenge.<br/>
+     There's nothing that can compare<br/>
+     to testing yourself the way you do<br/>
+     every time you step in the ring."<br/>
+     <cite>--Sugar Ray Leonard</cite></p>
+
+    <p class="quote">"s/Boxing/Debugging/"<br/>
+    <cite>--Programmer</cite></p>
+  </div>
+
+  <div class="nav oldtimes">
+    <a href="http://wiki.github.com/rubyworks/ko">WIKI</a> <br/>
+    <a href="doc/qed/index.html">QED</a> <br/>
+    <a href="doc/api/index.html">API</a> <br/>
+    <a href="http://groups.google.com/group/rubyworks-mailinglist">MAIL</a> <br/>
+    <a href="http://github.com/rubyworks/ko">CODE</a>
+  </div>
+  
+  <div class="main oldtimes">
+    <p style="padding-top: 15px; padding-bottom: 22px;">
+    KO! (aka Knockout) is a next-generation unit testing framework for the Ruby
+    programming language. What makes KO! so modern?</p>
+
+    <ul>
+      <li>Clear and concise syntax.</li>
+      <li>No assertions framework required!</li>
+      <li>Rapidly test multiple parameter sets on a test scenario.</li>
+      <li>Reusable contexts (before, after, etc).</li>
+      <li>Tests are run from temporary directory.</li>
+      <li>Easily stage test fixture files.</li>
+      <li>Core extensions are standardized around Ruby Facets.</li>
+      <li>And yes, it eats it's own dog food.</li>
+    </ul>
+
+    <br/>
+
+    <p>KO reads like a developer thinks.  More specifically, KO! breaks down
+    the systems analysis proccess into clear and obvious divisions. KO "specifications"
+    are divided-up into <i>test cases</i>, <i>contexts</i>, <i>concerns</i> 
+    and <i>test assertions</i>.
+
+    <ul>
+    <li><i>Test Cases</i> delineate the overall requirement that is to be demonstrated.</li>
+    <li><i>Contexts</i> are used to setup and teardown test fixtures.</li>
+    <li><i>Concerns</i> break-up testcases into separate areas of concern.</li>
+    <li><i>Test Assertions</i> compose the proof of a testcase as a set of assertions.</li>
+    </ul>
+
+    <br/>
+
+    <p>Here is simple example.</p>
+
+    <pre>
+    KO.case "example" do
+
+      test "equality" do |a,b|
+        a == b
+      end
+
+      ok 1, 1.0
+      no 1, 2.0
+
+    end
+    </pre>
+
+    <p>KO! was inspired in part by the void left behind by the discontinuation of
+    Shoulda as a test framework. It seemed like an opportune time to give Ruby an
+    elegant, modern and light-weight test framework to serve as an alternative to
+    the monolithic RSpec.</p>
+
+    <p>Future versions of KO! may also support Lemon's unit test coverage system.</p>
+
+    <!-- <p>Put on the Red Boxing Gloves!</p> -->
+  </div>
+
+  <div class="oldtimes">
+    <p class="quote">"There is no doubt in my mind that the closest physical equivalent to debugging code
+    is the sport of boxing. It's an art of fancy footwork, mind-numbing perseverance,
+    and after 10 rounds ... you still need a punch line."</p>
+  </div>
+
+  <div class="footer">
+    <script type="text/javascript"><!--
+    google_ad_client = "pub-1126154564663472";
+    /* PROUTILS 09-10-14 728x90 */
+    google_ad_slot = "0711173189";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
+  </div>
+
+  <div class="copyright">
+    Copyright (c) 2010 Thomas Sawyer &middot; Apache 2.0 License
+  <div>
+
+</BODY>
+</HTML>
+
