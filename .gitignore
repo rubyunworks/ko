@@ -1,4 +1,5 @@
 .cache
+.ri
 log
 doc
 pkg

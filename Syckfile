@@ -24,6 +24,7 @@ rdoc:
   service : rdoc
   format  : redfish
   exclude : [Syckfile, Profile, Version, Manifest.txt]
+  output  : site/doc/api
 
 ridoc:
   service: RIDoc

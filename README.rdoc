@@ -4,8 +4,8 @@ This is KDD --Kickass Driven Development!
 
 Knockout is a Ruby test framework that reads like a developer thinks.
 More specifically, KO! is a test system created to breakdown the systems
-analysis proccess into clear and obvious divisions. KO "specifications"
-are divided-up into *testcases*, *contexts*, *concnerns*, *tests*.
+analysis process into clear and obvious divisions. KO "specifications"
+are divided-up into *testcases*, *contexts*, *concerns*, *tests*.
 
 * *Testcases* delineate the overall requirement that is to be demonstrated.
 
@@ -51,12 +51,12 @@ KO! specifications... well here's an fracking example.
 
 It should be pretty clear how this plays out just by looking at it. When KO
 runs a testcase it run each +test+, which consists of trying each +ok+
-assertion. These are run thru the test procedure, if the result of which
+assertion. These are run through the test procedure, if the result of which
 evaluates as true then the test passes.
 
 KO! handles assertions in a rather unique way. As shown only truth of the
 test can be asserted. But since equality (==) is by far the most common means
-of test validation, KO! offers an alternative notation for specifiying the `ok`
+of test validation, KO! offers an alternative notation for specifying the `ok`
 expectation using `=>`. For example, the above example can also be written
 as follows.
 
@@ -136,9 +136,9 @@ setup fixtures, etc. Then use +use+ to use them in your testcases.
 
 Of course, generally you won't define the contexts in the same file
 with the testcase. You will put those in separate files in a context
-drectory where it will be loaded up automatically ready for, yep, use.
+directory where it will be loaded up automatically ready for, yep, use.
 
-Btw, if you are a Cuke, you can use captialized KO's method names.
+BTW, if you are a Cuke, you can use capitalized KO's method names.
 
 === Running Those Suckers
 
