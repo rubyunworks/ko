@@ -15,9 +15,6 @@ module KO
     end
 
     # Copy staging files into present working directory.
-    #--
-    # TODO: Rename to `stage_fixture`?
-    #++
     def stage_fixture(source_dir)
       ## a precaution against any unforseen bug
       raise "bad test directory -- #{Dir.pwd}" unless /tmp\/ko/ =~ Dir.pwd

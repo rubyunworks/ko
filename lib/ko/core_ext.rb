@@ -1,6 +1,3 @@
-require 'facets/filetest/safe'
-require 'facets/fileutils/ln_r'
-
 class Exception
 
   #
@@ -16,3 +13,4 @@ class Exception
   end
 
 end
+

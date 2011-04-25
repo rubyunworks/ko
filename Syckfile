@@ -22,13 +22,14 @@ stats:
 
 rdoc:
   service : rdoc
-  template: darkfish
-  exclude : [Syckfile, PACKAGE, PROFILE]
+  format  : redfish
+  exclude : [Syckfile, Profile, Version, Manifest.txt]
 
 ridoc:
   service: RIDoc
   include: ~
   exclude: ~
+  output : .ri
   active : true
 
 testrb:
@@ -42,10 +43,6 @@ testrb:
 
 grancher:
   service: Grancher
-  sitemap:
-    - site
-    - [doc/rdoc, rdoc]
-    - [doc/qedoc, qedoc]
   active: true
 
 gemcutter:

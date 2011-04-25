@@ -1,6 +1,6 @@
 KO.case "test by equality" do
 
-  test do |obj|
+  test "pass-thru" do |obj|
     obj
   end
 
