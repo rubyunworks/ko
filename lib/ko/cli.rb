@@ -83,15 +83,15 @@ module KO
           @format = 'dot'
         end
 
-        opt.on('--format', '-f TYPE', 'pipe output thru this koax format') do |type|
-          @format = type
-        end
+        #opt.on('--format', '-f TYPE', 'pipe output thru this koax format') do |type|
+        #  @format = type
+        #end
 
         opt.separator ""
 
-        opt.on('--verbose', '-v', 'output with verbose format') do |type|
-          @format = 'verbose'
-        end
+        #opt.on('--verbose', '-v', 'output with verbose format') do |type|
+        #  @format = 'verbose'
+        #end
 
         opt.on('-I PATH', 'add directory to loadpath') do |path|
           $LOAD_PATH.unshift(path)

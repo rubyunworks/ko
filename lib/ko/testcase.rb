@@ -1,5 +1,6 @@
 require 'ko/formats'
 require 'ko/world'
+require 'ko/core_ext'
 
 require 'fileutils'
 require 'tmpdir'
@@ -17,6 +18,7 @@ module KO
   # TestCase
   class TestCase
 
+    #
     include World
 
     # TestCase DSL
@@ -24,7 +26,7 @@ module KO
 
       # Get or set a description for the test case.
       def desc(description=nil)
-        @_desc = description if description
+        @_desc = description.to_s if description
         @_desc
       end
 
@@ -48,6 +50,15 @@ module KO
         #remove_method(:valid) rescue nil #if method_defined?(:valid)
         #define_method(:valid, &block)
       end
+
+      # TODO Name context or concern?
+      def concern(desc=nil, &block)
+        cls = Class.new(TestCase, &block)
+        cls.desc(desc) if desc
+        cls
+      end
+
+      alias_method :unit, :concern
 
       # Define a test scenario.
       def test(label=nil, &block)
@@ -105,7 +116,8 @@ module KO
             raise Failure.new("#{test} failed", trace)
           end
           teardown
-          trace  # return caller ?
+
+          return trace # return caller ?
         end
       end
 
@@ -151,23 +163,49 @@ module KO
     #  expect == result
     #end
 
+    # TODO: make staging methods a separate extension
+
     # Copy fixture files into temporary working directory.
-    def stage_fixture(source_dir)
+    def stage_copy(source_dir)
       test_dir = File.dirname(caller[0])
-      ## a precaution against any unforseen bug
-      raise "bad test directory -- #{Dir.pwd}" unless /#{Dir.tmpdir}/ =~ Dir.pwd
-      ## clear out directory if it has contents
-      Dir['*'].each do |path|
-        FileUtils.rm_r(path)
-      end
+      stage_clear
       srcdir = File.join(test_dir, source_dir)
       Dir[File.join(srcdir, '*')].each do |path|
         FileUtils.cp_r(path, '.')
       end
     end
 
+    # Clear out directory if it has contents.
+    def stage_clear
+      stage_safe!
+      Dir['*'].each do |path|
+        FileUtils.rm_r(path)
+      end
+    end
+
+    # Create a fake set of file paths in the temporary working directory.
+    def stage_fake(*paths)
+      stage_safe!
+      paths.flatten.each do |path|
+        path = File.join(Dir.pwd, path)
+        if /\/$/ =~ path
+          FileUtils.mkdir_p(path) unless File.directory?(dir)
+        else
+          dir = File.dirname(path)
+          FileUtils.mkdir_p(dir) unless File.directory?(dir)
+          File.open(path,'w'){ |f| f << Time.now.to_s }
+        end
+      end
+    end
+
+    #
+    def stage_safe!
+      raise "unsafe test stage directory -- #{Dir.pwd}" unless /#{Dir.tmpdir}/ =~ Dir.pwd
+    end
+
     # Access to FileUtils. Using this method rather than FileUtils itself
     # allows ko command-line options to select FileUtils options.
+    # TODO: deprecate ?
     def fileutils
       if $DRYRUN
         FileUtils::DryRun
@@ -191,19 +229,33 @@ end
 
 module KO
 
+  #
   def self.run(format=nil)
     runner = Runner.new(:format=>format)
     runner.run
   end
 
+  #
   class Runner
 
+    # New Runner class.
+    #
+    # options - hash table of Runner settings
+    # :format - output format
+    # :radius - number of source lines to provide
+    #
     def initialize(options={})
-      format = KO.const_get((options[:format]||'TAP').to_s.upcase)
-      extend(format)
+      fmt = (options[:format] || 'TAP').to_s.upcase
+      if KO.const_defined?(fmt)
+        format = KO.const_get(fmt)
+        extend(format)
+      else
+        abort "Unknown format `#{fmt}`."
+      end
+
       @source = {}
-      @pwd = Dir.pwd
-      @radius = 3
+      @pwd    = Dir.pwd
+      @radius = options[:radius] || 3
     end
 
     def run
@@ -229,9 +281,9 @@ module KO
         end
       end
 
-      tmpdir = tmpdir()
-      FileUtils.mkdir_p(tmpdir)
-      Dir.chdir do
+      #tmpdir = tmpdir()
+      #FileUtils.mkdir_p(tmpdir)
+      #Dir.chdir do
         tally = Hash.new{|h,k| h[k]=0 }
         report(:type=>'header', :range=>"1..#{count}", :count=>count)
         index = 0
@@ -256,7 +308,7 @@ module KO
               file, line = source_location(error)
               message = "#{error.class}: #{error.to_s}"
               tally['fail'] += 1
-            rescue StandardError => error
+            rescue Exception => error
               status = 'error'
               file, line = source_location(error)
               message = "#{error.class}: #{error.to_s}"
@@ -284,11 +336,12 @@ module KO
             report(entry)
           end
         end
-        report(:type=>'footer', :range=>"1..#{count}", :count=>count, :tally=>tally)
-      end
+      #end
+      report(:type=>'footer', :range=>"1..#{count}", :count=>count, :tally=>tally)
     end
 
     fs = Regexp.escape(File::SEPARATOR)
+
     INTERNALS = /(lib|bin)#{fs}ko/
 
     # Clean the backtrace of any reference to ko/ paths and code.
@@ -331,7 +384,7 @@ module KO
 
       radius = @radius # number of surrounding lines to show
       region = [source_line - radius, 1].max ..
-               [source_line + radius, source.length].min
+               [source_line + (radius + 2), source.length].min
 
       # ensure proper alignment by zero-padding line numbers
       #format = " %6s %0#{region.last.to_s.length}d %s"

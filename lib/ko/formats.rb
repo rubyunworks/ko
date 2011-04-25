@@ -11,7 +11,7 @@ module KO
     def report(entry)
       entry = entry.rekey(&:to_s)
       puts entry.to_yaml
-      puts '...' if entry[:type] = 'footer'
+      puts '...' if entry['type'] == 'footer'
       $stdout.flush
     end
   end
@@ -83,14 +83,23 @@ module KO
         end
       when 'footer'
         puts
-        @_rec.each do |entry|
+        @_rec.each do |e|
           puts
-          puts entry[:status].upcase + ' ' + entry[:label]
-          puts entry[:message]
+          puts e[:status].upcase + ' ' + e[:label]
+          puts e[:message]
+          e[:snippet].sort.each do |(l, s)|
+            if l.to_i == e[:line]
+              puts " > %5d: %s" % [l.to_i,s]
+            else
+              puts " %7d: %s" % [l.to_i,s]
+            end
+          end
         end
         puts
         puts "Finished in #{Time.now - @_time} seconds."
-        puts "#{entry[:count]} tests"
+        puts
+        sums = %w{pass fail error pending}.map{ |w| entry[:tally][w] }
+        puts "#{entry[:count]} tests: %s pass, %s fail, %s err, %s pending" % sums
       end
     end
   end
