@@ -1,214 +1,714 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-	<title>File: README.rdoc [KO]</title>
+  <title>File: README.rdoc ["KO"]</title>
 
-	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+  <link rel="SHORTCUT ICON" href="./assets/icon/file.png">
 
-	<script src="./js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+  <link type="text/css" rel="stylesheet" href="./assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="./assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="./assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
 </head>
 
-<body class="file">
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
-        <h3 class="section-header">
-          <a href="./index.html">Home</a>
-          <a href="./index.html#classes">Classes</a>
-          <a href="./index.html#methods">Methods</a>
-        </h3>
-			</div>
-		</div>
+<body class="file"> <!-- .file-popup is no more -->
+<div id="main">
 
-		<div id="project-metadata">
-			
-			
-			<div id="fileindex-section" class="section project-section">
-				<h3 class="section-header">Files</h3>
-				<ul>
-				
-					<li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
-				
-					<li class="file"><a href="./LICENSE.html">LICENSE</a></li>
-				
-					<li class="file"><a href="./NOTICE.html">NOTICE</a></li>
-				
-					<li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
-				
-				</ul>
-			</div>
-			
+  <div class="head">
+    <h1>
+      <img src="./assets/icon/file.png" align="absmiddle">&nbsp;
+      <a href="./index.html">&quot;KO&quot;</a>&nbsp;
+      <a href="">README.rdoc</a>
+    </h1>
+  </div>
 
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="./images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
+  <div id="metadata">
+    <div id="file-stats-section" class="section">
+      <h3 class="section-header">File Stats</h3>
+      <dl>
+        <dt class="modified-date">Last Modified</dt>
+        <dd class="modified-date">Thu Dec 23 12:29:41 -0500 2010</dd>
 
-				<ul class="link-list">
-				
-					<li><a href="./KO.html">KO</a></li>
-				
-					<li><a href="./KO/Behavior.html">KO::Behavior</a></li>
-				
-					<li><a href="./KO/CLI.html">KO::CLI</a></li>
-				
-					<li><a href="./KO/Context.html">KO::Context</a></li>
-				
-					<li><a href="./KO/Context/Parser.html">KO::Context::Parser</a></li>
-				
-					<li><a href="./KO/Feature.html">KO::Feature</a></li>
-				
-					<li><a href="./KO/Feature/Parser.html">KO::Feature::Parser</a></li>
-				
-					<li><a href="./KO/Reporters.html">KO::Reporters</a></li>
-				
-					<li><a href="./KO/Reporters/Abstract.html">KO::Reporters::Abstract</a></li>
-				
-					<li><a href="./KO/Reporters/Dotprogress.html">KO::Reporters::Dotprogress</a></li>
-				
-					<li><a href="./KO/Reporters/Verbose.html">KO::Reporters::Verbose</a></li>
-				
-					<li><a href="./KO/Scenario.html">KO::Scenario</a></li>
-				
-					<li><a href="./KO/Scope.html">KO::Scope</a></li>
-				
-					<li><a href="./KO/Suite.html">KO::Suite</a></li>
-				
-					<li><a href="./KO/Suite/Evaluator.html">KO::Suite::Evaluator</a></li>
-				
-					<li><a href="./KO/Suite/Parser.html">KO::Suite::Parser</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
+        
 
-			
-		</div>
-	</div>
+        
+      </dl>
+    </div>
 
-	<div id="documentation">
-		<h1><a href="KO.html">KO</a>!</h1>
-<p>
-This is KDD &#8212;Kickass Driven Development!
-</p>
-<p>
-Knockout is a Ruby test framework that reads like a developer thinks. More
-specifically, <a href="KO.html">KO</a>! is a behavior-driven design system
-created to  breakdown the systems analysis proccess into clear and obvious
-divisions. <a href="KO.html">KO</a> &#8220;tests&#8221; are divided-up into
-<b>contexts</b>, <b>features</b>, <b>scenarios</b>,  and <b>assertions</b>.
-</p>
-<p>
-Contexts are used to setup and teardown reusable fixtures. They can be used
-as the feature or scenario level.
-</p>
-<p>
-Features delineate the overall requirement that a set of scenarios are
-designed to demonstrate.
-</p>
-<p>
-Scenarios compose the descriptive &#8220;proof&#8221; of a feature, via
-assertions.
-</p>
-<p>
-Rather than define yet another assertions system <a href="KO.html">KO</a>!
-uses the excellent <a href="http://proutils.github.com/ae">AE</a>
-framework.
-</p>
-<p>
-<a href="KO.html">KO</a>! was inspired in part by the void left behind by
-the discontinuation of Shoulda. It seemed like an opportune time to give
-Ruby an elegant, modern  and light-weight BDD framework to serve as an
-alternative to the monolithic RSpec.
-</p>
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="./History_rdoc.html">History.rdoc</a></li>
+        
+          <li class="file"><a href="./License_txt.html">License.txt</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="./Notice_rdoc.html">Notice.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="./assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li class="module"><a href="./KO.html">KO</a></li>
+        
+          <li class="class"><a href="./KO/BadTempDirectory.html">KO::BadTempDirectory</a></li>
+        
+          <li class="class"><a href="./KO/CLI.html">KO::CLI</a></li>
+        
+          <li class="class"><a href="./KO/Context.html">KO::Context</a></li>
+        
+          <li class="class"><a href="./KO/Context/Parser.html">KO::Context::Parser</a></li>
+        
+          <li class="module"><a href="./KO/DOT.html">KO::DOT</a></li>
+        
+          <li class="class"><a href="./KO/Runner.html">KO::Runner</a></li>
+        
+          <li class="class"><a href="./KO/Stage.html">KO::Stage</a></li>
+        
+          <li class="module"><a href="./KO/TAP.html">KO::TAP</a></li>
+        
+          <li class="module"><a href="./KO/TAP_J.html">KO::TAP_J</a></li>
+        
+          <li class="module"><a href="./KO/TAP_Y.html">KO::TAP_Y</a></li>
+        
+          <li class="class"><a href="./KO/TestCase.html">KO::TestCase</a></li>
+        
+          <li class="module"><a href="./KO/TestCase/DSL.html">KO::TestCase::DSL</a></li>
+        
+          <li class="module"><a href="./KO/World.html">KO::World</a></li>
+        
+          <li class="class"><a href="./Exception.html">Exception</a></li>
+        
+          <li class="class"><a href="./Failure.html">Failure</a></li>
+        
+          <li class="module"><a href="./Kernel.html">Kernel</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      <!-- METHODS -->
+      <div id="methodindex-section" class="section project-section">
+        <h3 class="section-header">Method Index</h3>
+        <ul>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO</span>
+              <a href="KO.html#method-c-case">::case</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO</span>
+              <a href="KO.html#method-c-const_missing">::const_missing</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO</span>
+              <a href="KO.html#method-c-context">::context</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO</span>
+              <a href="KO.html#method-c-contexts">::contexts</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO::Stage</span>
+              <a href="KO/Stage.html#method-c-copy">::copy</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO::TAP_Y</span>
+              <a href="KO/TAP_Y.html#method-c-extended">::extended</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO::TAP_J</span>
+              <a href="KO/TAP_J.html#method-c-extended">::extended</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO</span>
+              <a href="KO.html#method-c-metadata">::metadata</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO::CLI</span>
+              <a href="KO/CLI.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO::Context::Parser</span>
+              <a href="KO/Context/Parser.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO::Context</span>
+              <a href="KO/Context.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">Failure</span>
+              <a href="Failure.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO::Stage</span>
+              <a href="KO/Stage.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO::Runner</span>
+              <a href="KO/Runner.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">Exception</span>
+              <a href="Exception.html#method-c-raised-3F">::raised?</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO::CLI</span>
+              <a href="KO/CLI.html#method-c-run">::run</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">KO</span>
+              <a href="KO.html#method-c-run">::run</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context::Parser</span>
+              <a href="KO/Context/Parser.html#method-i-After">#After</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context::Parser</span>
+              <a href="KO/Context/Parser.html#method-i-Before">#Before</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context::Parser</span>
+              <a href="KO/Context/Parser.html#method-i-Setup">#Setup</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context::Parser</span>
+              <a href="KO/Context/Parser.html#method-i-Teardown">#Teardown</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context</span>
+              <a href="KO/Context.html#method-i-5B-5D">#[]</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context</span>
+              <a href="KO/Context.html#method-i-5B-5D-3D">#[]=</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context</span>
+              <a href="KO/Context.html#method-i-after">#after</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context::Parser</span>
+              <a href="KO/Context/Parser.html#method-i-after">#after</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context::Parser</span>
+              <a href="KO/Context/Parser.html#method-i-before">#before</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context</span>
+              <a href="KO/Context.html#method-i-before">#before</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Stage</span>
+              <a href="KO/Stage.html#method-i-clear">#clear</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase::DSL</span>
+              <a href="KO/TestCase/DSL.html#method-i-concern">#concern</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Stage</span>
+              <a href="KO/Stage.html#method-i-copy">#copy</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase</span>
+              <a href="KO/TestCase.html#method-i-desc">#desc</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase::DSL</span>
+              <a href="KO/TestCase/DSL.html#method-i-desc">#desc</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context</span>
+              <a href="KO/Context.html#method-i-eval">#eval</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::CLI</span>
+              <a href="KO/CLI.html#method-i-execute">#execute</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase</span>
+              <a href="KO/TestCase.html#method-i-fileutils">#fileutils</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context</span>
+              <a href="KO/Context.html#method-i-finish">#finish</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase</span>
+              <a href="KO/TestCase.html#method-i-label">#label</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase::DSL</span>
+              <a href="KO/TestCase/DSL.html#method-i-no">#no</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase::DSL</span>
+              <a href="KO/TestCase/DSL.html#method-i-ok">#ok</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::CLI</span>
+              <a href="KO/CLI.html#method-i-parse">#parse</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context</span>
+              <a href="KO/Context.html#method-i-parse">#parse</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::CLI</span>
+              <a href="KO/CLI.html#method-i-parser">#parser</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Kernel</span>
+              <a href="Kernel.html#method-i-pry">#pry</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TAP_Y</span>
+              <a href="KO/TAP_Y.html#method-i-report">#report</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TAP_J</span>
+              <a href="KO/TAP_J.html#method-i-report">#report</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TAP</span>
+              <a href="KO/TAP.html#method-i-report">#report</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::DOT</span>
+              <a href="KO/DOT.html#method-i-report">#report</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::CLI</span>
+              <a href="KO/CLI.html#method-i-run">#run</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Runner</span>
+              <a href="KO/Runner.html#method-i-run">#run</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context::Parser</span>
+              <a href="KO/Context/Parser.html#method-i-setup">#setup</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase::DSL</span>
+              <a href="KO/TestCase/DSL.html#method-i-setup">#setup</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase</span>
+              <a href="KO/TestCase.html#method-i-setup">#setup</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase</span>
+              <a href="KO/TestCase.html#method-i-stage_clear">#stage_clear</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase</span>
+              <a href="KO/TestCase.html#method-i-stage_copy">#stage_copy</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase</span>
+              <a href="KO/TestCase.html#method-i-stage_fake">#stage_fake</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase</span>
+              <a href="KO/TestCase.html#method-i-stage_safe-21">#stage_safe!</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context</span>
+              <a href="KO/Context.html#method-i-start">#start</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase::DSL</span>
+              <a href="KO/TestCase/DSL.html#method-i-teardown">#teardown</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase</span>
+              <a href="KO/TestCase.html#method-i-teardown">#teardown</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::Context::Parser</span>
+              <a href="KO/Context/Parser.html#method-i-teardown">#teardown</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase::DSL</span>
+              <a href="KO/TestCase/DSL.html#method-i-test">#test</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase::DSL</span>
+              <a href="KO/TestCase/DSL.html#method-i-unit">#unit</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">KO::TestCase::DSL</span>
+              <a href="KO/TestCase/DSL.html#method-i-valid">#valid</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
+      <br/><br/>
+    </div>
+  </div>
+
+  <!-- .file-popup was wrapped:
+    <div id="documentation">
+      
+      <div class="description">
+          ... file.description ...
+      </div>
+      
+    </div>
+   So maybe that css is no longer needed.
+   -->
+
+  <div id="documentation">
+    
+<h1><a href="KO.html">KO</a>!</h1>
+
+<p>This is KDD –Kickass Driven Development!</p>
+
+<p>Knockout is a Ruby test framework that reads like a developer thinks. More
+specifically, <a href="KO.html">KO</a>! is a test system created to
+breakdown the systems analysis proccess into clear and obvious divisions.
+<a href="KO.html">KO</a> “specifications” are divided-up into
+<b>testcases</b>, <b>contexts</b>, <b>concnerns</b>, <b>tests</b>.</p>
+<ul><li>
+<p><b>Testcases</b> delineate the overall requirement that is to be
+demonstrated.</p>
+</li><li>
+<p><b>Contexts</b> are used to setup and teardown test fixtures.</p>
+</li><li>
+<p><b>Concerns</b> break-up testcases into separate areas of concern.</p>
+</li><li>
+<p><b>Tests</b> compose the proof of a testcase as a set of assertions.</p>
+</li></ul>
+
+<p><a href="KO.html">KO</a>! was inspired in part by the void left behind by
+the discontinuation of Shoulda as a test framework. It seemed like an
+opportune time to give Ruby an elegant, modern and light-weight test
+framework to serve as an alternative to the monolithic RSpec.</p>
+
 <h2>SYNOPSIS</h2>
-<h3>Writing Specs</h3>
-<p>
-<a href="KO.html">KO</a>! specifications... well here&#8217;s an fracking
-example.
-</p>
-<pre>
-  context &quot;String Instance&quot; do
-    before :all do
-      @string = &quot;Hello World&quot;
-    end
+
+<h3>Writing Kick-Ass Tests</h3>
+
+<p><a href="KO.html">KO</a>! specifications… well here’s an fracking
+example.</p>
+
+<pre>KO.case &quot;String Indexing&quot; do
+
+  string = &quot;Hello World&quot;
+
+  test &quot;index by substring&quot; do |substring, index|
+    string.index(substring) == index
   end
 
-  feature &quot;String Indexing&quot; do
-    use &quot;String Instance&quot;
+  ok 'H' , 0
+  ok 'l' , 2
+  ok 'ld', 9
 
-    scenario &quot;index by substring&quot; do
-      @string.index('H').assert == 0
-      @string.index('l').assert == 2
-      @string.index('ld').assert == 9
-    end
-
-    scenario &quot;index by regular expression&quot; do
-      @string.index(/H/).assert == 0
-      @string.index(/l/).assert == 2
-      @string.index(/o\ /).assert == 4
-    end
+  test &quot;index by regular expression&quot; do |regular_expression, index|
+    @string.index(regular_expression, index)
   end
-</pre>
-<p>
-Get it? You create reusable contexts &#8212;they can load libraries, build
-out mocks, setup fixtures, etc. Then use use them to test out feature
-scenarios.
-</p>
-<p>
-Of course, generally you won&#8217;t define the contexts in the same file
-with the features. You will put those in separate files in the context
-drectory where it will be loaded up automatically ready to be used.
-</p>
-<p>
-Oh, if you are a Cuke you can use captialized method names instead.
-</p>
+
+  ok /H/  , 0
+  ok /l/  , 2
+  ok /o\ /, 4
+
+end</pre>
+
+<p>It should be pretty clear how this plays out just by looking at it. When <a
+href="KO.html">KO</a> runs a testcase it run each <tt>test</tt>, which
+consists of trying each <tt>ok</tt> assertion. These are run thru the test
+procedure, if the result of which evaluates as true then the test passes.</p>
+
+<p><a href="KO.html">KO</a>! handles assertions in a rather unique way. As
+shown only truth of the test can be asserted. But since equality (==) is by
+far the most common means of test validation, <a href="KO.html">KO</a>!
+offers an alternative notation for specifiying the `ok` expectation using
+`=&gt;`. For example, the above example can also be written as follows.</p>
+
+<pre>KO.case &quot;String Indexing&quot; do
+
+  string = &quot;Hello World&quot;
+
+  test &quot;index by substring&quot; do |substring|
+    string.index(substring)
+  end
+
+  ok 'H'  =&gt; 0
+  ok 'l'  =&gt; 2
+  ok 'ld' =&gt; 9
+
+  test &quot;index by regular expression&quot; do |regular_expression|
+    @string.index(regular_expression)
+  end
+
+  ok /H/   =&gt; 0
+  ok /l/   =&gt; 2
+  ok /o\ / =&gt; 4
+
+end</pre>
+
+<p>Taking this one step further the validation routine can be overridden as
+well. Consider the next example.</p>
+
+<pre>KO.case &quot;Calculator Addition&quot; do
+
+  require 'calculator'
+
+  calculator = Calculator.new
+
+  test &quot;a Calculator can add two numbers&quot; do |input1, input2|
+    calculator.push input1
+    calculator.push input2
+    calculator.add
+    calculator
+  end
+
+  valid do |calculator, expect|
+    calculator.output == expect
+  end
+
+  ok [2, 2] =&gt; 4
+  ok [2, 1] =&gt; 3
+  ok [2, 0] =&gt; 2
+
+end</pre>
+
+<h3>Reusable Contexts</h3>
+
+<p><a href="KO.html">KO</a>! has a nice feature for creating reusable
+contexts. They can be defined  outside of any testcase and then called upon
+by their description for use in any testcase.</p>
+
+<pre>KO.context &quot;String Instance&quot; do
+  before :all do
+    @string = &quot;Hello World&quot;
+  end
+end
+
+KO.case &quot;String Indexing&quot; do
+
+  use &quot;String Instance&quot;
+
+  scenario &quot;index by substring&quot; do
+    to do |substring|
+      @string.index(substring)
+    end
+
+    ...</pre>
+
+<p>Get it? You create a reusable contexts –they can load libraries, build
+out mocks, setup fixtures, etc. Then use <tt>use</tt> to use them in your
+testcases.</p>
+
+<p>Of course, generally you won’t define the contexts in the same file with
+the testcase. You will put those in separate files in a context drectory
+where it will be loaded up automatically ready for, yep, use.</p>
+
+<p>Btw, if you are a Cuke, you can use captialized KO’s method names.</p>
+
 <h3>Running Those Suckers</h3>
-<p>
-Running <a href="KO.html">KO</a>! scripts is like this.
-</p>
-<pre>
-  $ ko -Ilib path/to/requirements/*.rb
-</pre>
-<h2>STATUS</h2>
-<p>
-<a href="KO.html">KO</a>! is pretty new, but it&#8217;s also pretty
-straight-forward. It still needs some work, for instance, on they way in
-which context are injected into  features and/or sceanrios, but it works
-well enough as it is for general wide-spread use.
-</p>
+
+<p>Running <a href="KO.html">KO</a>! scripts is like this.</p>
+
+<pre>$ ko -Ilib path/to/requirements/*.rb</pre>
+
 <h2>LEGAL</h2>
-<p>
-Copyright &#169; 2010 Thomas Sawyer, Apache License 2.0
-</p>
 
-	</div>
+<p>Copyright © 2010 Thomas Sawyer</p>
 
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may
+not use this file except in compliance with the License. You may obtain a
+copy of the License at</p>
+
+<pre>http://www.apache.org/licenses/LICENSE-2.0</pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+
+  </div>
+
+</div>
 </body>
 </html>
 

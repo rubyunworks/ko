@@ -1,220 +1,503 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-	<title>Module: KO</title>
+  <title>Module: KO</title>
 
-	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+  
+    <link rel="SHORTCUT ICON" href="./assets/icon/module.png">
+  
 
-	<script src="./js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+  <link type="text/css" rel="stylesheet" href="./assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="./assets/highlight/styles/github.css" title="GitHub" />
 
+  <script type="text/javascript" charset="utf-8" src="./assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="./assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
 </head>
 <body class="module">
+<div id="main">
 
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
-        <h3 class="section-header">
-          <a href="./index.html">Home</a>
-          <a href="./index.html#classes">Classes</a>
-          <a href="./index.html#methods">Methods</a>
-        </h3>
-			</div>
-		</div>
+  <div class="head">
+    <h1>
+      
+        <img src="./assets/icon/module.png" align="absmiddle">&nbsp;
+      
+      <a href="./index.html">&quot;KO&quot;</a>&nbsp;
+      <a href="">KO</a>
+    </h1>
+  </div>
 
-		<div id="file-metadata">
-			<div id="file-list-section" class="section">
-				<h3 class="section-header">In Files</h3>
-				<div class="section-body">
-					<ul>
-					
-						<li><a href="./lib/ko_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko.rb">lib/ko.rb</a></li>
-					
-						<li><a href="./lib/ko/cli_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko/cli.rb">lib/ko/cli.rb</a></li>
-					
-						<li><a href="./lib/ko/reporters/abstract_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko/reporters/abstract.rb">lib/ko/reporters/abstract.rb</a></li>
-					
-						<li><a href="./lib/ko/feature_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko/feature.rb">lib/ko/feature.rb</a></li>
-					
-						<li><a href="./lib/ko/suite_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko/suite.rb">lib/ko/suite.rb</a></li>
-					
-						<li><a href="./lib/ko/scope_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko/scope.rb">lib/ko/scope.rb</a></li>
-					
-						<li><a href="./lib/ko/context_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko/context.rb">lib/ko/context.rb</a></li>
-					
-						<li><a href="./lib/ko/behavior_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko/behavior.rb">lib/ko/behavior.rb</a></li>
-					
-						<li><a href="./lib/ko/scenario_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko/scenario.rb">lib/ko/scenario.rb</a></li>
-					
-					</ul>
-				</div>
-			</div>
+  <div id="metadata">
+    <div id="project-metadata">
 
-			
-		</div>
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="./lib/ko_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ko.rb">lib/ko.rb</a></li>
+          
+            <li class="file"><a href="./lib/ko/cli_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ko/cli.rb">lib/ko/cli.rb</a></li>
+          
+            <li class="file"><a href="./lib/ko/testcase_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ko/testcase.rb">lib/ko/testcase.rb</a></li>
+          
+            <li class="file"><a href="./lib/ko/formats_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ko/formats.rb">lib/ko/formats.rb</a></li>
+          
+            <li class="file"><a href="./lib/ko/errors_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ko/errors.rb">lib/ko/errors.rb</a></li>
+          
+            <li class="file"><a href="./lib/ko/context_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ko/context.rb">lib/ko/context.rb</a></li>
+          
+            <li class="file"><a href="./lib/ko/stage_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ko/stage.rb">lib/ko/stage.rb</a></li>
+          
+            <li class="file"><a href="./lib/ko/world_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ko/world.rb">lib/ko/world.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
 
-		<div id="class-metadata">
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
 
-			<!-- Parent Class -->
-			
+      
+    </div>
 
-			<!-- Namespace Contents -->
-			
-			<div id="namespace-list-section" class="section">
-				<h3 class="section-header">Namespace</h3>
-				<ul class="link-list">
-					
-					<li><span class="type">MODULE</span> <a href="KO/Reporters.html">KO::Reporters</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="KO/Behavior.html">KO::Behavior</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="KO/CLI.html">KO::CLI</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="KO/Context.html">KO::Context</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="KO/Feature.html">KO::Feature</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="KO/Scenario.html">KO::Scenario</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="KO/Scope.html">KO::Scope</a></li>
-					
-					<li><span class="type">CLASS</span> <a href="KO/Suite.html">KO::Suite</a></li>
-					
-				</ul>
-			</div>
-			
+    <div id="class-metadata">
 
-			<!-- Method Quickref -->
-			
+      <!-- Parent Class -->
+      
 
-			<!-- Included Modules -->
-			
-		</div>
+      <!-- Namespace Contents -->
+      
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li class="module"><a href="KO/DOT.html">KO::DOT</a></li>
+          
+          <li class="module"><a href="KO/TAP.html">KO::TAP</a></li>
+          
+          <li class="module"><a href="KO/TAP_J.html">KO::TAP_J</a></li>
+          
+          <li class="module"><a href="KO/TAP_Y.html">KO::TAP_Y</a></li>
+          
+          <li class="module"><a href="KO/World.html">KO::World</a></li>
+          
+          <li class="class"><a href="KO/BadTempDirectory.html">KO::BadTempDirectory</a></li>
+          
+          <li class="class"><a href="KO/CLI.html">KO::CLI</a></li>
+          
+          <li class="class"><a href="KO/Context.html">KO::Context</a></li>
+          
+          <li class="class"><a href="KO/Runner.html">KO::Runner</a></li>
+          
+          <li class="class"><a href="KO/Stage.html">KO::Stage</a></li>
+          
+          <li class="class"><a href="KO/TestCase.html">KO::TestCase</a></li>
+          
+        </ul>
+      </div>
+      
 
-		<div id="project-metadata">
-			
-			
-			<div id="fileindex-section" class="section project-section">
-				<h3 class="section-header">Files</h3>
-				<ul>
-				
-					<li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
-				
-					<li class="file"><a href="./LICENSE.html">LICENSE</a></li>
-				
-					<li class="file"><a href="./NOTICE.html">NOTICE</a></li>
-				
-					<li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
-				
-				</ul>
-			</div>
-			
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-case">::case</a>
+            </li>
+          
+            
+            <li class="singleton">
+              <a href="#method-c-const_missing">::const_missing</a>
+            </li>
+          
+            
+            <li class="singleton">
+              <a href="#method-c-context">::context</a>
+            </li>
+          
+            
+            <li class="singleton">
+              <a href="#method-c-contexts">::contexts</a>
+            </li>
+          
+            
+            <li class="singleton">
+              <a href="#method-c-metadata">::metadata</a>
+            </li>
+          
+            
+            <li class="singleton">
+              <a href="#method-c-run">::run</a>
+            </li>
+          
+        </ul>
+      </div>
+      
 
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="./images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
+      <!-- Included Modules -->
+      
+    </div>
 
-				<ul class="link-list">
-				
-					<li><a href="./KO.html">KO</a></li>
-				
-					<li><a href="./KO/Behavior.html">KO::Behavior</a></li>
-				
-					<li><a href="./KO/CLI.html">KO::CLI</a></li>
-				
-					<li><a href="./KO/Context.html">KO::Context</a></li>
-				
-					<li><a href="./KO/Context/Parser.html">KO::Context::Parser</a></li>
-				
-					<li><a href="./KO/Feature.html">KO::Feature</a></li>
-				
-					<li><a href="./KO/Feature/Parser.html">KO::Feature::Parser</a></li>
-				
-					<li><a href="./KO/Reporters.html">KO::Reporters</a></li>
-				
-					<li><a href="./KO/Reporters/Abstract.html">KO::Reporters::Abstract</a></li>
-				
-					<li><a href="./KO/Reporters/Dotprogress.html">KO::Reporters::Dotprogress</a></li>
-				
-					<li><a href="./KO/Reporters/Verbose.html">KO::Reporters::Verbose</a></li>
-				
-					<li><a href="./KO/Scenario.html">KO::Scenario</a></li>
-				
-					<li><a href="./KO/Scope.html">KO::Scope</a></li>
-				
-					<li><a href="./KO/Suite.html">KO::Suite</a></li>
-				
-					<li><a href="./KO/Suite/Evaluator.html">KO::Suite::Evaluator</a></li>
-				
-					<li><a href="./KO/Suite/Parser.html">KO::Suite::Parser</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="./History_rdoc.html">History.rdoc</a></li>
+        
+          <li class="file"><a href="./License_txt.html">License.txt</a></li>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="./Notice_rdoc.html">Notice.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
 
-			
-		</div>
-	</div>
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="./assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
 
-	<div id="documentation">
-		<h1 class="module">KO</h1>
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="module"><a href="./KO.html">KO</a></li>
+        
+          <li class="class"><a href="./KO/BadTempDirectory.html">KO::BadTempDirectory</a></li>
+        
+          <li class="class"><a href="./KO/CLI.html">KO::CLI</a></li>
+        
+          <li class="class"><a href="./KO/Context.html">KO::Context</a></li>
+        
+          <li class="class"><a href="./KO/Context/Parser.html">KO::Context::Parser</a></li>
+        
+          <li class="module"><a href="./KO/DOT.html">KO::DOT</a></li>
+        
+          <li class="class"><a href="./KO/Runner.html">KO::Runner</a></li>
+        
+          <li class="class"><a href="./KO/Stage.html">KO::Stage</a></li>
+        
+          <li class="module"><a href="./KO/TAP.html">KO::TAP</a></li>
+        
+          <li class="module"><a href="./KO/TAP_J.html">KO::TAP_J</a></li>
+        
+          <li class="module"><a href="./KO/TAP_Y.html">KO::TAP_Y</a></li>
+        
+          <li class="class"><a href="./KO/TestCase.html">KO::TestCase</a></li>
+        
+          <li class="module"><a href="./KO/TestCase/DSL.html">KO::TestCase::DSL</a></li>
+        
+          <li class="module"><a href="./KO/World.html">KO::World</a></li>
+        
+          <li class="class"><a href="./Exception.html">Exception</a></li>
+        
+          <li class="class"><a href="./Failure.html">Failure</a></li>
+        
+          <li class="module"><a href="./Kernel.html">Kernel</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
 
-		<div id="description">
-			
-		</div>
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
+      <br/><br/>
+    </div>
+  </div>
 
-		<!-- Constants -->
-		
+  <div id="documentation">
 
-		<!-- Attributes -->
-		
+    <div id="description">
+      
+        <h1>KO</h1>
+      
 
-		<!-- Methods -->
-		
+      
+    </div>
 
-	</div>
+    <!-- Constants -->
+    
+    <div id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt><a name="VERSION">VERSION</a></dt>
+        
+        <dd class="description"><p>TODO: here b/c of bug in Ruby 1.8.x.</p></dd>
+        
+      
+      </dl>
+    </div>
+    
+
+    <!-- Attributes -->
+    
+
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="case-method" class="method-detail ">
+        <a name="method-c-case"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">case</span><span
+            class="method-args">(desc, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>TODO: Should we bother with this?</p>
+          
+
+          
+          <div class="method-source-code"
+            id="case-source">
+<pre>
+<span class="ruby-comment"># File lib/ko/testcase.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-keyword">case</span>(<span class="ruby-identifier">desc</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">c</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">TestCase</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">desc</span>(<span class="ruby-identifier">desc</span>)
+  <span class="ruby-identifier">c</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="const_missing-method" class="method-detail ">
+        <a name="method-c-const_missing"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">const_missing</span><span
+            class="method-args">(name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>Access to project metadata via constants.</p>
+          
+
+          
+          <div class="method-source-code"
+            id="const_missing-source">
+<pre>
+<span class="ruby-comment"># File lib/ko.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">const_missing</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">metadata</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="context-method" class="method-detail ">
+        <a name="method-c-context"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">context</span><span
+            class="method-args">(label=nil, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="context-source">
+<pre>
+<span class="ruby-comment"># File lib/ko/context.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">context</span>(<span class="ruby-identifier">label</span>=<span class="ruby-keyword">nil</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">contexts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">label</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="contexts-method" class="method-detail ">
+        <a name="method-c-contexts"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">contexts</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="contexts-source">
+<pre>
+<span class="ruby-comment"># File lib/ko/context.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">contexts</span>
+  <span class="ruby-ivar">@contexts</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="metadata-method" class="method-detail ">
+        <a name="method-c-metadata"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">metadata</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>Access to project metadata.</p>
+          
+
+          
+          <div class="method-source-code"
+            id="metadata-source">
+<pre>
+<span class="ruby-comment"># File lib/ko.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">metadata</span>
+  <span class="ruby-ivar">@metadata</span> <span class="ruby-operator">||=</span> (
+    <span class="ruby-identifier">require</span> <span class="ruby-string">'yaml'</span>
+    <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">'/ko.yml'</span>))
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="run-method" class="method-detail ">
+        <a name="method-c-run"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">run</span><span
+            class="method-args">(format=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="run-source">
+<pre>
+<span class="ruby-comment"># File lib/ko/testcase.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">format</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">runner</span> = <span class="ruby-constant">Runner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:format=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">format</span>)
+  <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
 
 
-	<div id="rdoc-debugging-section-dump" class="debugging-section">
-	
-		<p>Disabled; run with --debug to generate this.</p>
-	
-	</div>
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
 
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
-
+</main>
 </body>
 </html>
 

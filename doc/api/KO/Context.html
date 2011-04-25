@@ -1,594 +1,648 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-	<title>Class: KO::Context</title>
+  <title>Class: KO::Context</title>
 
-	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+  
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
+  
 
-	<script src="../js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="../js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="../js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="../js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
 
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      hookHighlightSyntax();
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind("click", highlightClickTarget);
+    });
+  </script>
 </head>
 <body class="class">
+<div id="main">
 
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
-        <h3 class="section-header">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#classes">Classes</a>
-          <a href="../index.html#methods">Methods</a>
-        </h3>
-			</div>
-		</div>
+  <div class="head">
+    <h1>
+      
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
+      
+      <a href="../index.html">&quot;KO&quot;</a>&nbsp;
+      <a href="">KO::Context</a>
+    </h1>
+  </div>
 
-		<div id="file-metadata">
-			<div id="file-list-section" class="section">
-				<h3 class="section-header">In Files</h3>
-				<div class="section-body">
-					<ul>
-					
-						<li><a href="../lib/ko/context_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/ko/context.rb">lib/ko/context.rb</a></li>
-					
-					</ul>
-				</div>
-			</div>
+  <div id="metadata">
+    <div id="project-metadata">
 
-			
-		</div>
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../lib/ko/context_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ko/context.rb">lib/ko/context.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
 
-		<div id="class-metadata">
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
 
-			<!-- Parent Class -->
-			
-			<div id="parent-class-section" class="section">
-				<h3 class="section-header">Parent</h3>
-				
-				<p class="link">Object</p>
-				
-			</div>
-			
+      
+    </div>
 
-			<!-- Namespace Contents -->
-			
-			<div id="namespace-list-section" class="section">
-				<h3 class="section-header">Namespace</h3>
-				<ul class="link-list">
-					
-					<li><span class="type">CLASS</span> <a href="Context/Parser.html">KO::Context::Parser</a></li>
-					
-				</ul>
-			</div>
-			
+    <div id="class-metadata">
 
-			<!-- Method Quickref -->
-			
-			<div id="method-list-section" class="section">
-				<h3 class="section-header">Methods</h3>
-				<ul class="link-list">
-					
-					<li><a href="#method-c-new">::new</a></li>
-					
-					<li><a href="#method-i-%5B%5D">#[]</a></li>
-					
-					<li><a href="#method-i-%5B%5D%3D">#[]=</a></li>
-					
-					<li><a href="#method-i-eval">#eval</a></li>
-					
-					<li><a href="#method-i-finish_feature">#finish_feature</a></li>
-					
-					<li><a href="#method-i-finish_scenario">#finish_scenario</a></li>
-					
-					<li><a href="#method-i-parse">#parse</a></li>
-					
-					<li><a href="#method-i-start_feature">#start_feature</a></li>
-					
-					<li><a href="#method-i-start_scenario">#start_scenario</a></li>
-					
-				</ul>
-			</div>
-			
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        <ul>
+          
+            
+              <li class="class">Object</li>
+            
+          
+        </ul>
+      </div>
+      
 
-			<!-- Included Modules -->
-			
-		</div>
+      <!-- Namespace Contents -->
+      
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li class="class"><a href="Context/Parser.html">KO::Context::Parser</a></li>
+          
+        </ul>
+      </div>
+      
 
-		<div id="project-metadata">
-			
-			
-			<div id="fileindex-section" class="section project-section">
-				<h3 class="section-header">Files</h3>
-				<ul>
-				
-					<li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
-				
-					<li class="file"><a href="../LICENSE.html">LICENSE</a></li>
-				
-					<li class="file"><a href="../NOTICE.html">NOTICE</a></li>
-				
-					<li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
-				
-				</ul>
-			</div>
-			
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-5B-5D">#[]</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-5B-5D-3D">#[]=</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-after">#after</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-before">#before</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-eval">#eval</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-finish">#finish</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-parse">#parse</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-start">#start</a>
+            </li>
+          
+        </ul>
+      </div>
+      
 
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="../images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
+      <!-- Included Modules -->
+      
+    </div>
 
-				<ul class="link-list">
-				
-					<li><a href="../KO.html">KO</a></li>
-				
-					<li><a href="../KO/Behavior.html">KO::Behavior</a></li>
-				
-					<li><a href="../KO/CLI.html">KO::CLI</a></li>
-				
-					<li><a href="../KO/Context.html">KO::Context</a></li>
-				
-					<li><a href="../KO/Context/Parser.html">KO::Context::Parser</a></li>
-				
-					<li><a href="../KO/Feature.html">KO::Feature</a></li>
-				
-					<li><a href="../KO/Feature/Parser.html">KO::Feature::Parser</a></li>
-				
-					<li><a href="../KO/Reporters.html">KO::Reporters</a></li>
-				
-					<li><a href="../KO/Reporters/Abstract.html">KO::Reporters::Abstract</a></li>
-				
-					<li><a href="../KO/Reporters/Dotprogress.html">KO::Reporters::Dotprogress</a></li>
-				
-					<li><a href="../KO/Reporters/Verbose.html">KO::Reporters::Verbose</a></li>
-				
-					<li><a href="../KO/Scenario.html">KO::Scenario</a></li>
-				
-					<li><a href="../KO/Scope.html">KO::Scope</a></li>
-				
-					<li><a href="../KO/Suite.html">KO::Suite</a></li>
-				
-					<li><a href="../KO/Suite/Evaluator.html">KO::Suite::Evaluator</a></li>
-				
-					<li><a href="../KO/Suite/Parser.html">KO::Suite::Parser</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../History_rdoc.html">History.rdoc</a></li>
+        
+          <li class="file"><a href="../License_txt.html">License.txt</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../Notice_rdoc.html">Notice.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
 
-			
-		</div>
-	</div>
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
 
-	<div id="documentation">
-		<h1 class="class">KO::Context</h1>
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="module"><a href="../KO.html">KO</a></li>
+        
+          <li class="class"><a href="../KO/BadTempDirectory.html">KO::BadTempDirectory</a></li>
+        
+          <li class="class"><a href="../KO/CLI.html">KO::CLI</a></li>
+        
+          <li class="class"><a href="../KO/Context.html">KO::Context</a></li>
+        
+          <li class="class"><a href="../KO/Context/Parser.html">KO::Context::Parser</a></li>
+        
+          <li class="module"><a href="../KO/DOT.html">KO::DOT</a></li>
+        
+          <li class="class"><a href="../KO/Runner.html">KO::Runner</a></li>
+        
+          <li class="class"><a href="../KO/Stage.html">KO::Stage</a></li>
+        
+          <li class="module"><a href="../KO/TAP.html">KO::TAP</a></li>
+        
+          <li class="module"><a href="../KO/TAP_J.html">KO::TAP_J</a></li>
+        
+          <li class="module"><a href="../KO/TAP_Y.html">KO::TAP_Y</a></li>
+        
+          <li class="class"><a href="../KO/TestCase.html">KO::TestCase</a></li>
+        
+          <li class="module"><a href="../KO/TestCase/DSL.html">KO::TestCase::DSL</a></li>
+        
+          <li class="module"><a href="../KO/World.html">KO::World</a></li>
+        
+          <li class="class"><a href="../Exception.html">Exception</a></li>
+        
+          <li class="class"><a href="../Failure.html">Failure</a></li>
+        
+          <li class="module"><a href="../Kernel.html">Kernel</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
 
-		<div id="description">
-			<p>
-<a href="Context.html">Context</a> defines a system &#8220;state&#8221;. A
-context might specify a set requirments, database fixtures, objects, mocks,
-or file system setups &#8212;any presets that need to be in place for a
-feature and/or scenario to operate.
-</p>
-<pre>
-  context &quot;Instance of Dummy String&quot; do
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle</a>
+                     <a href="http://rubyworks.github.com/redfish">RedFish</a>
+                     v1.0.1
+      <br/><br/>
+    </div>
+  </div>
 
-    setup do
-      @string = &quot;dummy&quot;
-    end
+  <div id="documentation">
 
+    <div id="description">
+      
+        <h1>Context</h1>
+      
+
+      
+<p><a href="Context.html">Context</a> defines a system “state”. A context
+might specify a set requirments, database fixtures, objects, mocks, or file
+system setups –any presets that need to be in place for a feature and/or
+scenario to operate.</p>
+
+<pre>context &quot;Instance of Dummy String&quot; do
+
+  setup do
+    @string = &quot;dummy&quot;
   end
-</pre>
-<p>
-NOTE: Some context cannot be fully isolated. For instance, once a library
-is loaded it cannot be unloaded.
-</p>
 
-		</div>
+end</pre>
 
-		<!-- Constants -->
-		
+<p>NOTE: Some context cannot be fully isolated. For instance, once a library
+is loaded it cannot be unloaded.</p>
 
-		<!-- Attributes -->
-		
-		<div id="attribute-method-details" class="method-section section">
-			<h3 class="section-header">Attributes</h3>
+    </div>
 
-			
-			<div id="label-attribute-method" class="method-detail">
-				<a name="label"></a>
-				
-				<div class="method-heading attribute-method-heading">
-					<span class="method-name">label</span><span
-						class="attribute-access-type">[R]</span>
-				</div>
+    <!-- Constants -->
+    
 
-				<div class="method-description">
-				
-				
-				
-				</div>
-			</div>
-			
-			<div id="advice-attribute-method" class="method-detail">
-				<a name="advice"></a>
-				
-				<a name="advice="></a>
-				
-				<div class="method-heading attribute-method-heading">
-					<span class="method-name">advice</span><span
-						class="attribute-access-type">[RW]</span>
-				</div>
+    <!-- Attributes -->
+    
+    <div id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
 
-				<div class="method-description">
-				
-				
-				
-				</div>
-			</div>
-			
-		</div>
-		
+      
+      <div id="label-attribute-method" class="method-detail">
+        <a name="label"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">label</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
 
-		<!-- Methods -->
-		
-		<div id="public-class-method-details" class="method-section section">
-			<h3 class="section-header">Public Class Methods</h3>
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="advice-attribute-method" class="method-detail">
+        <a name="advice"></a>
+        
+        <a name="advice="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">advice</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
 
-		
-			<div id="new-method" class="method-detail ">
-				<a name="method-c-new"></a>
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="options-attribute-method" class="method-detail">
+        <a name="options"></a>
+        
+        <a name="options="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">new</span><span
-						class="method-args">(label, &block)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-description">
+        
+        <p>Options such as pwd, and stage.</p>
+        
+        </div>
+      </div>
+      
+    </div>
+    
 
-				<div class="method-description">
-					
-					
-					
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
 
-					
-					<div class="method-source-code"
-						id="new-source">
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-c-new"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">new</span><span
+            class="method-args">(label=nil, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/ko/context.rb, line 22</span>
-22:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">label</span>, &amp;<span class="ruby-identifier">block</span>)
-23:       <span class="ruby-ivar">@label</span>  = <span class="ruby-identifier">label</span>
-24:       <span class="ruby-ivar">@block</span>  = <span class="ruby-identifier">block</span>
-25:       <span class="ruby-ivar">@advice</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">h</span>,<span class="ruby-identifier">k</span><span class="ruby-operator">|</span><span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>]={}}
-26:       <span class="ruby-identifier">parse</span>
-27:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/ko/context.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">label</span>=<span class="ruby-keyword">nil</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@label</span>  = <span class="ruby-identifier">label</span>
+  <span class="ruby-ivar">@advice</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">h</span>,<span class="ruby-identifier">k</span><span class="ruby-operator">|</span><span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>]={}}
 
-				
+  <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
 
-				
-			</div>
+        
+      </div>
 
-		
-		</div>
-	
-		<div id="public-instance-method-details" class="method-section section">
-			<h3 class="section-header">Public Instance Methods</h3>
+    
+    </div>
+  
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
 
-		
-			<div id="--method" class="method-detail ">
-				<a name="method-i-%5B%5D"></a>
+    
+      <div id="5B-5D-method" class="method-detail ">
+        <a name="method-i-5B-5D"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">[]</span><span
-						class="method-args">(key)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-heading">
+        
+          <span class="method-name">[]</span><span
+            class="method-args">(key)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-description">
-					
-					
-					
+        <div class="method-description">
+          
+          
+          
 
-					
-					<div class="method-source-code"
-						id="--source">
+          
+          <div class="method-source-code"
+            id="5B-5D-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/ko/context.rb, line 35</span>
-35:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
-36:       <span class="ruby-identifier">advice</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>]
-37:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/ko/context.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">advice</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
 
-				
+        
+      </div>
 
-				
-			</div>
+    
+      <div id="5B-5D-3D-method" class="method-detail ">
+        <a name="method-i-5B-5D-3D"></a>
 
-		
-			<div id="--method" class="method-detail ">
-				<a name="method-i-%5B%5D%3D"></a>
+        <div class="method-heading">
+        
+          <span class="method-name">[]=</span><span
+            class="method-args">(key, block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">[]=</span><span
-						class="method-args">(key, block)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-description">
+          
+          
+          
 
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="--source">
+          
+          <div class="method-source-code"
+            id="5B-5D-3D-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/ko/context.rb, line 39</span>
-39:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">block</span>)
-40:       <span class="ruby-identifier">advice</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">block</span>
-41:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/ko/context.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">advice</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
 
-				
+        
+      </div>
 
-				
-			</div>
+    
+      <div id="after-method" class="method-detail ">
+        <a name="method-i-after"></a>
 
-		
-			<div id="eval-method" class="method-detail ">
-				<a name="method-i-eval"></a>
+        <div class="method-heading">
+        
+          <span class="method-name">after</span><span
+            class="method-args">(tag=:each, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">eval</span><span
-						class="method-args">(which, tag, scope)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-description">
+          
+          
+          
 
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="eval-source">
+          
+          <div class="method-source-code"
+            id="after-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/ko/context.rb, line 64</span>
-64:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">which</span>, <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">scope</span>)
-65:       <span class="ruby-identifier">block</span> = <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">which</span>][<span class="ruby-identifier">tag</span>]
-66:       <span class="ruby-identifier">scope</span>.<span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">block</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block</span>
-67:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/ko/context.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">after</span>(<span class="ruby-identifier">tag</span>=<span class="ruby-value">:each</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>[<span class="ruby-value">:after</span>][<span class="ruby-identifier">tag</span>] = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
 
-				
+        
+      </div>
 
-				
-			</div>
+    
+      <div id="before-method" class="method-detail ">
+        <a name="method-i-before"></a>
 
-		
-			<div id="finish-feature-method" class="method-detail ">
-				<a name="method-i-finish_feature"></a>
+        <div class="method-heading">
+        
+          <span class="method-name">before</span><span
+            class="method-args">(tag=:each, &block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">finish_feature</span><span
-						class="method-args">(scope)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-description">
+          
+          
+          
 
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="finish-feature-source">
+          
+          <div class="method-source-code"
+            id="before-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/ko/context.rb, line 59</span>
-59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">finish_feature</span>(<span class="ruby-identifier">scope</span>)
-60:       <span class="ruby-identifier">eval</span>(<span class="ruby-value">:after</span>, <span class="ruby-value">:all</span>, <span class="ruby-identifier">scope</span>)
-61:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/ko/context.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">before</span>(<span class="ruby-identifier">tag</span>=<span class="ruby-value">:each</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>[<span class="ruby-value">:before</span>][<span class="ruby-identifier">tag</span>] = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
 
-				
+        
+      </div>
 
-				
-			</div>
+    
+      <div id="eval-method" class="method-detail ">
+        <a name="method-i-eval"></a>
 
-		
-			<div id="finish-scenario-method" class="method-detail ">
-				<a name="method-i-finish_scenario"></a>
+        <div class="method-heading">
+        
+          <span class="method-name">eval</span><span
+            class="method-args">(which, tag, scope)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">finish_scenario</span><span
-						class="method-args">(scope)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-description">
+          
+          <p>Run advice.</p>
+          
 
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="finish-scenario-source">
+          
+          <div class="method-source-code"
+            id="eval-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/ko/context.rb, line 54</span>
-54:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">finish_scenario</span>(<span class="ruby-identifier">scope</span>)
-55:       <span class="ruby-identifier">eval</span>(<span class="ruby-value">:after</span>, <span class="ruby-value">:each</span>, <span class="ruby-identifier">scope</span>)
-56:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/ko/context.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">which</span>, <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">scope</span>)
+  <span class="ruby-identifier">block</span> = <span class="ruby-keyword">self</span>[<span class="ruby-identifier">which</span>][<span class="ruby-identifier">tag</span>]
+  <span class="ruby-identifier">scope</span>.<span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
 
-				
+        
+      </div>
 
-				
-			</div>
+    
+      <div id="finish-method" class="method-detail ">
+        <a name="method-i-finish"></a>
 
-		
-			<div id="parse-method" class="method-detail ">
-				<a name="method-i-parse"></a>
+        <div class="method-heading">
+        
+          <span class="method-name">finish</span><span
+            class="method-args">(tag, scope)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">parse</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-description">
+          
+          <p>Run after advice.</p>
+          
 
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="parse-source">
+          
+          <div class="method-source-code"
+            id="finish-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/ko/context.rb, line 70</span>
-70:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse</span>
-71:       <span class="ruby-identifier">parser</span> = <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>)
-72:       <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-ivar">@block</span>)
-73:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/ko/context.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">finish</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">scope</span>)
+  <span class="ruby-identifier">eval</span>(<span class="ruby-value">:after</span>, <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">scope</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
 
-				
+        
+      </div>
 
-				
-			</div>
+    
+      <div id="parse-method" class="method-detail ">
+        <a name="method-i-parse"></a>
 
-		
-			<div id="start-feature-method" class="method-detail ">
-				<a name="method-i-start_feature"></a>
+        <div class="method-heading">
+        
+          <span class="method-name">parse</span><span
+            class="method-args">(block)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">start_feature</span><span
-						class="method-args">(scope)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-description">
+          
+          
+          
 
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="start-feature-source">
+          
+          <div class="method-source-code"
+            id="parse-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/ko/context.rb, line 44</span>
-44:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start_feature</span>(<span class="ruby-identifier">scope</span>)
-45:       <span class="ruby-identifier">eval</span>(<span class="ruby-value">:before</span>, <span class="ruby-value">:all</span>, <span class="ruby-identifier">scope</span>)
-46:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/ko/context.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">parser</span> = <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">instance_eval</span>(&amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
 
-				
+        
+      </div>
 
-				
-			</div>
+    
+      <div id="start-method" class="method-detail ">
+        <a name="method-i-start"></a>
 
-		
-			<div id="start-scenario-method" class="method-detail ">
-				<a name="method-i-start_scenario"></a>
+        <div class="method-heading">
+        
+          <span class="method-name">start</span><span
+            class="method-args">(tag, scope)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">start_scenario</span><span
-						class="method-args">(scope)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        <div class="method-description">
+          
+          <p>Run before advice.</p>
+          
 
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="start-scenario-source">
+          
+          <div class="method-source-code"
+            id="start-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/ko/context.rb, line 49</span>
-49:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start_scenario</span>(<span class="ruby-identifier">scope</span>)
-50:       <span class="ruby-identifier">eval</span>(<span class="ruby-value">:before</span>, <span class="ruby-value">:each</span>, <span class="ruby-identifier">scope</span>)
-51:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/ko/context.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>(<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">scope</span>)
+  <span class="ruby-identifier">eval</span>(<span class="ruby-value">:before</span>, <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">scope</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
 
-				
+        
+      </div>
 
-				
-			</div>
+    
+    </div>
+  
 
-		
-		</div>
-	
-
-	</div>
+  </div>
 
 
-	<div id="rdoc-debugging-section-dump" class="debugging-section">
-	
-		<p>Disabled; run with --debug to generate this.</p>
-	
-	</div>
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
 
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
-
+</main>
 </body>
 </html>
 
