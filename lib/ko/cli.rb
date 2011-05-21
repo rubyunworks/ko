@@ -1,4 +1,4 @@
-require 'ko/testcase'
+require 'ko/runner'
 
 require 'optparse'
 
