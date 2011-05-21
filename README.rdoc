@@ -5,19 +5,19 @@ This is KDD --Kickass Driven Development!
 Knockout is a Ruby test framework that reads like a developer thinks.
 More specifically, KO! is a test system created to breakdown the systems
 analysis process into clear and obvious divisions. KO "specifications"
-are divided-up into *testcases*, *contexts*, *concerns*, *tests*.
+are divided-up into *cases*, *contexts*, *concerns*, *tests*.
 
-* *Testcases* delineate the overall requirement that is to be demonstrated.
+* *Cases* delineate the overall requirement that is to be demonstrated.
 
-* *Contexts* are used to setup and teardown test fixtures.
+* *Contexts* provide reusable procedures to setup and teardown test fixtures.
 
-* *Concerns* break-up testcases into separate areas of concern.
+* *Concerns* break-up test cases into separate areas of concern, i.e. sub-cases.
 
 * *Tests* compose the proof of a testcase as a set of assertions.
 
 KO! was inspired in part by the void left behind by the discontinuation of
-Shoulda as a test framework. It seemed like an opportune time to give Ruby an
-elegant, modern and light-weight test framework to serve as an alternative to
+Shoulda as a test framework. It seemed like an opportune time to implement
+an elegant and light-weight test framework to serve as an alternative to
 the monolithic RSpec.
 
 
@@ -25,14 +25,16 @@ the monolithic RSpec.
 
 === Writing Kick-Ass Tests
 
-KO! specifications... well here's an fracking example.
+KO! tests, or specifications if you prefer, are ... well, here's an example.
 
   KO.case "String Indexing" do
 
-    string = "Hello World"
+    before do
+      @string = "Hello World"
+    end
 
     test "index by substring" do |substring, index|
-      string.index(substring) == index
+      @string.index(substring) == index
     end
 
     ok 'H' , 0
@@ -50,11 +52,11 @@ KO! specifications... well here's an fracking example.
   end
 
 It should be pretty clear how this plays out just by looking at it. When KO
-runs a testcase it run each +test+, which consists of trying each +ok+
+runs a test case it runs each +test+, which consists of trying each +ok+
 assertion. These are run through the test procedure, if the result of which
 evaluates as true then the test passes.
 
-KO! handles assertions in a rather unique way. As shown only truth of the
+KO! handles assertions in a rather unique way. As shown, only truth of the
 test can be asserted. But since equality (==) is by far the most common means
 of test validation, KO! offers an alternative notation for specifying the `ok`
 expectation using `=>`. For example, the above example can also be written
@@ -62,10 +64,12 @@ as follows.
 
   KO.case "String Indexing" do
 
-    string = "Hello World"
+    before do
+      @string = "Hello World"
+    end
 
     test "index by substring" do |substring|
-      string.index(substring)
+      @string.index(substring)
     end
 
     ok 'H'  => 0
@@ -87,19 +91,20 @@ well. Consider the next example.
 
   KO.case "Calculator Addition" do
 
-    require 'calculator'
-  
-    calculator = Calculator.new
+    before :all do
+      require 'calculator'
+      @calculator = Calculator.new
+    end
 
     test "a Calculator can add two numbers" do |input1, input2|
-      calculator.push input1
-      calculator.push input2
-      calculator.add
-      calculator
+      @calculator.push input1
+      @calculator.push input2
+      @calculator.add
+      @calculator
     end
 
     valid do |calculator, expect|
-      calculator.output == expect
+      @calculator.output == expect
     end
 
     ok [2, 2] => 4
@@ -115,32 +120,31 @@ outside of any testcase and then called upon by their description for use
 in any testcase.
 
   KO.context "String Instance" do
+
     before :all do
       @string = "Hello World"
     end
+
   end
 
   KO.case "String Indexing" do
 
     use "String Instance"
 
-    scenario "index by substring" do
-      to do |substring|
-        @string.index(substring)
-      end
+    test "index by substring" do |substring|
+      @string.index(substring)
+    end
 
-      ...
+    ...
 
 Get it? You create a reusable contexts --they can load libraries, build out mocks,
 setup fixtures, etc. Then use +use+ to use them in your testcases.
 
 Of course, generally you won't define the contexts in the same file
 with the testcase. You will put those in separate files in a context
-directory where it will be loaded up automatically ready for, yep, use.
+directory where all your tests have access to them.
 
-BTW, if you are a Cuke, you can use capitalized KO's method names.
-
-=== Running Those Suckers
+=== Running Tests
 
 Running KO! scripts is like this.
 
