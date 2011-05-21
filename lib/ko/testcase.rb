@@ -1,5 +1,6 @@
 #require 'ko/formats'
 require 'ko/world'
+require 'ko/context'
 require 'ko/core_ext'
 
 require 'fileutils'
@@ -30,7 +31,17 @@ module KO
         @_desc
       end
 
-      # Define a per-test setup procedure.
+      # Works just like #include, but looks up module from context list
+      # by +context_name+.
+      def use(context_name)
+        if context = KO.contexts[context_name]
+          include context
+        else
+          raise NameError, "context not found -- #{context_name}"
+        end
+      end
+
+      # Define a setup procedure.
       def before(type=:each, &block)
         raise ArgumentError, "invalid before-type #{type}" unless [:each, :all].include?(type)
         type_method = "before_#{type}"
@@ -43,7 +54,7 @@ module KO
         before(:each, &block)
       end
    
-      # Define a per-test teardown procedure.
+      # Define a teardown procedure.
       def after(type=:each, &block)
         raise ArgumentError, "invalid after-type #{type}" unless [:each, :all].include?(type)
         type_method = "after_#{type}"
@@ -74,26 +85,17 @@ module KO
         cls
       end
 
+      #
       alias_method :unit, :concern
 
       # Define a test scenario.
       def test(label=nil, &block)
-        count = _get_test_count("test #{label}")
-        if count > 0
-          @_test = "#{label} (#{count})"
-        else
-          @_test = "#{label}"
-        end
-      
-        define_method("test #{@_test}", &block)
-
-        # TODO: Problem here is block arity `||` looks like `|*args|`.
-        if block.arity == -1   # -1, not 0?
-          #trace = caller[0]
-          #test = Check.new(@_concern, label, &block)
-          #@_concern.ok << Ok.new(@_concern, @_valid, test, [], trace)
-          ok()
-        end
+        test_method = "test #{label}"
+        count = _get_test_count(test_method)
+        test_method += " (#{count})" if count > 0
+        define_method(test_method, &block)
+        _set_test(test_method, block)
+        test_method
       end
 
       # Define a test try.
@@ -119,10 +121,12 @@ module KO
 
       private
 
+      #
       def _define_check_method(args, trace, negate=false)
-        test  = @_test
-        count = _get_ok_count("ok #{test}")
-        ok = (negate ? "ok" : "no") + " #{test} #{count}"
+        test  = @_test_method
+        label = test.sub(/^test[_ ]/, '')
+        count = _get_ok_count("ok #{label}")
+        ok = (negate ? "ok" : "no") + " #{label} #{count}"
 
         if Hash === args.last
           h = args.pop
@@ -138,7 +142,7 @@ module KO
 
         define_method(ok) do
           before_all
-          result = __send__("test #{test}", *args)
+          result = __send__(test, *args)
           unless negate ^ valid.call(expect, result)
             raise Failure.new("#{test} failed", trace)
           end
@@ -148,14 +152,39 @@ module KO
         end
       end
 
+      #
       def _get_test_count(label)
         @_test_cnt ||= Hash.new{|h,k| h[k]=-1 }
         @_test_cnt[label] += 1
       end
 
+      #
       def _get_ok_count(label)
         @_ok_cnt ||= Hash.new{|h,k| h[k]=0 }
         @_ok_cnt[label] += 1
+      end
+
+      #
+      def _set_test(test_method, procedure=nil)
+        @_test_method = test_method.to_s
+
+        procedure ||= instance_method(test_method)
+
+        if RUBY_VERSION >= '1.9'
+          ok() if procedure.arity == 0
+        else
+          ## TODO: Problem here is that empty arity `||` looks the same as `|*args|`.
+          ok() if procedure.arity == 0
+          ok() if procedure.arity == -1
+        end
+      end
+
+      # Legacy support.
+      def method_added(method_name)
+        if /^test_/.match(method_name.to_s)
+          _set_test(method_name)
+        end
+        super(method_name) if defined?(super)
       end
 
     end
@@ -175,7 +204,7 @@ module KO
     #
     def label
       lbl = self.class.name
-      if lbl.empty?
+      if lbl.nil? or lbl.empty?
         desc[0..19]
       else
         lbl

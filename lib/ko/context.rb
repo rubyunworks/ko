@@ -1,22 +1,21 @@
 module KO
 
   def self.contexts
-    @contexts ||= []
+    @contexts ||= {}
   end
 
   def self.context(label=nil, &block)
-    contexts << Context.new(label, &block)
+    contexts[label] = Context.new(label, &block)
   end
 
-  # Context defines a system "state". A context might
-  # specify a set requirments, database fixtures,
-  # objects, mocks, or file system setups --any presets
-  # that need to be in place for a feature and/or scenario
-  # to operate.
+  # Context defines a system "state". A context might specify
+  # a set of requirments, database fixtures, objects, mocks,
+  # or file system setups --any presets that need to be in
+  # place for a feature and/or scenario to operate.
   #
-  #   context "Instance of Dummy String" do
+  #   KO.context "Instance of Dummy String" do
   #
-  #     setup do
+  #     before :all do
   #       @string = "dummy"
   #     end
   #
@@ -24,100 +23,49 @@ module KO
   #
   # NOTE: Some context cannot be fully isolated. For instance,
   # once a library is loaded it cannot be unloaded.
-  class Context
+  class Context < Module
 
     #
     def initialize(label=nil, &block)
       @label  = label
-      @advice = Hash.new{|h,k|h[k]={}}
-
-      parse(block) if block
+      super(&block)
     end
 
     #
     attr :label
 
-    #
-    attr_accessor :advice
-
     # Options such as pwd, and stage.
-    attr_accessor :options
+    #attr_accessor :options
 
-    def [](key)
-      advice[key.to_sym]
+    # Define a per-test setup procedure.
+    def before(type=:each, &block)
+      raise ArgumentError, "invalid before-type #{type}" unless [:each, :all].include?(type)
+      type_method = "before_#{type}"
+      remove_method(type_method) rescue nil #if method_defined?(:setup)
+      define_method(type_method, &block)
     end
 
-    def []=(key, block)
-      advice[key.to_sym] = block
+    # DEPRECATE: Use #before instead.
+    def setup(&block)
+      before(:each, &block)
+    end
+ 
+    # Define a per-test teardown procedure.
+    def after(type=:each, &block)
+      raise ArgumentError, "invalid after-type #{type}" unless [:each, :all].include?(type)
+      type_method = "after_#{type}"
+      remove_method(type_method) rescue nil #if method_defined?(:teardown)
+      define_method(type_method, &block)
     end
 
-    #
-    def before(tag=:each, &block)
-      self[:before][tag] = block
+    # DEPRECATE: Use #after instead.
+    def teardown(&block)
+      after(:each, &block)
     end
 
-    #
-    def after(tag=:each, &block)
-      self[:after][tag] = block
-    end
-
-    # Run before advice.
-    def start(tag, scope)
-      eval(:before, tag.to_sym, scope)
-    end
-
-    # Run after advice.
-    def finish(tag, scope)
-      eval(:after, tag.to_sym, scope)
-    end
-
-    # Run advice.
-    def eval(which, tag, scope)
-      block = self[which][tag]
-      scope.instance_eval(&block) if block
-    end
-
-    #
-    def parse(block)
-      parser = Parser.new(self)
-      parser.instance_eval(&block)
-    end
-
-    #
-    class Parser
-
-      def initialize(context)
-        @_context = context
-      end
-
-      #
-      def before(tag=:each, &block)
-        @_context.before(tag, &block)
-      end
-
-      #
-      def after(tag=:each, &block)
-        @_context.after(tag, &block)
-      end
-
-      alias_method :Before, :before
-      alias_method :After,  :after
-
-      #
-      def setup(&block)
-        @_context.before(:all, &block)
-      end
-
-      #
-      def teardown(&block)
-        @_context.after(:all, &block)
-      end
-
-      alias_method :Setup,    :setup
-      alias_method :Teardown, :teardown
-    end
+    alias_method :Before, :before
+    alias_method :After,  :after
 
   end
 
 end
-
