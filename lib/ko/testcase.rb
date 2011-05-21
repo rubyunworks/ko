@@ -1,4 +1,4 @@
-require 'ko/formats'
+#require 'ko/formats'
 require 'ko/world'
 require 'ko/core_ext'
 
@@ -31,15 +31,29 @@ module KO
       end
 
       # Define a per-test setup procedure.
-      def setup(&block)
-        remove_method(:setup) rescue nil #if method_defined?(:setup)
-        define_method(:setup, &block)
+      def before(type=:each, &block)
+        raise ArgumentError, "invalid before-type #{type}" unless [:each, :all].include?(type)
+        type_method = "before_#{type}"
+        remove_method(type_method) rescue nil #if method_defined?(:setup)
+        define_method(type_method, &block)
       end
 
+      # DEPRECATE: Use #before instead.
+      def setup(&block)
+        before(:each, &block)
+      end
+   
       # Define a per-test teardown procedure.
+      def after(type=:each, &block)
+        raise ArgumentError, "invalid after-type #{type}" unless [:each, :all].include?(type)
+        type_method = "after_#{type}"
+        remove_method(type_method) rescue nil #if method_defined?(:teardown)
+        define_method(type_method, &block)
+      end
+
+      # DEPRECATE: Use #after instead.
       def teardown(&block)
-        remove_method(:teardown) rescue nil #if method_defined?(:teardown)
-        define_method(:teardown, &block)
+        after(:each, &block)
       end
 
       # Define an alternate validation procedure. This procedure is then used
@@ -51,6 +65,8 @@ module KO
         #define_method(:valid, &block)
       end
 
+      # Create a sub-case.
+      #
       # TODO Name context or concern?
       def concern(desc=nil, &block)
         cls = Class.new(TestCase, &block)
@@ -90,6 +106,17 @@ module KO
         _define_check_method(args, caller, true)
       end
 
+      # Returns an Array of all `ok` and `no` methods.
+      # These are a KO Cases's tests.
+      def test_list
+        list = []
+        instance_methods.each do |m|
+          next unless m.to_s =~ /^(ok|no)[_ ]/
+          list << m
+        end
+        list
+      end
+
       private
 
       def _define_check_method(args, trace, negate=false)
@@ -110,12 +137,12 @@ module KO
         end
 
         define_method(ok) do
-          setup
+          before_all
           result = __send__("test #{test}", *args)
           unless negate ^ valid.call(expect, result)
             raise Failure.new("#{test} failed", trace)
           end
-          teardown
+          after_all
 
           return trace # return caller ?
         end
@@ -135,12 +162,17 @@ module KO
 
     extend DSL
 
+    # New TestCase.
+    #def initialize
+    #end
+
     # Retrieve description from class definition. If it is +nil+ then
     # simply return the name of the class.
     def desc
       self.class.desc || self.class.name
     end
 
+    #
     def label
       lbl = self.class.name
       if lbl.empty?
@@ -150,12 +182,36 @@ module KO
       end
     end
 
-    # Noop setup method.
-    def setup
+    # Noop start method. This procedure is performed at the start
+    # of a testcase run. If you override it, be sure to call super()
+    # so any other included contexts can do the same (unless you are
+    # purposefully overriding them, of course).
+    def before_all
+      super if defined?(super)
     end
 
-    # Noop teardown method.
-    def teardown
+    # Noop setup method. This procedure is performed before each test.
+    # If you override it, be sure to call super() so any other included
+    # contexts can do the same (unless you are purposefully overriding 
+    # them, of course).
+    def before_each
+      super if defined?(super)
+    end
+
+    # Noop teardown method. This procedure is performed after each test.
+    # If you override it, be sure to call super() so any other included
+    # contexts can do the same (unless you are purposefully overriding
+    # them, of course).
+    def after_each
+      super if defined?(super)
+    end
+
+    # Noop finish method. This procedure is performed at the end
+    # of a testcase run. If you override it, be sure to call super()
+    # so any other included contexts can do the same (unless you are
+    # purposefully overriding them, of course).
+    def after_all
+      super if defined?(super)
     end
 
     #
@@ -219,206 +275,3 @@ module KO
   end
 
 end
-
-class Failure < Exception
-  def initialize(message, backtrace=nil)
-    super(message)
-    set_backtrace(backtrace) if backtrace
-  end
-end
-
-module KO
-
-  #
-  def self.run(format=nil)
-    runner = Runner.new(:format=>format)
-    runner.run
-  end
-
-  #
-  class Runner
-
-    # New Runner class.
-    #
-    # options - hash table of Runner settings
-    # :format - output format
-    # :radius - number of source lines to provide
-    #
-    def initialize(options={})
-      fmt = (options[:format] || 'TAP').to_s.upcase
-      if KO.const_defined?(fmt)
-        format = KO.const_get(fmt)
-        extend(format)
-      else
-        abort "Unknown format `#{fmt}`."
-      end
-
-      @source = {}
-      @pwd    = Dir.pwd
-      @radius = options[:radius] || 3
-    end
-
-    def run
-      FileUtils.mkdir_p(tmpdir)
-      Dir.chdir(tmpdir) do
-        run_tests
-      end
-    end
-
-    private
-
-    def run_tests
-      cases = {}
-      count = 0
-      ObjectSpace.each_object(Class) do |c|
-        next unless c < KO::TestCase
-        tc = c.new
-        tc.methods.each do |m|
-          next unless m.to_s =~ /^(ok|no)[_ ]/
-          cases[tc] ||= []
-          cases[tc] << m
-          count += 1
-        end
-      end
-
-      #tmpdir = tmpdir()
-      #FileUtils.mkdir_p(tmpdir)
-      #Dir.chdir do
-        tally = Hash.new{|h,k| h[k]=0 }
-        report(:type=>'header', :range=>"1..#{count}", :count=>count)
-        index = 0
-        #cases.sort_by{|a,b| a.desc <=> b.desc}
-        cases.each do |c, ts|
-          report(:type=>'case', :label=>c.label, :description=>c.desc)
-          ts.sort!  # TODO: randomization option
-          ts.each do |m|
-            index += 1
-            type = 'test'
-            label = m.to_s.sub(/(ok|no)\s+/,'')
-
-            begin
-              trace = c.__send__(m)
-
-              status = 'pass'
-              file, line = source_location(trace)
-              message = nil
-              tally['pass'] += 1
-            rescue Failure => error
-              status = 'fail'
-              file, line = source_location(error)
-              message = "#{error.class}: #{error.to_s}"
-              tally['fail'] += 1
-            rescue Exception => error
-              status = 'error'
-              file, line = source_location(error)
-              message = "#{error.class}: #{error.to_s}"
-              tally['error'] += 1
-            end
-
-            source  = code_line(file, line)
-            snippet = code_snippet(file, line)
-
-            file    = file.sub(@pwd+File::SEPARATOR, '')
-            #label   = m.sub(/(ok|no)\s+/,'')
-
-            entry = {
-              :type    => type,
-              :status  => status,
-              :index   => index,
-              :label   => label,
-              :file    => file,
-              :line    => line,
-              :source  => source,
-              :snippet => snippet,
-              :message => message
-            }
-
-            report(entry)
-          end
-        end
-      #end
-      report(:type=>'footer', :range=>"1..#{count}", :count=>count, :tally=>tally)
-    end
-
-    fs = Regexp.escape(File::SEPARATOR)
-
-    INTERNALS = /(lib|bin)#{fs}ko/
-
-    # Clean the backtrace of any reference to ko/ paths and code.
-    def clean_backtrace(backtrace)
-      trace = backtrace.reject{ |bt| bt =~ INTERNALS }
-      trace = trace.map do |bt| 
-        if i = bt.index(':in')
-          bt[0...i]
-        else
-          bt
-        end
-      end
-      trace = backtrace if trace.empty?
-      trace = trace.map{ |bt| bt.sub(Dir.pwd+File::SEPARATOR,'') }
-      trace
-    end
-
-    # Parse source location from caller, caller[0] or an Exception object.
-    def source_location(caller)
-      case caller
-      when Exception
-        trace  = caller.backtrace.reject{ |bt| bt =~ INTERNALS }
-        caller = trace.first
-      when Array
-        caller = caller.first
-      end
-      caller =~ /(.+?):(\d+(?=:|\z))/ or return ""
-      source_file, source_line = $1, $2.to_i
-      return source_file, source_line
-    end
-
-    # Have to thank Suraj N. Kurapati for the crux of this code.
-    def code_snippet(source_file, source_line) #exception
-      ##backtrace = exception.backtrace.reject{ |bt| bt =~ INTERNALS }
-      ##backtrace.first =~ /(.+?):(\d+(?=:|\z))/ or return ""
-      #caller =~ /(.+?):(\d+(?=:|\z))/ or return ""
-      #source_file, source_line = $1, $2.to_i
-
-      source = source(source_file)
-
-      radius = @radius # number of surrounding lines to show
-      region = [source_line - radius, 1].max ..
-               [source_line + (radius + 2), source.length].min
-
-      # ensure proper alignment by zero-padding line numbers
-      #format = " %6s %0#{region.last.to_s.length}d %s"
-      #pretty = region.map do |n|
-      #  format % [('=>' if n == source_line), n, source[n-1].chomp]
-      #end #.unshift "[#{region.inspect}] in #{source_file}"
-      #pretty
-
-      hash = {}
-      region.each do |n|
-        hash[n] = source[n-1].rstrip
-      end
-      hash
-    end
-
-    #
-    def code_line(source_file, source_line)
-      source = source(source_file)
-      source[source_line-1].strip
-    end
-
-    #
-    def source(file)
-      @source[file] ||= (
-        File.readlines(file)
-      )
-    end
-
-    #
-    def tmpdir
-      File.join(Dir.tmpdir, 'ko', File.basename(Dir.pwd))
-    end
-
-  end
-
-end
-
