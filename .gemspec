@@ -1,5 +1,5 @@
 --- !ruby/object:Gem::Specification 
-name: ko-
+name: ko
 version: !ruby/object:Gem::Version 
   prerelease: 
   version: 1.3.0
@@ -13,7 +13,7 @@ cert_chain: []
 date: 2011-05-21 00:00:00 Z
 dependencies: 
 - !ruby/object:Gem::Dependency 
-  name: ansi
+  name: tapout
   prerelease: false
   requirement: &id001 !ruby/object:Gem::Requirement 
     none: false
@@ -24,18 +24,18 @@ dependencies:
   type: :runtime
   version_requirements: *id001
 - !ruby/object:Gem::Dependency 
-  name: facets
+  name: qed
   prerelease: false
   requirement: &id002 !ruby/object:Gem::Requirement 
     none: false
     requirements: 
     - - ">="
       - !ruby/object:Gem::Version 
-        version: 2.9.1
-  type: :runtime
+        version: "0"
+  type: :development
   version_requirements: *id002
 - !ruby/object:Gem::Dependency 
-  name: syckle
+  name: redline
   prerelease: false
   requirement: &id003 !ruby/object:Gem::Requirement 
     none: false
@@ -86,7 +86,7 @@ files:
 - APACHE2.txt
 - README.rdoc
 - NOTICE.rdoc
-homepage: http://proutils.github.com/ko
+homepage: http://rubyworks.github.com/ko
 licenses: 
 - Apache 2.0
 post_install_message: 
@@ -111,7 +111,7 @@ required_rubygems_version: !ruby/object:Gem::Requirement
       version: "0"
 requirements: []
 
-rubyforge_project: ko-
+rubyforge_project: ko
 rubygems_version: 1.8.2
 signing_key: 
 specification_version: 3

@@ -1,26 +1,34 @@
 --- 
+name   : ko
 title  : KO
 summary: Knockout Testing
 contact: trans <transfire@gmail.com>
 
 requires:
-- ansi
-- facets 2.9.1+
-- syckle (build)
+- tapout
+- qed (test)
+- redline (build)
 
 description:
   Knockout is BDD test framework, with next-gen conceptual model
   and a sexy light-weight implementation.
 
 resources:
-  homepage: http://proutils.github.com/ko
-  repository: git://github.com/proutils/ko.git
+  home: http://rubyworks.github.com/ko
+  code: http://github.com/rubyworks/ko
 
-company: RubyWorks
-authors: Thomas Sawyer
+repositories:
+  public: git://github.com/proutils/ko.git
+
+organization: RubyWorks
+
+authors:
+- Thomas Sawyer
+
 created: 2010-06-21 09:00:06
 license: Apache 2.0
 
 copyright: Copyright (c) 2010 Thomas Sawyer
 
 namespace : KO
+

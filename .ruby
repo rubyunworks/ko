@@ -1,5 +1,5 @@
 --- 
-name: ko-
+name: ko
 version: 1.3.0
 title: KO
 summary: Knockout Testing
@@ -38,8 +38,8 @@ authors:
 maintainers: []
 
 resources: 
-  home: http://proutils.github.com/ko
-  repository: git://github.com/proutils/ko.git
-repositories: {}
-
+  home: http://rubyworks.github.com/ko
+  code: http://github.com/rubyworks/ko
+repositories: 
+  public: git://github.com/proutils/ko.git
 spec_version: 1.0.0
