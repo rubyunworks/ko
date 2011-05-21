@@ -144,10 +144,10 @@ BTW, if you are a Cuke, you can use capitalized KO's method names.
 
 Running KO! scripts is like this.
 
-  $ ko -Ilib path/to/requirements/*.rb
+  $ ko -Ilib path/to/tests/*.rb
 
 
-== LEGAL
+== LICENSE
 
 Copyright (c) 2010 Thomas Sawyer
 
