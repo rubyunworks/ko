@@ -12,7 +12,7 @@ KO.case "test validation" do
   ok :a  => Symbol
   ok 'A' => String
 
-  no 1   => Fixnum #String
+  no 1   => String
 
 end
 

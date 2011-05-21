@@ -1,9 +1,11 @@
-require File.dirname(__FILE__) + '/calculator_context'
+require File.dirname(__FILE__) + '/calculator'
 
 # The Calculator must support addition.
 KO.case "Addition" do
 
-  use "Calculator Instance"
+  def initialize
+    @calculator = Calculator.new
+  end
 
   test "addition of two numbers" do |a,b|
     @calculator.push a
