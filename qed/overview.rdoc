@@ -1,20 +1,21 @@
 = Knock Out!
 
 KO! is a test framework for Ruby. Inspired by the discontinuation of Shoulda
-excellent context system, it seemed time Ruby had a lean but elegant test system.
+excellent context system, it seemed a good time to rollout a lean and elegant
+new approach.
 
 Here is a simple example. First we will define a reusable context:
 
-  context "Calculator Instance" do
+  KO.context "Calculator Instance" do
 
-    setup do
+    before(:all) do
       require 'calculator'
       @calculator = Calculater.new
     end
 
   end
 
-Then when we define a testcase which utilizes the context:
+Then when we define testcases which utilizes the context:
 
   KO.case "Addition" do
 
@@ -44,3 +45,5 @@ Then when we define a testcase which utilizes the context:
     ok 2,2,0
   end
 
+Of course, contexts will not often be used for small to medium testing needs.
+But for large testing needs they become very helpful for code resue.

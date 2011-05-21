@@ -1,11 +1,9 @@
-require File.dirname(__FILE__) + '/calculator'
+require File.dirname(__FILE__) + '/calculator_context'
 
 # The Calculator must support subtraction.
 KO.case "Subtraction" do
 
-  def initialize
-    @calculator = Calculator.new
-  end
+  use "Calculator Instance"
 
   test "subtraction of two numbers" do |a,b|
     @calculator.push a

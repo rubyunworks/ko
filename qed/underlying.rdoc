@@ -1,0 +1,45 @@
+= Underlying Design
+
+Below KO's domain language lies a simple design that works much like
+the Ruby's TestUnit and MiniTest libraries. Tecnhincally KO tests can
+be written in this more traditional fashion.
+
+  module CalculatorInstance
+
+    def before_all do
+      require 'calculator'
+      @calculator = Calculater.new
+    end
+
+  end
+
+Then when we define testcases which utilizes the context:
+
+  class AdditionCase < KO::TestCase
+
+    include CalculatorInstance
+
+    def test_addition_of_two_numbers(a,b,c)
+      @calculator.push a
+      @calculator.push b
+      @calculator.add
+      @calculator.output == c
+    end
+
+    ok 2,2,4
+  end
+
+  class SubtractionCase < KO::TestCase
+
+    include CalculatorInstance
+
+    def test_subtraction_of_two_numbers(a,b,c)
+      @calculator.push a
+      @calculator.push b
+      @calculator.subtract
+      @calculator.output == c
+    end
+
+    ok 2,2,0
+  end
+
