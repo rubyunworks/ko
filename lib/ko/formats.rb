@@ -87,7 +87,8 @@ module KO
           puts
           puts e[:status].upcase + ' ' + e[:label]
           puts e[:message]
-          e[:snippet].sort.each do |(l, s)|
+          e[:snippet].each do |h|
+            l, s = h.keys.first, h.values.first
             if l.to_i == e[:line]
               puts " > %5d: %s" % [l.to_i,s]
             else
