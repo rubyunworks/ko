@@ -1,3 +1,5 @@
+= Techniques
+
 == Testing for Truth
 
     class TruthCase < KO::TestCase

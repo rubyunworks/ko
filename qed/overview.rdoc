@@ -1,10 +1,10 @@
-= Knock Out!
+= Overview
 
 KO! is a test framework for Ruby. Inspired by the discontinuation of Shoulda
 excellent context system, it seemed a good time to rollout a lean and elegant
 new approach.
 
-Here is a simple example. First we will define a reusable context:
+Here is a simple example. First we will define a reusable context.
 
   KO.context "Calculator Instance" do
 
@@ -15,7 +15,7 @@ Here is a simple example. First we will define a reusable context:
 
   end
 
-Then when we define testcases which utilizes the context:
+Then when we define test cases which utilizes the context.
 
   KO.case "Addition" do
 
