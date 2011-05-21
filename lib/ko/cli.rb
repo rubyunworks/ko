@@ -28,27 +28,23 @@ module KO
     end
 
     #
-    #def contexts
-    #  @contexts ||= (
-    #    src = []
-    #    @files.each do |file|
-    #      dir = File.dirname(file)
-    #      src.concat(Dir[File.join(dir, '*_context.rb')] + Dir[File.join(dir, 'context/*.rb')])
-    #    end
-    #    src
-    #  )
-    #end
-
-    #
     #def suite
     #  @suite ||= Suite.new(contexts + files)
     #end
 
     #
     def execute
-      #(contexts + files).each{ |f| require f }
-      files.uniq.each do |file|
-        require File.expand_path(file)
+      list = []
+      files.each do |path|
+        if File.directory?(path)
+          list.concat(Dir[File.join(path, '*.rb')])
+        else
+          list << path
+        end
+      end
+
+      list.uniq.each do |path|
+        require File.expand_path(path)
         #suite.load(file)
       end
       #reporter = Reporters.factory(@format).new
