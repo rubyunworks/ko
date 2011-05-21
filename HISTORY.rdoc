@@ -1,18 +1,17 @@
 = RELEASE HISTORY
 
-
 == 1.3.0 / 2011-05-21
 
 This release greatly simplifes the design of KO. KO now works more like the original
-Test::Unit in that creating a testcase meand create a subclass of KO::TestCase. 
-Along with this the Context class has been removed, as regular module inclusion can
-now be used to essentially achieve the same result. Lastly, #setup and #teardown
-have been deprecated in favor of #before and #after methods.
+TestUnit in that creating a testcase simply creates a subclass of KO::TestCase. 
+Along with this the Context class is little more than a subclass of Module, since
+regular module inclusion can now be used to essentially achieve the same result.
+Lastly, #setup and #teardown have been deprecated in favor of #before and #after methods.
 
 Changes:
 
 * Revamp system to use class-based design.
-* Remove Context class (use modules instead).
+* Revamp Context class as a module.
 * Deprecate setup and teardown in favor of before and after.
 
 

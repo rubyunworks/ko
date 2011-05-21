@@ -79,15 +79,16 @@ module KO
           @format = 'dot'
         end
 
-        #opt.on('--format', '-f TYPE', 'pipe output thru this koax format') do |type|
+        # TODO: needs a human readable verbose reporter
+        #opt.on('--verbose', '-v', 'output with verbose format') do |type|
+        #  @format = 'verbose'
+        #end
+
+        #opt.on('--format', '-f TYPE', 'pipe tapy output thru tapout format') do |type|
         #  @format = type
         #end
 
         opt.separator ""
-
-        #opt.on('--verbose', '-v', 'output with verbose format') do |type|
-        #  @format = 'verbose'
-        #end
 
         opt.on('-I PATH', 'add directory to loadpath') do |path|
           $LOAD_PATH.unshift(path)
