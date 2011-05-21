@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+trip :test do
+  system "bin/ko -Ilib test/"
+end
