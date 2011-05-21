@@ -1,7 +1,6 @@
 ---
-box:
-  service: Box
-  types  : [gem]
+gem:
+  service: Gem
   active : true
 
 dnote:
@@ -23,24 +22,15 @@ stats:
 rdoc:
   service : rdoc
   format  : redfish
-  exclude : [Syckfile, Profile, Version, Manifest.txt]
+  exclude : [Redfile, Profile, Version, Manifest.txt]
   output  : site/doc/api
 
-ridoc:
-  service: RIDoc
+ri:
+  service: RI
   include: ~
   exclude: ~
   output : .ri
   active : true
-
-testrb:
-  service  : testrb
-  tests    : ~
-  exclude  : ~
-  loadpath : ~
-  requires : ~
-  live     : false   
-  active   : false
 
 grancher:
   service: Grancher
