@@ -93,7 +93,10 @@ files:
 - try/testing/hash_case.rb
 - try/testing/truth_case.rb
 - try/testing/validation_case.rb
+- HISTORY.rdoc
+- APACHE2.txt
 - README.rdoc
+- NOTICE.rdoc
 homepage: http://proutils.github.com/ko
 licenses: 
 - Apache 2.0

@@ -22,4 +22,7 @@ try/testing/equality_case.rb
 try/testing/hash_case.rb
 try/testing/truth_case.rb
 try/testing/validation_case.rb
+HISTORY.rdoc
+APACHE2.txt
 README.rdoc
+NOTICE.rdoc
