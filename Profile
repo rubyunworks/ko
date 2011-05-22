@@ -10,7 +10,7 @@ requires:
 - redline (build)
 
 description:
-  Knockout is BDD test framework, with next-gen conceptual model
+  Knockout is test framework with a next-gen conceptual model
   and a sexy light-weight implementation.
 
 resources:

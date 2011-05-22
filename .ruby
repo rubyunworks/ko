@@ -40,6 +40,6 @@ copyright: Copyright (c) 2010 Thomas Sawyer
 authors: 
 - Thomas Sawyer
 organization: RubyWorks
-description: Knockout is BDD test framework, with next-gen conceptual model and a sexy light-weight implementation.
+description: Knockout is test framework with a next-gen conceptual model and a sexy light-weight implementation.
 summary: Knockout Testing
 created: 2010-06-21 09:00:06

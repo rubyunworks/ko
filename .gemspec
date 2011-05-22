@@ -59,7 +59,7 @@ dependencies:
         version: "0"
   type: :development
   version_requirements: *id003
-description: Knockout is BDD test framework, with next-gen conceptual model and a sexy light-weight implementation.
+description: Knockout is test framework with a next-gen conceptual model and a sexy light-weight implementation.
 email: transfire@gmail.com
 executables: 
 - ko
