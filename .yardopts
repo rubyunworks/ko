@@ -1,0 +1,9 @@
+--title "KO!"
+--readme README.rdoc
+--private
+-o site/doc
+lib/**/*.rb - 
+NOTICE.rdoc
+APACHE2.txt
+README.rdoc
+HISTORY.rdoc

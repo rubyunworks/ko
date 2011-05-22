@@ -1,8 +1,10 @@
 .reap/digest
 .ri
+.yardoc
 log
 doc
 pkg
 ri
 tmp
 site/doc
+site/qed
