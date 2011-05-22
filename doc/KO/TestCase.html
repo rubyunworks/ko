@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<title>Class: KO::TestCase</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../KO.html" title="KO (module)">KO</a></span></span>
+     &raquo; 
+    <span class="title">TestCase</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: KO::TestCase
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">KO::TestCase</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2"><span class='object_link'><a href="TestCase/DSL.html" title="KO::TestCase::DSL (module)">DSL</a></span></dd>
+      
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="World.html" title="KO::World (module)">World</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ko/testcase.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>TestCase</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="TestCase/DSL.html" title="KO::TestCase::DSL (module)">DSL</a></span>
+    
+   
+    
+  
+</p>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#after_all-instance_method" title="#after_all (instance method)">- (Object) <strong>after_all</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Noop finish method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#after_each-instance_method" title="#after_each (instance method)">- (Object) <strong>after_each</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Noop teardown method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#before_all-instance_method" title="#before_all (instance method)">- (Object) <strong>before_all</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Noop start method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#before_each-instance_method" title="#before_each (instance method)">- (Object) <strong>before_each</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Noop setup method.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#desc-instance_method" title="#desc (instance method)">- (Object) <strong>desc</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieve description from class definition.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fileutils-instance_method" title="#fileutils (instance method)">- (Object) <strong>fileutils</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Access to FileUtils.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#label-instance_method" title="#label (instance method)">- (Object) <strong>label</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stage_clear-instance_method" title="#stage_clear (instance method)">- (Object) <strong>stage_clear</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Clear out directory if it has contents.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stage_copy-instance_method" title="#stage_copy (instance method)">- (Object) <strong>stage_copy</strong>(source_dir) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Copy fixture files into temporary working directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stage_fake-instance_method" title="#stage_fake (instance method)">- (Object) <strong>stage_fake</strong>(*paths) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a fake set of file paths in the temporary working directory.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stage_safe%21-instance_method" title="#stage_safe! (instance method)">- (Object) <strong>stage_safe!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="TestCase/DSL.html" title="KO::TestCase::DSL (module)">DSL</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="TestCase/DSL.html#_define_check_method-instance_method" title="KO::TestCase::DSL#_define_check_method (method)">_define_check_method</a></span>, <span class='object_link'><a href="TestCase/DSL.html#_get_ok_count-instance_method" title="KO::TestCase::DSL#_get_ok_count (method)">_get_ok_count</a></span>, <span class='object_link'><a href="TestCase/DSL.html#_get_test_count-instance_method" title="KO::TestCase::DSL#_get_test_count (method)">_get_test_count</a></span>, <span class='object_link'><a href="TestCase/DSL.html#_set_test-instance_method" title="KO::TestCase::DSL#_set_test (method)">_set_test</a></span>, <span class='object_link'><a href="TestCase/DSL.html#after-instance_method" title="KO::TestCase::DSL#after (method)">after</a></span>, <span class='object_link'><a href="TestCase/DSL.html#before-instance_method" title="KO::TestCase::DSL#before (method)">before</a></span>, <span class='object_link'><a href="TestCase/DSL.html#concern-instance_method" title="KO::TestCase::DSL#concern (method)">concern</a></span>, <span class='object_link'><a href="TestCase/DSL.html#method_added-instance_method" title="KO::TestCase::DSL#method_added (method)">method_added</a></span>, <span class='object_link'><a href="TestCase/DSL.html#no-instance_method" title="KO::TestCase::DSL#no (method)">no</a></span>, <span class='object_link'><a href="TestCase/DSL.html#ok-instance_method" title="KO::TestCase::DSL#ok (method)">ok</a></span>, <span class='object_link'><a href="TestCase/DSL.html#setup-instance_method" title="KO::TestCase::DSL#setup (method)">setup</a></span>, <span class='object_link'><a href="TestCase/DSL.html#teardown-instance_method" title="KO::TestCase::DSL#teardown (method)">teardown</a></span>, <span class='object_link'><a href="TestCase/DSL.html#test-instance_method" title="KO::TestCase::DSL#test (method)">test</a></span>, <span class='object_link'><a href="TestCase/DSL.html#test_list-instance_method" title="KO::TestCase::DSL#test_list (method)">test_list</a></span>, <span class='object_link'><a href="TestCase/DSL.html#use-instance_method" title="KO::TestCase::DSL#use (method)">use</a></span>, <span class='object_link'><a href="TestCase/DSL.html#valid-instance_method" title="KO::TestCase::DSL#valid (method)">valid</a></span></p>
+
+  
+  
+  
+  
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="after_all-instance_method">
+  
+    - (<tt>Object</tt>) <strong>after_all</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Noop finish method. This procedure is performed at the end of a testcase
+run. If you override it, be sure to call super() so any other included
+contexts can do the same (unless you are purposefully overriding them, of
+course).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+242
+243
+244</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 242</span>
+
+<span class='def def kw'>def</span> <span class='after_all identifier id'>after_all</span>
+  <span class='super super kw'>super</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='super super kw'>super</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="after_each-instance_method">
+  
+    - (<tt>Object</tt>) <strong>after_each</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Noop teardown method. This procedure is performed after each test. If you
+override it, be sure to call super() so any other included contexts can do
+the same (unless you are purposefully overriding them, of course).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+234
+235
+236</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 234</span>
+
+<span class='def def kw'>def</span> <span class='after_each identifier id'>after_each</span>
+  <span class='super super kw'>super</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='super super kw'>super</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="before_all-instance_method">
+  
+    - (<tt>Object</tt>) <strong>before_all</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Noop start method. This procedure is performed at the start of a testcase
+run. If you override it, be sure to call super() so any other included
+contexts can do the same (unless you are purposefully overriding them, of
+course).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+218
+219
+220</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 218</span>
+
+<span class='def def kw'>def</span> <span class='before_all identifier id'>before_all</span>
+  <span class='super super kw'>super</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='super super kw'>super</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="before_each-instance_method">
+  
+    - (<tt>Object</tt>) <strong>before_each</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Noop setup method. This procedure is performed before each test. If you
+override it, be sure to call super() so any other included contexts can do
+the same (unless you are purposefully overriding  them, of course).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+226
+227
+228</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 226</span>
+
+<span class='def def kw'>def</span> <span class='before_each identifier id'>before_each</span>
+  <span class='super super kw'>super</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='super super kw'>super</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="desc-instance_method">
+  
+    - (<tt>Object</tt>) <strong>desc</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieve description from class definition. If it is <tt>nil</tt> then
+simply return the name of the class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+200
+201
+202</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 200</span>
+
+<span class='def def kw'>def</span> <span class='desc identifier id'>desc</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='desc identifier id'>desc</span> <span class='orop op'>||</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='name identifier id'>name</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fileutils-instance_method">
+  
+    - (<tt>Object</tt>) <strong>fileutils</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Access to FileUtils. Using this method rather than FileUtils itself allows
+ko command-line options to select FileUtils options. TODO: deprecate ?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+294
+295
+296
+297
+298
+299
+300
+301
+302</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 294</span>
+
+<span class='def def kw'>def</span> <span class='fileutils identifier id'>fileutils</span>
+  <span class='if if kw'>if</span> <span class='$DRYRUN gvar id'>$DRYRUN</span>
+    <span class='FileUtils constant id'>FileUtils</span><span class='colon2 op'>::</span><span class='DryRun constant id'>DryRun</span>
+  <span class='elsif elsif kw'>elsif</span> <span class='$DEBUG gvar id'>$DEBUG</span>
+    <span class='FileUtils constant id'>FileUtils</span><span class='colon2 op'>::</span><span class='Verbose constant id'>Verbose</span>
+  <span class='else else kw'>else</span>
+    <span class='FileUtils constant id'>FileUtils</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="label-instance_method">
+  
+    - (<tt>Object</tt>) <strong>label</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207
+208
+209
+210
+211
+212</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 205</span>
+
+<span class='def def kw'>def</span> <span class='label identifier id'>label</span>
+  <span class='lbl identifier id'>lbl</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='class identifier id'>class</span><span class='dot token'>.</span><span class='name identifier id'>name</span>
+  <span class='if if kw'>if</span> <span class='lbl identifier id'>lbl</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='or or kw'>or</span> <span class='lbl identifier id'>lbl</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span>
+    <span class='desc identifier id'>desc</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='dot2 op'>..</span><span class='integer val'>19</span><span class='rbrack token'>]</span>
+  <span class='else else kw'>else</span>
+    <span class='lbl identifier id'>lbl</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stage_clear-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stage_clear</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Clear out directory if it has contents.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+264
+265
+266
+267
+268
+269</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 264</span>
+
+<span class='def def kw'>def</span> <span class='stage_clear identifier id'>stage_clear</span>
+  <span class='stage_safe! fid id'>stage_safe!</span>
+  <span class='Dir constant id'>Dir</span><span class='lbrack token'>[</span><span class='string val'>'*'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='path identifier id'>path</span><span class='bitor op'>|</span>
+    <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='rm_r identifier id'>rm_r</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stage_copy-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stage_copy</strong>(source_dir) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Copy fixture files into temporary working directory.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+254
+255
+256
+257
+258
+259
+260
+261</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 254</span>
+
+<span class='def def kw'>def</span> <span class='stage_copy identifier id'>stage_copy</span><span class='lparen token'>(</span><span class='source_dir identifier id'>source_dir</span><span class='rparen token'>)</span>
+  <span class='test_dir identifier id'>test_dir</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='caller identifier id'>caller</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='stage_clear identifier id'>stage_clear</span>
+  <span class='srcdir identifier id'>srcdir</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='test_dir identifier id'>test_dir</span><span class='comma token'>,</span> <span class='source_dir identifier id'>source_dir</span><span class='rparen token'>)</span>
+  <span class='Dir constant id'>Dir</span><span class='lbrack token'>[</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='srcdir identifier id'>srcdir</span><span class='comma token'>,</span> <span class='string val'>'*'</span><span class='rparen token'>)</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='path identifier id'>path</span><span class='bitor op'>|</span>
+    <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='cp_r identifier id'>cp_r</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='comma token'>,</span> <span class='string val'>'.'</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stage_fake-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stage_fake</strong>(*paths) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a fake set of file paths in the temporary working directory.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 272</span>
+
+<span class='def def kw'>def</span> <span class='stage_fake identifier id'>stage_fake</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='paths identifier id'>paths</span><span class='rparen token'>)</span>
+  <span class='stage_safe! fid id'>stage_safe!</span>
+  <span class='paths identifier id'>paths</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='path identifier id'>path</span><span class='bitor op'>|</span>
+    <span class='path identifier id'>path</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='Dir constant id'>Dir</span><span class='dot token'>.</span><span class='pwd identifier id'>pwd</span><span class='comma token'>,</span> <span class='path identifier id'>path</span><span class='rparen token'>)</span>
+    <span class='if if kw'>if</span> <span class='regexp val'>/\/$/</span> <span class='match op'>=~</span> <span class='path identifier id'>path</span>
+      <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='mkdir_p identifier id'>mkdir_p</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='directory? fid id'>directory?</span><span class='lparen token'>(</span><span class='dir identifier id'>dir</span><span class='rparen token'>)</span>
+    <span class='else else kw'>else</span>
+      <span class='dir identifier id'>dir</span> <span class='assign token'>=</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='dirname identifier id'>dirname</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='rparen token'>)</span>
+      <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='mkdir_p identifier id'>mkdir_p</span><span class='lparen token'>(</span><span class='dir identifier id'>dir</span><span class='rparen token'>)</span> <span class='unless unless_mod kw'>unless</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='directory? fid id'>directory?</span><span class='lparen token'>(</span><span class='dir identifier id'>dir</span><span class='rparen token'>)</span>
+      <span class='File constant id'>File</span><span class='dot token'>.</span><span class='open identifier id'>open</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='comma token'>,</span><span class='string val'>'w'</span><span class='rparen token'>)</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='f identifier id'>f</span><span class='bitor op'>|</span> <span class='f identifier id'>f</span> <span class='lshft op'>&lt;&lt;</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='rbrace token'>}</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stage_safe!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stage_safe!</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+287
+288
+289</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 287</span>
+
+<span class='def def kw'>def</span> <span class='stage_safe! fid id'>stage_safe!</span>
+  <span class='raise identifier id'>raise</span> <span class='dstring node'>&quot;unsafe test stage directory -- #{Dir.pwd}&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='dregexp node'>/#{Dir.tmpdir}/</span> <span class='match op'>=~</span> <span class='Dir constant id'>Dir</span><span class='dot token'>.</span><span class='pwd identifier id'>pwd</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat May 21 22:47:28 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.7 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

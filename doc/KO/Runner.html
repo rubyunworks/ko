@@ -1,0 +1,894 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<title>Class: KO::Runner</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../KO.html" title="KO (module)">KO</a></span></span>
+     &raquo; 
+    <span class="title">Runner</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: KO::Runner
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">KO::Runner</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ko/runner.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#clean_backtrace-instance_method" title="#clean_backtrace (instance method)">- (Object) <strong>clean_backtrace</strong>(backtrace) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Clean the backtrace of any reference to ko/ paths and code.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#code_line-instance_method" title="#code_line (instance method)">- (Object) <strong>code_line</strong>(source_file, source_line) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#code_snippet-instance_method" title="#code_snippet (instance method)">- (Object) <strong>code_snippet</strong>(source_file, source_line) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Have to thank Suraj N.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Runner) <strong>initialize</strong>(options = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>New Runner class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-instance_method" title="#run (instance method)">- (Object) <strong>run</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#run_tests-instance_method" title="#run_tests (instance method)">- (Object) <strong>run_tests</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#source-instance_method" title="#source (instance method)">- (Object) <strong>source</strong>(file) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#source_location-instance_method" title="#source_location (instance method)">- (Object) <strong>source_location</strong>(caller) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Parse source location from caller, caller[0] or an Exception object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#tmpdir-instance_method" title="#tmpdir (instance method)">- (Object) <strong>tmpdir</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="KO::Runner (class)">Runner</a></span></tt>) <strong>initialize</strong>(options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>New Runner class.</p>
+
+<p>options - hash table of Runner settings :format - output format :radius -
+number of source lines to provide</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/runner.rb', line 32</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='fmt identifier id'>fmt</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:format</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='string val'>'TAP'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='upcase identifier id'>upcase</span>
+  <span class='if if kw'>if</span> <span class='KO constant id'>KO</span><span class='dot token'>.</span><span class='const_defined? fid id'>const_defined?</span><span class='lparen token'>(</span><span class='fmt identifier id'>fmt</span><span class='rparen token'>)</span>
+    <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='KO constant id'>KO</span><span class='dot token'>.</span><span class='const_get identifier id'>const_get</span><span class='lparen token'>(</span><span class='fmt identifier id'>fmt</span><span class='rparen token'>)</span>
+    <span class='extend identifier id'>extend</span><span class='lparen token'>(</span><span class='format identifier id'>format</span><span class='rparen token'>)</span>
+  <span class='else else kw'>else</span>
+    <span class='abort identifier id'>abort</span> <span class='dstring node'>&quot;Unknown format `#{fmt}`.&quot;</span>
+  <span class='end end kw'>end</span>
+
+  <span class='@source ivar id'>@source</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='@pwd ivar id'>@pwd</span>    <span class='assign token'>=</span> <span class='Dir constant id'>Dir</span><span class='dot token'>.</span><span class='pwd identifier id'>pwd</span>
+  <span class='@radius ivar id'>@radius</span> <span class='assign token'>=</span> <span class='options identifier id'>options</span><span class='lbrack token'>[</span><span class='symbol val'>:radius</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='integer val'>3</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="clean_backtrace-instance_method">
+  
+    - (<tt>Object</tt>) <strong>clean_backtrace</strong>(backtrace)  <span class="extras">(private)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Clean the backtrace of any reference to ko/ paths and code.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/runner.rb', line 140</span>
+
+<span class='def def kw'>def</span> <span class='clean_backtrace identifier id'>clean_backtrace</span><span class='lparen token'>(</span><span class='backtrace identifier id'>backtrace</span><span class='rparen token'>)</span>
+  <span class='trace identifier id'>trace</span> <span class='assign token'>=</span> <span class='backtrace identifier id'>backtrace</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='bt identifier id'>bt</span><span class='bitor op'>|</span> <span class='bt identifier id'>bt</span> <span class='match op'>=~</span> <span class='RUBY_IGNORE_CALLERS constant id'>RUBY_IGNORE_CALLERS</span> <span class='rbrace token'>}</span>
+  <span class='trace identifier id'>trace</span> <span class='assign token'>=</span> <span class='trace identifier id'>trace</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='bt identifier id'>bt</span><span class='bitor op'>|</span> 
+    <span class='if if kw'>if</span> <span class='i identifier id'>i</span> <span class='assign token'>=</span> <span class='bt identifier id'>bt</span><span class='dot token'>.</span><span class='index identifier id'>index</span><span class='lparen token'>(</span><span class='string val'>':in'</span><span class='rparen token'>)</span>
+      <span class='bt identifier id'>bt</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='dot3 op'>...</span><span class='i identifier id'>i</span><span class='rbrack token'>]</span>
+    <span class='else else kw'>else</span>
+      <span class='bt identifier id'>bt</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='trace identifier id'>trace</span> <span class='assign token'>=</span> <span class='backtrace identifier id'>backtrace</span> <span class='if if_mod kw'>if</span> <span class='trace identifier id'>trace</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span>
+  <span class='trace identifier id'>trace</span> <span class='assign token'>=</span> <span class='trace identifier id'>trace</span><span class='dot token'>.</span><span class='map identifier id'>map</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='bt identifier id'>bt</span><span class='bitor op'>|</span> <span class='bt identifier id'>bt</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='Dir constant id'>Dir</span><span class='dot token'>.</span><span class='pwd identifier id'>pwd</span><span class='plus op'>+</span><span class='File constant id'>File</span><span class='colon2 op'>::</span><span class='SEPARATOR constant id'>SEPARATOR</span><span class='comma token'>,</span><span class='string val'>''</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+  <span class='trace identifier id'>trace</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="code_line-instance_method">
+  
+    - (<tt>Object</tt>) <strong>code_line</strong>(source_file, source_line)  <span class="extras">(private)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+195
+196
+197
+198</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/runner.rb', line 195</span>
+
+<span class='def def kw'>def</span> <span class='code_line identifier id'>code_line</span><span class='lparen token'>(</span><span class='source_file identifier id'>source_file</span><span class='comma token'>,</span> <span class='source_line identifier id'>source_line</span><span class='rparen token'>)</span>
+  <span class='source identifier id'>source</span> <span class='assign token'>=</span> <span class='source identifier id'>source</span><span class='lparen token'>(</span><span class='source_file identifier id'>source_file</span><span class='rparen token'>)</span>
+  <span class='source identifier id'>source</span><span class='lbrack token'>[</span><span class='source_line identifier id'>source_line</span><span class='minus op'>-</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='strip identifier id'>strip</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="code_snippet-instance_method">
+  
+    - (<tt>Object</tt>) <strong>code_snippet</strong>(source_file, source_line)  <span class="extras">(private)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Have to thank Suraj N. Kurapati for the crux of this code.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/runner.rb', line 169</span>
+
+<span class='def def kw'>def</span> <span class='code_snippet identifier id'>code_snippet</span><span class='lparen token'>(</span><span class='source_file identifier id'>source_file</span><span class='comma token'>,</span> <span class='source_line identifier id'>source_line</span><span class='rparen token'>)</span> <span class='comment val'>#exception</span>
+  <span class='comment val'>##backtrace = exception.backtrace.reject{ |bt| bt =~ INTERNALS }</span>
+  <span class='comment val'>##backtrace.first =~ /(.+?):(\d+(?=:|\z))/ or return &quot;&quot;</span>
+  <span class='comment val'>#caller =~ /(.+?):(\d+(?=:|\z))/ or return &quot;&quot;</span>
+  <span class='comment val'>#source_file, source_line = $1, $2.to_i</span>
+
+  <span class='source identifier id'>source</span> <span class='assign token'>=</span> <span class='source identifier id'>source</span><span class='lparen token'>(</span><span class='source_file identifier id'>source_file</span><span class='rparen token'>)</span>
+
+  <span class='radius identifier id'>radius</span> <span class='assign token'>=</span> <span class='@radius ivar id'>@radius</span> <span class='comment val'># number of surrounding lines to show</span>
+  <span class='region identifier id'>region</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='source_line identifier id'>source_line</span> <span class='minus op'>-</span> <span class='radius identifier id'>radius</span><span class='comma token'>,</span> <span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='max identifier id'>max</span> <span class='dot2 op'>..</span>
+           <span class='lbrack token'>[</span><span class='source_line identifier id'>source_line</span> <span class='plus op'>+</span> <span class='lparen token'>(</span><span class='radius identifier id'>radius</span> <span class='plus op'>+</span> <span class='integer val'>2</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='source identifier id'>source</span><span class='dot token'>.</span><span class='length identifier id'>length</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='min identifier id'>min</span>
+
+  <span class='comment val'># ensure proper alignment by zero-padding line numbers</span>
+  <span class='comment val'>#format = &quot; %6s %0#{region.last.to_s.length}d %s&quot;</span>
+  <span class='comment val'>#pretty = region.map do |n|</span>
+  <span class='comment val'>#  format % [('=&gt;' if n == source_line), n, source[n-1].chomp]</span>
+  <span class='comment val'>#end #.unshift &quot;[#{region.inspect}] in #{source_file}&quot;</span>
+  <span class='comment val'>#pretty</span>
+
+  <span class='comment val'># create an ordered hash of line =&gt; code</span>
+  <span class='region identifier id'>region</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='n identifier id'>n</span><span class='bitor op'>|</span>
+    <span class='lbrace token'>{</span><span class='n identifier id'>n</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='source identifier id'>source</span><span class='lbrack token'>[</span><span class='n identifier id'>n</span><span class='minus op'>-</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rstrip identifier id'>rstrip</span><span class='rbrace token'>}</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="run-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/runner.rb', line 46</span>
+
+<span class='def def kw'>def</span> <span class='run identifier id'>run</span>
+  <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='mkdir_p identifier id'>mkdir_p</span><span class='lparen token'>(</span><span class='tmpdir identifier id'>tmpdir</span><span class='rparen token'>)</span>
+  <span class='Dir constant id'>Dir</span><span class='dot token'>.</span><span class='chdir identifier id'>chdir</span><span class='lparen token'>(</span><span class='tmpdir identifier id'>tmpdir</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+    <span class='run_tests identifier id'>run_tests</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="run_tests-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_tests</strong>  <span class="extras">(private)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/runner.rb', line 56</span>
+
+<span class='def def kw'>def</span> <span class='run_tests identifier id'>run_tests</span>
+  <span class='cases identifier id'>cases</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='count identifier id'>count</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
+
+  <span class='comment val'># collect testcase classes</span>
+  <span class='ObjectSpace constant id'>ObjectSpace</span><span class='dot token'>.</span><span class='each_object identifier id'>each_object</span><span class='lparen token'>(</span><span class='Class constant id'>Class</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='c identifier id'>c</span><span class='bitor op'>|</span>
+    <span class='next next kw'>next</span> <span class='unless unless_mod kw'>unless</span> <span class='c identifier id'>c</span> <span class='lt op'>&lt;</span> <span class='KO constant id'>KO</span><span class='colon2 op'>::</span><span class='TestCase constant id'>TestCase</span>
+    <span class='cases identifier id'>cases</span><span class='lbrack token'>[</span><span class='c identifier id'>c</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='test_list identifier id'>test_list</span>
+    <span class='count identifier id'>count</span> <span class='opasgn op'>+=</span> <span class='cases identifier id'>cases</span><span class='lbrack token'>[</span><span class='c identifier id'>c</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='size identifier id'>size</span>
+    <span class='comment val'>#tc = c.new</span>
+    <span class='comment val'>#tc.methods.each do |m|</span>
+    <span class='comment val'>#  next unless m.to_s =~ /^(ok|no)[_ ]/</span>
+    <span class='comment val'>#  cases[tc] ||= []</span>
+    <span class='comment val'>#  cases[tc] &lt;&lt; m</span>
+    <span class='comment val'>#  count += 1</span>
+    <span class='comment val'>#end</span>
+  <span class='end end kw'>end</span>
+
+  <span class='comment val'>#tmpdir do</span>
+    <span class='tally identifier id'>tally</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>'pass'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span><span class='integer val'>0</span><span class='comma token'>,</span> <span class='string val'>'fail'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span><span class='integer val'>0</span><span class='comma token'>,</span> <span class='string val'>'error'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span><span class='integer val'>0</span><span class='comma token'>,</span> <span class='string val'>'omit'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span><span class='integer val'>0</span><span class='comma token'>,</span> <span class='string val'>'pending'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span><span class='integer val'>0</span><span class='rbrace token'>}</span>
+    <span class='report identifier id'>report</span><span class='lparen token'>(</span><span class='symbol val'>:type=</span><span class='gt op'>&gt;</span><span class='string val'>'header'</span><span class='comma token'>,</span> <span class='symbol val'>:range=</span><span class='gt op'>&gt;</span><span class='dstring node'>&quot;1..#{count}&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:count=</span><span class='gt op'>&gt;</span><span class='count identifier id'>count</span><span class='rparen token'>)</span>
+    <span class='index identifier id'>index</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
+    <span class='comment val'>#cases.sort_by{|a,b| a.desc &lt;=&gt; b.desc}</span>
+    <span class='cases identifier id'>cases</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='tc identifier id'>tc</span><span class='comma token'>,</span> <span class='ts identifier id'>ts</span><span class='bitor op'>|</span>
+      <span class='c identifier id'>c</span> <span class='assign token'>=</span> <span class='tc identifier id'>tc</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+      <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='before_all identifier id'>before_all</span>
+      <span class='report identifier id'>report</span><span class='lparen token'>(</span><span class='symbol val'>:type=</span><span class='gt op'>&gt;</span><span class='string val'>'case'</span><span class='comma token'>,</span> <span class='symbol val'>:label=</span><span class='gt op'>&gt;</span><span class='c identifier id'>c</span><span class='dot token'>.</span><span class='label identifier id'>label</span><span class='comma token'>,</span> <span class='symbol val'>:description=</span><span class='gt op'>&gt;</span><span class='c identifier id'>c</span><span class='dot token'>.</span><span class='desc identifier id'>desc</span><span class='rparen token'>)</span>
+      <span class='ts identifier id'>ts</span><span class='dot token'>.</span><span class='sort! fid id'>sort!</span>  <span class='comment val'># TODO: randomization option</span>
+      <span class='ts identifier id'>ts</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='m identifier id'>m</span><span class='bitor op'>|</span>
+        <span class='index identifier id'>index</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
+        <span class='type identifier id'>type</span> <span class='assign token'>=</span> <span class='string val'>'test'</span>
+        <span class='label identifier id'>label</span> <span class='assign token'>=</span> <span class='m identifier id'>m</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/(ok|no)\s+/</span><span class='comma token'>,</span><span class='string val'>''</span><span class='rparen token'>)</span>
+
+        <span class='begin begin kw'>begin</span>
+          <span class='trace identifier id'>trace</span> <span class='assign token'>=</span> <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='__send__ identifier id'>__send__</span><span class='lparen token'>(</span><span class='m identifier id'>m</span><span class='rparen token'>)</span>
+
+          <span class='status identifier id'>status</span> <span class='assign token'>=</span> <span class='string val'>'pass'</span>
+          <span class='file identifier id'>file</span><span class='comma token'>,</span> <span class='line identifier id'>line</span> <span class='assign token'>=</span> <span class='source_location identifier id'>source_location</span><span class='lparen token'>(</span><span class='trace identifier id'>trace</span><span class='rparen token'>)</span>
+          <span class='message identifier id'>message</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+          <span class='tally identifier id'>tally</span><span class='lbrack token'>[</span><span class='string val'>'pass'</span><span class='rbrack token'>]</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
+        <span class='rescue rescue kw'>rescue</span> <span class='Failure constant id'>Failure</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='error identifier id'>error</span>
+          <span class='status identifier id'>status</span> <span class='assign token'>=</span> <span class='string val'>'fail'</span>
+          <span class='file identifier id'>file</span><span class='comma token'>,</span> <span class='line identifier id'>line</span> <span class='assign token'>=</span> <span class='source_location identifier id'>source_location</span><span class='lparen token'>(</span><span class='error identifier id'>error</span><span class='rparen token'>)</span>
+          <span class='message identifier id'>message</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{error.class}: #{error.to_s}&quot;</span>
+          <span class='tally identifier id'>tally</span><span class='lbrack token'>[</span><span class='string val'>'fail'</span><span class='rbrack token'>]</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
+        <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='error identifier id'>error</span>
+          <span class='status identifier id'>status</span> <span class='assign token'>=</span> <span class='string val'>'error'</span>
+          <span class='file identifier id'>file</span><span class='comma token'>,</span> <span class='line identifier id'>line</span> <span class='assign token'>=</span> <span class='source_location identifier id'>source_location</span><span class='lparen token'>(</span><span class='error identifier id'>error</span><span class='rparen token'>)</span>
+          <span class='message identifier id'>message</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{error.class}: #{error.to_s}&quot;</span>
+          <span class='tally identifier id'>tally</span><span class='lbrack token'>[</span><span class='string val'>'error'</span><span class='rbrack token'>]</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
+        <span class='end end kw'>end</span>
+
+        <span class='source identifier id'>source</span>  <span class='assign token'>=</span> <span class='code_line identifier id'>code_line</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='comma token'>,</span> <span class='line identifier id'>line</span><span class='rparen token'>)</span>
+        <span class='snippet identifier id'>snippet</span> <span class='assign token'>=</span> <span class='code_snippet identifier id'>code_snippet</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='comma token'>,</span> <span class='line identifier id'>line</span><span class='rparen token'>)</span>
+
+        <span class='comment val'># make file relative to present directory</span>
+        <span class='file identifier id'>file</span>    <span class='assign token'>=</span> <span class='file identifier id'>file</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='@pwd ivar id'>@pwd</span><span class='plus op'>+</span><span class='File constant id'>File</span><span class='colon2 op'>::</span><span class='SEPARATOR constant id'>SEPARATOR</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span>
+
+        <span class='comment val'>#label   = m.sub(/(ok|no)\s+/,'')</span>
+
+        <span class='entry identifier id'>entry</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span>
+          <span class='symbol val'>:type</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='type identifier id'>type</span><span class='comma token'>,</span>
+          <span class='symbol val'>:status</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='status identifier id'>status</span><span class='comma token'>,</span>
+          <span class='symbol val'>:index</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='index identifier id'>index</span><span class='comma token'>,</span>
+          <span class='symbol val'>:label</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='label identifier id'>label</span><span class='comma token'>,</span>
+          <span class='symbol val'>:file</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='file identifier id'>file</span><span class='comma token'>,</span>
+          <span class='symbol val'>:line</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='line identifier id'>line</span><span class='comma token'>,</span>
+          <span class='symbol val'>:source</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='source identifier id'>source</span><span class='comma token'>,</span>
+          <span class='symbol val'>:snippet</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='snippet identifier id'>snippet</span><span class='comma token'>,</span>
+          <span class='symbol val'>:message</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='message identifier id'>message</span>
+        <span class='rbrace token'>}</span>
+
+        <span class='report identifier id'>report</span><span class='lparen token'>(</span><span class='entry identifier id'>entry</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+      <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='after_all identifier id'>after_all</span>
+    <span class='end end kw'>end</span>
+  <span class='comment val'>#end</span>
+  <span class='report identifier id'>report</span><span class='lparen token'>(</span><span class='symbol val'>:type=</span><span class='gt op'>&gt;</span><span class='string val'>'footer'</span><span class='comma token'>,</span> <span class='symbol val'>:range=</span><span class='gt op'>&gt;</span><span class='dstring node'>&quot;1..#{count}&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:count=</span><span class='gt op'>&gt;</span><span class='count identifier id'>count</span><span class='comma token'>,</span> <span class='symbol val'>:tally=</span><span class='gt op'>&gt;</span><span class='tally identifier id'>tally</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="source-instance_method">
+  
+    - (<tt>Object</tt>) <strong>source</strong>(file)  <span class="extras">(private)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+201
+202
+203
+204
+205</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/runner.rb', line 201</span>
+
+<span class='def def kw'>def</span> <span class='source identifier id'>source</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='rparen token'>)</span>
+  <span class='@source ivar id'>@source</span><span class='lbrack token'>[</span><span class='file identifier id'>file</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lparen token'>(</span>
+    <span class='File constant id'>File</span><span class='dot token'>.</span><span class='readlines identifier id'>readlines</span><span class='lparen token'>(</span><span class='file identifier id'>file</span><span class='rparen token'>)</span>
+  <span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="source_location-instance_method">
+  
+    - (<tt>Object</tt>) <strong>source_location</strong>(caller)  <span class="extras">(private)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Parse source location from caller, caller[0] or an Exception object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/runner.rb', line 155</span>
+
+<span class='def def kw'>def</span> <span class='source_location identifier id'>source_location</span><span class='lparen token'>(</span><span class='caller identifier id'>caller</span><span class='rparen token'>)</span>
+  <span class='case case kw'>case</span> <span class='caller identifier id'>caller</span>
+  <span class='when when kw'>when</span> <span class='Exception constant id'>Exception</span>
+    <span class='trace identifier id'>trace</span>  <span class='assign token'>=</span> <span class='caller identifier id'>caller</span><span class='dot token'>.</span><span class='backtrace identifier id'>backtrace</span><span class='dot token'>.</span><span class='reject identifier id'>reject</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='bt identifier id'>bt</span><span class='bitor op'>|</span> <span class='bt identifier id'>bt</span> <span class='match op'>=~</span> <span class='RUBY_IGNORE_CALLERS constant id'>RUBY_IGNORE_CALLERS</span> <span class='rbrace token'>}</span>
+    <span class='caller identifier id'>caller</span> <span class='assign token'>=</span> <span class='trace identifier id'>trace</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+  <span class='when when kw'>when</span> <span class='Array constant id'>Array</span>
+    <span class='caller identifier id'>caller</span> <span class='assign token'>=</span> <span class='caller identifier id'>caller</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+  <span class='end end kw'>end</span>
+  <span class='caller identifier id'>caller</span> <span class='match op'>=~</span> <span class='regexp val'>/(.+?):(\d+(?=:|\z))/</span> <span class='or or kw'>or</span> <span class='return return kw'>return</span> <span class='string val'>&quot;&quot;</span>
+  <span class='source_file identifier id'>source_file</span><span class='comma token'>,</span> <span class='source_line identifier id'>source_line</span> <span class='assign token'>=</span> <span class='$1 nth_ref id'>$1</span><span class='comma token'>,</span> <span class='$2 nth_ref id'>$2</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
+  <span class='return return kw'>return</span> <span class='source_file identifier id'>source_file</span><span class='comma token'>,</span> <span class='source_line identifier id'>source_line</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="tmpdir-instance_method">
+  
+    - (<tt>Object</tt>) <strong>tmpdir</strong>(&amp;block)  <span class="extras">(private)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208
+209
+210
+211
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/runner.rb', line 208</span>
+
+<span class='def def kw'>def</span> <span class='tmpdir identifier id'>tmpdir</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='block identifier id'>block</span>
+    <span class='FileUtils constant id'>FileUtils</span><span class='dot token'>.</span><span class='mkdir_p identifier id'>mkdir_p</span><span class='lparen token'>(</span><span class='tmpdir identifier id'>tmpdir</span><span class='rparen token'>)</span>
+    <span class='Dir constant id'>Dir</span><span class='dot token'>.</span><span class='chdir identifier id'>chdir</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span>
+  <span class='else else kw'>else</span>
+    <span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='Dir constant id'>Dir</span><span class='dot token'>.</span><span class='tmpdir identifier id'>tmpdir</span><span class='comma token'>,</span> <span class='string val'>'ko'</span><span class='comma token'>,</span> <span class='File constant id'>File</span><span class='dot token'>.</span><span class='basename identifier id'>basename</span><span class='lparen token'>(</span><span class='Dir constant id'>Dir</span><span class='dot token'>.</span><span class='pwd identifier id'>pwd</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat May 21 22:47:29 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.7 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

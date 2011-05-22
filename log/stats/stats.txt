@@ -1,0 +1,14 @@
+KO Statistics
+Sat May 21 22:47:25 -0400 2011
+
+TYPE       Total     Code  -%-     Docs  -%-    Blank  -%-    Files
+Source       931      598  64%      183  19%      150  16%       11
+Test          89       56   6%        2   0%       31   3%        5
+Total       1020      654  64%      185  18%      181  17%       16
+
+RATIO     Code    Docs    Blank   Test   Total
+Code       1.0     3.3     4.0     6.7     0.6
+Docs       0.3     1.0     1.2     2.1     0.2
+Blank      0.3     0.8     1.0     1.7     0.2
+Test       0.1     0.5     0.6     1.0     0.1
+Total      1.6     5.1     6.2    10.5     1.0

@@ -1,0 +1,1290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<title>Module: KO::TestCase::DSL</title>
+<link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../KO.html" title="KO (module)">KO</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../TestCase.html" title="KO::TestCase (class)">TestCase</a></span></span>
+     &raquo; 
+    <span class="title">DSL</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: KO::TestCase::DSL
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../TestCase.html" title="KO::TestCase (class)">KO::TestCase</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/ko/testcase.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>TestCase DSL</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#_define_check_method-instance_method" title="#_define_check_method (instance method)">- (Object) <strong>_define_check_method</strong>(args, trace, negate = false) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#_get_ok_count-instance_method" title="#_get_ok_count (instance method)">- (Object) <strong>_get_ok_count</strong>(label) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#_get_test_count-instance_method" title="#_get_test_count (instance method)">- (Object) <strong>_get_test_count</strong>(label) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#_set_test-instance_method" title="#_set_test (instance method)">- (Object) <strong>_set_test</strong>(test_method, procedure = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#after-instance_method" title="#after (instance method)">- (Object) <strong>after</strong>(type = :each, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define a teardown procedure.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#before-instance_method" title="#before (instance method)">- (Object) <strong>before</strong>(type = :each, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define a setup procedure.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#concern-instance_method" title="#concern (instance method)">- (Object) <strong>concern</strong>(desc = nil, &amp;block) </a>
+    
+
+    
+      (also: #unit)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a sub-case.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#desc-instance_method" title="#desc (instance method)">- (Object) <strong>desc</strong>(description = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get or set a description for the test case.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#method_added-instance_method" title="#method_added (instance method)">- (Object) <strong>method_added</strong>(method_name) </a>
+    
+
+    
+  </span>
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Legacy support.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#no-instance_method" title="#no (instance method)">- (Object) <strong>no</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define a negated test try.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ok-instance_method" title="#ok (instance method)">- (Object) <strong>ok</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define a test try.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup-instance_method" title="#setup (instance method)">- (Object) <strong>setup</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>DEPRECATE: Use #before instead.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#teardown-instance_method" title="#teardown (instance method)">- (Object) <strong>teardown</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>DEPRECATE: Use #after instead.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#test-instance_method" title="#test (instance method)">- (Object) <strong>test</strong>(label = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define a test scenario.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#test_list-instance_method" title="#test_list (instance method)">- (Object) <strong>test_list</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an Array of all `ok` and `no` methods.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#use-instance_method" title="#use (instance method)">- (Object) <strong>use</strong>(context_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Works just like #include, but looks up module from context list by
+<tt>context_name</tt>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid-instance_method" title="#valid (instance method)">- (Object) <strong>valid</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Define an alternate validation procedure.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="_define_check_method-instance_method">
+  
+    - (<tt>Object</tt>) <strong>_define_check_method</strong>(args, trace, negate = false)  <span class="extras">(private)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 125</span>
+
+<span class='def def kw'>def</span> <span class='_define_check_method identifier id'>_define_check_method</span><span class='lparen token'>(</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='trace identifier id'>trace</span><span class='comma token'>,</span> <span class='negate identifier id'>negate</span><span class='assign token'>=</span><span class='false false kw'>false</span><span class='rparen token'>)</span>
+  <span class='test identifier id'>test</span>  <span class='assign token'>=</span> <span class='@_test_method ivar id'>@_test_method</span>
+  <span class='label identifier id'>label</span> <span class='assign token'>=</span> <span class='test identifier id'>test</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='regexp val'>/^test[_ ]/</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span>
+  <span class='count identifier id'>count</span> <span class='assign token'>=</span> <span class='_get_ok_count identifier id'>_get_ok_count</span><span class='lparen token'>(</span><span class='dstring node'>&quot;ok #{label}&quot;</span><span class='rparen token'>)</span>
+  <span class='ok identifier id'>ok</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='negate identifier id'>negate</span> <span class='integer val'>? </span><span class='string val'>&quot;ok&quot;</span> <span class='colon op'>:</span> <span class='string val'>&quot;no&quot;</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='dstring node'>&quot; #{label} #{count}&quot;</span>
+
+  <span class='if if kw'>if</span> <span class='Hash constant id'>Hash</span> <span class='eqq op'>===</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='last identifier id'>last</span>
+    <span class='h identifier id'>h</span> <span class='assign token'>=</span> <span class='args identifier id'>args</span><span class='dot token'>.</span><span class='pop identifier id'>pop</span>
+    <span class='raise identifier id'>raise</span> <span class='SyntaxError constant id'>SyntaxError</span><span class='comma token'>,</span> <span class='string val'>&quot;invalid expectaiton&quot;</span> <span class='if if_mod kw'>if</span> <span class='h identifier id'>h</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>1</span>
+    <span class='expect identifier id'>expect</span> <span class='assign token'>=</span> <span class='h identifier id'>h</span><span class='dot token'>.</span><span class='values identifier id'>values</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+    <span class='args identifier id'>args</span> <span class='lshft op'>&lt;&lt;</span> <span class='h identifier id'>h</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+
+    <span class='valid identifier id'>valid</span> <span class='assign token'>=</span> <span class='@_valid ivar id'>@_valid</span> <span class='orop op'>||</span> <span class='lambda identifier id'>lambda</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='expect identifier id'>expect</span><span class='comma token'>,</span> <span class='result identifier id'>result</span><span class='bitor op'>|</span> <span class='expect identifier id'>expect</span> <span class='eq op'>==</span> <span class='result identifier id'>result</span> <span class='rbrace token'>}</span>
+  <span class='else else kw'>else</span>
+    <span class='expect identifier id'>expect</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+    <span class='valid identifier id'>valid</span>  <span class='assign token'>=</span> <span class='lambda identifier id'>lambda</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='expect identifier id'>expect</span><span class='comma token'>,</span> <span class='result identifier id'>result</span><span class='bitor op'>|</span> <span class='result identifier id'>result</span> <span class='rbrace token'>}</span>
+  <span class='end end kw'>end</span>
+
+  <span class='define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='ok identifier id'>ok</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
+    <span class='before_all identifier id'>before_all</span>
+    <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='__send__ identifier id'>__send__</span><span class='lparen token'>(</span><span class='test identifier id'>test</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
+    <span class='unless unless kw'>unless</span> <span class='negate identifier id'>negate</span> <span class='bitxor op'>^</span> <span class='valid identifier id'>valid</span><span class='dot token'>.</span><span class='call identifier id'>call</span><span class='lparen token'>(</span><span class='expect identifier id'>expect</span><span class='comma token'>,</span> <span class='result identifier id'>result</span><span class='rparen token'>)</span>
+      <span class='raise identifier id'>raise</span> <span class='Failure constant id'>Failure</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{test} failed&quot;</span><span class='comma token'>,</span> <span class='trace identifier id'>trace</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+    <span class='after_all identifier id'>after_all</span>
+
+    <span class='return return kw'>return</span> <span class='trace identifier id'>trace</span> <span class='comment val'># return caller ?</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="_get_ok_count-instance_method">
+  
+    - (<tt>Object</tt>) <strong>_get_ok_count</strong>(label)  <span class="extras">(private)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+162
+163
+164
+165</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 162</span>
+
+<span class='def def kw'>def</span> <span class='_get_ok_count identifier id'>_get_ok_count</span><span class='lparen token'>(</span><span class='label identifier id'>label</span><span class='rparen token'>)</span>
+  <span class='@_ok_cnt ivar id'>@_ok_cnt</span> <span class='opasgn op'>||=</span> <span class='Hash constant id'>Hash</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='h identifier id'>h</span><span class='comma token'>,</span><span class='k identifier id'>k</span><span class='bitor op'>|</span> <span class='h identifier id'>h</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span><span class='assign token'>=</span><span class='integer val'>0</span> <span class='rbrace token'>}</span>
+  <span class='@_ok_cnt ivar id'>@_ok_cnt</span><span class='lbrack token'>[</span><span class='label identifier id'>label</span><span class='rbrack token'>]</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="_get_test_count-instance_method">
+  
+    - (<tt>Object</tt>) <strong>_get_test_count</strong>(label)  <span class="extras">(private)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 156</span>
+
+<span class='def def kw'>def</span> <span class='_get_test_count identifier id'>_get_test_count</span><span class='lparen token'>(</span><span class='label identifier id'>label</span><span class='rparen token'>)</span>
+  <span class='@_test_cnt ivar id'>@_test_cnt</span> <span class='opasgn op'>||=</span> <span class='Hash constant id'>Hash</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='h identifier id'>h</span><span class='comma token'>,</span><span class='k identifier id'>k</span><span class='bitor op'>|</span> <span class='h identifier id'>h</span><span class='lbrack token'>[</span><span class='k identifier id'>k</span><span class='rbrack token'>]</span><span class='assign token'>=</span><span class='integer val'>-1</span> <span class='rbrace token'>}</span>
+  <span class='@_test_cnt ivar id'>@_test_cnt</span><span class='lbrack token'>[</span><span class='label identifier id'>label</span><span class='rbrack token'>]</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="_set_test-instance_method">
+  
+    - (<tt>Object</tt>) <strong>_set_test</strong>(test_method, procedure = nil)  <span class="extras">(private)</span>
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 168</span>
+
+<span class='def def kw'>def</span> <span class='_set_test identifier id'>_set_test</span><span class='lparen token'>(</span><span class='test_method identifier id'>test_method</span><span class='comma token'>,</span> <span class='procedure identifier id'>procedure</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='@_test_method ivar id'>@_test_method</span> <span class='assign token'>=</span> <span class='test_method identifier id'>test_method</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
+
+  <span class='procedure identifier id'>procedure</span> <span class='opasgn op'>||=</span> <span class='instance_method identifier id'>instance_method</span><span class='lparen token'>(</span><span class='test_method identifier id'>test_method</span><span class='rparen token'>)</span>
+
+  <span class='if if kw'>if</span> <span class='RUBY_VERSION constant id'>RUBY_VERSION</span> <span class='geq op'>&gt;=</span> <span class='string val'>'1.9'</span>
+    <span class='ok identifier id'>ok</span><span class='lparen token'>(</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='procedure identifier id'>procedure</span><span class='dot token'>.</span><span class='arity identifier id'>arity</span> <span class='eq op'>==</span> <span class='integer val'>0</span>
+  <span class='else else kw'>else</span>
+    <span class='comment val'>## TODO: Problem here is that empty arity `||` looks the same as `|*args|`.</span>
+    <span class='ok identifier id'>ok</span><span class='lparen token'>(</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='procedure identifier id'>procedure</span><span class='dot token'>.</span><span class='arity identifier id'>arity</span> <span class='eq op'>==</span> <span class='integer val'>0</span>
+    <span class='ok identifier id'>ok</span><span class='lparen token'>(</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='procedure identifier id'>procedure</span><span class='dot token'>.</span><span class='arity identifier id'>arity</span> <span class='eq op'>==</span> <span class='integer val'>-1</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="after-instance_method">
+  
+    - (<tt>Object</tt>) <strong>after</strong>(type = :each, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Define a teardown procedure.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 58</span>
+
+<span class='def def kw'>def</span> <span class='after identifier id'>after</span><span class='lparen token'>(</span><span class='type identifier id'>type</span><span class='assign token'>=</span><span class='symbol val'>:each</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='raise identifier id'>raise</span> <span class='ArgumentError constant id'>ArgumentError</span><span class='comma token'>,</span> <span class='dstring node'>&quot;invalid after-type #{type}&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:each</span><span class='comma token'>,</span> <span class='symbol val'>:all</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='type identifier id'>type</span><span class='rparen token'>)</span>
+  <span class='type_method identifier id'>type_method</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;after_#{type}&quot;</span>
+  <span class='remove_method identifier id'>remove_method</span><span class='lparen token'>(</span><span class='type_method identifier id'>type_method</span><span class='rparen token'>)</span> <span class='rescue rescue kw'>rescue</span> <span class='nil nil kw'>nil</span> <span class='comment val'>#if method_defined?(:teardown)</span>
+  <span class='define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='type_method identifier id'>type_method</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="before-instance_method">
+  
+    - (<tt>Object</tt>) <strong>before</strong>(type = :each, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Define a setup procedure.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 45</span>
+
+<span class='def def kw'>def</span> <span class='before identifier id'>before</span><span class='lparen token'>(</span><span class='type identifier id'>type</span><span class='assign token'>=</span><span class='symbol val'>:each</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='raise identifier id'>raise</span> <span class='ArgumentError constant id'>ArgumentError</span><span class='comma token'>,</span> <span class='dstring node'>&quot;invalid before-type #{type}&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='lbrack token'>[</span><span class='symbol val'>:each</span><span class='comma token'>,</span> <span class='symbol val'>:all</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='type identifier id'>type</span><span class='rparen token'>)</span>
+  <span class='type_method identifier id'>type_method</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;before_#{type}&quot;</span>
+  <span class='remove_method identifier id'>remove_method</span><span class='lparen token'>(</span><span class='type_method identifier id'>type_method</span><span class='rparen token'>)</span> <span class='rescue rescue kw'>rescue</span> <span class='nil nil kw'>nil</span> <span class='comment val'>#if method_defined?(:setup)</span>
+  <span class='define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='type_method identifier id'>type_method</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="concern-instance_method">
+  
+    - (<tt>Object</tt>) <strong>concern</strong>(desc = nil, &amp;block) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='unit-instance_method'>unit</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a sub-case.</p>
+
+<p>TODO Name context or concern?</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 82</span>
+
+<span class='def def kw'>def</span> <span class='concern identifier id'>concern</span><span class='lparen token'>(</span><span class='desc identifier id'>desc</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='cls identifier id'>cls</span> <span class='assign token'>=</span> <span class='Class constant id'>Class</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='TestCase constant id'>TestCase</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='cls identifier id'>cls</span><span class='dot token'>.</span><span class='desc identifier id'>desc</span><span class='lparen token'>(</span><span class='desc identifier id'>desc</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='desc identifier id'>desc</span>
+  <span class='cls identifier id'>cls</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="desc-instance_method">
+  
+    - (<tt>Object</tt>) <strong>desc</strong>(description = nil) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get or set a description for the test case.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 29</span>
+
+<span class='def def kw'>def</span> <span class='desc identifier id'>desc</span><span class='lparen token'>(</span><span class='description identifier id'>description</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='@_desc ivar id'>@_desc</span> <span class='assign token'>=</span> <span class='description identifier id'>description</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='if if_mod kw'>if</span> <span class='description identifier id'>description</span>
+  <span class='@_desc ivar id'>@_desc</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="method_added-instance_method">
+  
+    - (<tt>Object</tt>) <strong>method_added</strong>(method_name)  <span class="extras">(private)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Legacy support.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+183
+184
+185
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 183</span>
+
+<span class='def def kw'>def</span> <span class='method_added identifier id'>method_added</span><span class='lparen token'>(</span><span class='method_name identifier id'>method_name</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='regexp val'>/^test_/</span><span class='dot token'>.</span><span class='match identifier id'>match</span><span class='lparen token'>(</span><span class='method_name identifier id'>method_name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rparen token'>)</span>
+    <span class='_set_test identifier id'>_set_test</span><span class='lparen token'>(</span><span class='method_name identifier id'>method_name</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='super super kw'>super</span><span class='lparen token'>(</span><span class='method_name identifier id'>method_name</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='defined? defined kw'>defined?</span><span class='lparen token'>(</span><span class='super super kw'>super</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="no-instance_method">
+  
+    - (<tt>Object</tt>) <strong>no</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Define a negated test try.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 107</span>
+
+<span class='def def kw'>def</span> <span class='no identifier id'>no</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='_define_check_method identifier id'>_define_check_method</span><span class='lparen token'>(</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='caller identifier id'>caller</span><span class='comma token'>,</span> <span class='true true kw'>true</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="ok-instance_method">
+  
+    - (<tt>Object</tt>) <strong>ok</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Define a test try.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 102</span>
+
+<span class='def def kw'>def</span> <span class='ok identifier id'>ok</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='_define_check_method identifier id'>_define_check_method</span><span class='lparen token'>(</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='caller identifier id'>caller</span><span class='comma token'>,</span> <span class='false false kw'>false</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="setup-instance_method">
+  
+    - (<tt>Object</tt>) <strong>setup</strong>(&amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>DEPRECATE: Use #before instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 53</span>
+
+<span class='def def kw'>def</span> <span class='setup identifier id'>setup</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='before identifier id'>before</span><span class='lparen token'>(</span><span class='symbol val'>:each</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="teardown-instance_method">
+  
+    - (<tt>Object</tt>) <strong>teardown</strong>(&amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>DEPRECATE: Use #after instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 66</span>
+
+<span class='def def kw'>def</span> <span class='teardown identifier id'>teardown</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='after identifier id'>after</span><span class='lparen token'>(</span><span class='symbol val'>:each</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="test-instance_method">
+  
+    - (<tt>Object</tt>) <strong>test</strong>(label = nil, &amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Define a test scenario.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94
+95
+96
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 92</span>
+
+<span class='def def kw'>def</span> <span class='test identifier id'>test</span><span class='lparen token'>(</span><span class='label identifier id'>label</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='test_method identifier id'>test_method</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;test #{label}&quot;</span>
+  <span class='count identifier id'>count</span> <span class='assign token'>=</span> <span class='_get_test_count identifier id'>_get_test_count</span><span class='lparen token'>(</span><span class='test_method identifier id'>test_method</span><span class='rparen token'>)</span>
+  <span class='test_method identifier id'>test_method</span> <span class='opasgn op'>+=</span> <span class='dstring node'>&quot; (#{count})&quot;</span> <span class='if if_mod kw'>if</span> <span class='count identifier id'>count</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+  <span class='define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='test_method identifier id'>test_method</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='_set_test identifier id'>_set_test</span><span class='lparen token'>(</span><span class='test_method identifier id'>test_method</span><span class='comma token'>,</span> <span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='test_method identifier id'>test_method</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="test_list-instance_method">
+  
+    - (<tt>Object</tt>) <strong>test_list</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an Array of all `ok` and `no` methods. These are a KO Cases’s
+tests.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116
+117
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 113</span>
+
+<span class='def def kw'>def</span> <span class='test_list identifier id'>test_list</span>
+  <span class='list identifier id'>list</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='instance_methods identifier id'>instance_methods</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='m identifier id'>m</span><span class='bitor op'>|</span>
+    <span class='next next kw'>next</span> <span class='unless unless_mod kw'>unless</span> <span class='m identifier id'>m</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='match op'>=~</span> <span class='regexp val'>/^(ok|no)[_ ]/</span>
+    <span class='list identifier id'>list</span> <span class='lshft op'>&lt;&lt;</span> <span class='m identifier id'>m</span>
+  <span class='end end kw'>end</span>
+  <span class='list identifier id'>list</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="use-instance_method">
+  
+    - (<tt>Object</tt>) <strong>use</strong>(context_name) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Works just like #include, but looks up module from context list by
+<tt>context_name</tt>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 36</span>
+
+<span class='def def kw'>def</span> <span class='use identifier id'>use</span><span class='lparen token'>(</span><span class='context_name identifier id'>context_name</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='context identifier id'>context</span> <span class='assign token'>=</span> <span class='KO constant id'>KO</span><span class='dot token'>.</span><span class='contexts identifier id'>contexts</span><span class='lbrack token'>[</span><span class='context_name identifier id'>context_name</span><span class='rbrack token'>]</span>
+    <span class='include identifier id'>include</span> <span class='context identifier id'>context</span>
+  <span class='else else kw'>else</span>
+    <span class='raise identifier id'>raise</span> <span class='NameError constant id'>NameError</span><span class='comma token'>,</span> <span class='dstring node'>&quot;context not found -- #{context_name}&quot;</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="valid-instance_method">
+  
+    - (<tt>Object</tt>) <strong>valid</strong>(&amp;block) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Define an alternate validation procedure. This procedure is then used to
+validate ok’s `=&gt;` notation.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ko/testcase.rb', line 72</span>
+
+<span class='def def kw'>def</span> <span class='valid identifier id'>valid</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
+  <span class='raise identifier id'>raise</span> <span class='string val'>&quot;validation method must take two arguments&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='block identifier id'>block</span><span class='dot token'>.</span><span class='arity identifier id'>arity</span> <span class='eq op'>==</span> <span class='integer val'>2</span>
+  <span class='@_valid ivar id'>@_valid</span> <span class='assign token'>=</span> <span class='block identifier id'>block</span>
+  <span class='comment val'>#remove_method(:valid) rescue nil #if method_defined?(:valid)</span>
+  <span class='comment val'>#define_method(:valid, &amp;block)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat May 21 22:47:28 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.7 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

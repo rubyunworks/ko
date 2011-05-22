@@ -1,0 +1,118 @@
+<html>
+<head>
+  <title></title>
+  <style>
+    body { margin: 0; padding: 0; font-size: 0.8em; }
+    .main {
+      width: 800px;
+      margin: 0 auto;
+      border: 0px solid #ccc;
+      padding: 0 20px 20px 20px;
+    }
+    h1 { margin: 25px 0; font-size: 3em; }
+    h2,h3,h4 { margin: 5px 0; padding: 0; color: #444; }
+    h2 { letter-spacing: 2px; border-top: 4px solid #ddd; padding: 5px 0; }
+    ul { margin: 0; padding: 0; text-align: left; }
+    li { margin: 0; padding: 0; text-align: left; }
+     a { color: #4488ff; }
+   sup { font-size: 0.8em; }
+  </style>
+  <link rel="stylesheet" href="notes.css" type="text/css">
+</head>
+<body>
+<div class="main">
+  <h1></h1>
+  <div class="notes">
+    <h2 class="FIXME">FIXME</h2>
+    <ol class="set fixme">
+      <li><h3><a href="work/trash/reporters/abstract.rb">work/trash/reporters/abstract.rb</a></h3><ol class="file" href="work/trash/reporters/abstract.rb">
+        <li class="note fixme" ref="89">
+          KO needs to track it;s own count b/x it no longer uses AE. <sup><a href="work/trash/reporters/abstract.rb">89</a></sup>
+        </li>
+      </ol></li>
+    </ol>
+    <h2 class="DEPRECATE">DEPRECATE</h2>
+    <ol class="set deprecate">
+      <li><h3><a href="lib/ko/testcase.rb">lib/ko/testcase.rb</a></h3><ol class="file" href="lib/ko/testcase.rb">
+        <li class="note deprecate" ref="52">
+          Use #before instead. <sup><a href="lib/ko/testcase.rb">52</a></sup>
+        </li>
+        <li class="note deprecate" ref="65">
+          Use #after instead. <sup><a href="lib/ko/testcase.rb">65</a></sup>
+        </li>
+      </ol></li>
+      <li><h3><a href="lib/ko/context.rb">lib/ko/context.rb</a></h3><ol class="file" href="lib/ko/context.rb">
+        <li class="note deprecate" ref="48">
+          Use #before instead. <sup><a href="lib/ko/context.rb">48</a></sup>
+        </li>
+        <li class="note deprecate" ref="61">
+          Use #after instead. <sup><a href="lib/ko/context.rb">61</a></sup>
+        </li>
+      </ol></li>
+    </ol>
+    <h2 class="TODO">TODO</h2>
+    <ol class="set todo">
+      <li><h3><a href="lib/ko/runner.rb">lib/ko/runner.rb</a></h3><ol class="file" href="lib/ko/runner.rb">
+        <li class="note todo" ref="83">
+          randomization option <sup><a href="lib/ko/runner.rb">83</a></sup>
+        </li>
+      </ol></li>
+      <li><h3><a href="work/trash/concern.rb">work/trash/concern.rb</a></h3><ol class="file" href="work/trash/concern.rb">
+        <li class="note todo" ref="20">
+          Might be support BDD nomenclature? E.g. <sup><a href="work/trash/concern.rb">20</a></sup>
+        </li>
+        <li class="note todo" ref="161">
+          use regex to match too <sup><a href="work/trash/concern.rb">161</a></sup>
+        </li>
+        <li class="note todo" ref="216">
+          Problem here is block arity `||` looks like `|*args|`. <sup><a href="work/trash/concern.rb">216</a></sup>
+        </li>
+      </ol></li>
+      <li><h3><a href="work/trash/ok.rb">work/trash/ok.rb</a></h3><ol class="file" href="work/trash/ok.rb">
+        <li class="note todo" ref="13">
+          Only problem here is that Hash&apos;s can&apos;t be passed a parameters to #ok. <sup><a href="work/trash/ok.rb">13</a></sup>
+        </li>
+      </ol></li>
+      <li><h3><a href="work/trash/runner.rb">work/trash/runner.rb</a></h3><ol class="file" href="work/trash/runner.rb">
+        <li class="note todo" ref="93">
+          use regex to match too <sup><a href="work/trash/runner.rb">93</a></sup>
+        </li>
+      </ol></li>
+      <li><h3><a href="work/trash/suite.rb">work/trash/suite.rb</a></h3><ol class="file" href="work/trash/suite.rb">
+        <li class="note todo" ref="44">
+          At the moment KO test scripts can be loaded via require.
+This will probably return to using `eval(File.read(...)` in future. <sup><a href="work/trash/suite.rb">44</a></sup>
+        </li>
+      </ol></li>
+      <li><h3><a href="lib/ko/testcase.rb">lib/ko/testcase.rb</a></h3><ol class="file" href="lib/ko/testcase.rb">
+        <li class="note todo" ref="12">
+          Should we bother with this? <sup><a href="lib/ko/testcase.rb">12</a></sup>
+        </li>
+        <li class="note todo" ref="176">
+          Problem here is that empty arity `||` looks the same as `|*args|`. <sup><a href="lib/ko/testcase.rb">176</a></sup>
+        </li>
+        <li class="note todo" ref="251">
+          make staging methods a separate extension <sup><a href="lib/ko/testcase.rb">251</a></sup>
+        </li>
+        <li class="note todo" ref="293">
+          deprecate ? <sup><a href="lib/ko/testcase.rb">293</a></sup>
+        </li>
+      </ol></li>
+      <li><h3><a href="lib/ko.rb">lib/ko.rb</a></h3><ol class="file" href="lib/ko.rb">
+        <li class="note todo" ref="15">
+          here b/c of bug in Ruby 1.8.x. <sup><a href="lib/ko.rb">15</a></sup>
+        </li>
+      </ol></li>
+      <li><h3><a href="lib/ko/cli.rb">lib/ko/cli.rb</a></h3><ol class="file" href="lib/ko/cli.rb">
+        <li class="note todo" ref="82">
+          needs a human readable verbose reporter
+opt.on(&apos;--verbose&apos;, &apos;-v&apos;, &apos;output with verbose format&apos;) do |type|
+@format = &apos;verbose&apos;
+end <sup><a href="lib/ko/cli.rb">82</a></sup>
+        </li>
+      </ol></li>
+    </ol>
+  </div>
+</div>
+</body>
+</html>
