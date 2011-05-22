@@ -1,45 +1,45 @@
 --- 
-name: ko
-version: 1.3.0
-title: KO
-summary: Knockout Testing
-description: Knockout is BDD test framework, with next-gen conceptual model and a sexy light-weight implementation.
-namespace: module KO
+spec_version: 1.0.0
+replaces: []
+
 loadpath: 
 - lib
-manifest: Manifest.txt
-requires: 
-- name: ansi
-  version: 0+
-  group: []
-
-- name: facets
-  version: 2.9.1+
-  group: []
-
-- name: syckle
-  version: 0+
-  group: 
-  - build
+name: ko
+repositories: 
+  public: git://github.com/proutils/ko.git
 conflicts: []
-
-replaces: []
 
 engine_check: []
 
-organization: RubyWorks
+title: KO
+namespace: module KO
 contact: trans <transfire@gmail.com>
-created: 2010-06-21 09:00:06
-copyright: Copyright (c) 2010 Thomas Sawyer
-licenses: 
-- Apache 2.0
-authors: 
-- Thomas Sawyer
+resources: 
+  code: http://github.com/rubyworks/ko
+  home: http://rubyworks.github.com/ko
 maintainers: []
 
-resources: 
-  home: http://rubyworks.github.com/ko
-  code: http://github.com/rubyworks/ko
-repositories: 
-  public: git://github.com/proutils/ko.git
-spec_version: 1.0.0
+requires: 
+- group: []
+
+  name: tapout
+  version: 0+
+- group: 
+  - test
+  name: qed
+  version: 0+
+- group: 
+  - build
+  name: redline
+  version: 0+
+manifest: Manifest.txt
+version: 1.3.0
+licenses: 
+- Apache 2.0
+copyright: Copyright (c) 2010 Thomas Sawyer
+authors: 
+- Thomas Sawyer
+organization: RubyWorks
+description: Knockout is BDD test framework, with next-gen conceptual model and a sexy light-weight implementation.
+summary: Knockout Testing
+created: 2010-06-21 09:00:06

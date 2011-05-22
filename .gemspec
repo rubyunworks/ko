@@ -1,7 +1,12 @@
 --- !ruby/object:Gem::Specification 
 name: ko
 version: !ruby/object:Gem::Version 
+  hash: 27
   prerelease: 
+  segments: 
+  - 1
+  - 3
+  - 0
   version: 1.3.0
 platform: ruby
 authors: 
@@ -10,7 +15,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2011-05-21 00:00:00 Z
+date: 2011-05-22 00:00:00 Z
 dependencies: 
 - !ruby/object:Gem::Dependency 
   name: tapout
@@ -20,6 +25,9 @@ dependencies:
     requirements: 
     - - ">="
       - !ruby/object:Gem::Version 
+        hash: 3
+        segments: 
+        - 0
         version: "0"
   type: :runtime
   version_requirements: *id001
@@ -31,6 +39,9 @@ dependencies:
     requirements: 
     - - ">="
       - !ruby/object:Gem::Version 
+        hash: 3
+        segments: 
+        - 0
         version: "0"
   type: :development
   version_requirements: *id002
@@ -42,6 +53,9 @@ dependencies:
     requirements: 
     - - ">="
       - !ruby/object:Gem::Version 
+        hash: 3
+        segments: 
+        - 0
         version: "0"
   type: :development
   version_requirements: *id003
@@ -102,12 +116,18 @@ required_ruby_version: !ruby/object:Gem::Requirement
   requirements: 
   - - ">="
     - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
       version: "0"
 required_rubygems_version: !ruby/object:Gem::Requirement 
   none: false
   requirements: 
   - - ">="
     - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
       version: "0"
 requirements: []
 
