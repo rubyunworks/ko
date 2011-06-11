@@ -44,7 +44,7 @@ module KO
     end
 
     def run
-      FileUtils.mkdir_p(tmpdir)
+      FileUtils.mkdir_p(tmpdir) unless File.directory?(tmpdir)
       Dir.chdir(tmpdir) do
         run_tests
       end
@@ -138,7 +138,7 @@ module KO
 
     # Clean the backtrace of any reference to ko/ paths and code.
     def clean_backtrace(backtrace)
-      trace = backtrace.reject{ |bt| bt =~ RUBY_IGNORE_CALLERS }
+      trace = backtrace.select{ |bt| RUBY_IGNORE_CALLERS.all?{ |ric| bt !~ ric } }
       trace = trace.map do |bt| 
         if i = bt.index(':in')
           bt[0...i]
@@ -155,13 +155,16 @@ module KO
     def source_location(caller)
       case caller
       when Exception
-        trace  = caller.backtrace.reject{ |bt| bt =~ RUBY_IGNORE_CALLERS }
+        trace  = caller.backtrace.select{ |bt| RUBY_IGNORE_CALLERS.all?{ |ric| bt !~ ric } }
         caller = trace.first
       when Array
-        caller = caller.first
+        trace  = caller.select{ |bt| RUBY_IGNORE_CALLERS.all?{ |ric| bt !~ ric } }
+        caller = trace.first
       end
       caller =~ /(.+?):(\d+(?=:|\z))/ or return ""
       source_file, source_line = $1, $2.to_i
+      # substitute `.` path in source_file for current working directory
+      source_file.sub!(/^\./, @pwd)
       return source_file, source_line
     end
 

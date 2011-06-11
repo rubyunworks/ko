@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/calculator_context'
 
 # The Calculator must support addition.
-KO.case "Addition" do
+Test.case "Addition" do
 
   use "Calculator Instance"
 

@@ -84,9 +84,13 @@ module KO
       when 'footer'
         puts
         @_rec.each do |e|
+          file = e[:file].sub(/^#{Regexp.escape(Dir.pwd)}/,'')
+          line = e[:line]
           puts
           puts e[:status].upcase + ' ' + e[:label]
           puts e[:message]
+          puts "#{file}:#{line}"
+          #puts e[:backtrace] #if trace?
           e[:snippet].each do |h|
             l, s = h.keys.first, h.values.first
             if l.to_i == e[:line]

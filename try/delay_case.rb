@@ -1,4 +1,4 @@
-KO.case "test validation" do
+Test.case "test validation" do
 
   test "noticeable delay" do |obj|
     sleep 0.5

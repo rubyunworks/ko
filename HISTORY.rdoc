@@ -10,6 +10,7 @@ Lastly, #setup and #teardown have been deprecated in favor of #before and #after
 
 Changes:
 
+* Add Test module at toplevel to build cases/context.
 * Revamp system to use class-based design.
 * Revamp Context class as a module.
 * Deprecate setup and teardown in favor of before and after.

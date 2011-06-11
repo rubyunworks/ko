@@ -7,7 +7,7 @@ module KO
   #
   class CLI
 
-    #
+    # Run cli command.
     def self.run(argv=ARGV)
       new.run(argv)
     end

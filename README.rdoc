@@ -27,7 +27,7 @@ the monolithic RSpec.
 
 KO! tests, or specifications if you prefer, are ... well, here's an example.
 
-  KO.case "String Indexing" do
+  Test.case "String Indexing" do
 
     before do
       @string = "Hello World"
@@ -52,7 +52,7 @@ KO! tests, or specifications if you prefer, are ... well, here's an example.
   end
 
 It should be pretty clear how this plays out just by looking at it. When KO
-runs a test case it runs each +test+, which consists of trying each +ok+
+runs a testcase it runs each +test+, which consists of trying each +ok+
 assertion. These are run through the test procedure, if the result of which
 evaluates as true then the test passes.
 
@@ -119,7 +119,7 @@ KO! has a nice feature for creating reusable contexts. They can be defined
 outside of any testcase and then called upon by their description for use
 in any testcase.
 
-  KO.context "String Instance" do
+  Test.context "String Instance" do
 
     before :all do
       @string = "Hello World"
@@ -127,7 +127,7 @@ in any testcase.
 
   end
 
-  KO.case "String Indexing" do
+  Test.case "String Indexing" do
 
     use "String Instance"
 
@@ -137,7 +137,7 @@ in any testcase.
 
     ...
 
-Get it? You create a reusable contexts --they can load libraries, build out mocks,
+Get it? You create reusable contexts --they can load libraries, build out mocks,
 setup fixtures, etc. Then use +use+ to use them in your testcases.
 
 Of course, generally you won't define the contexts in the same file

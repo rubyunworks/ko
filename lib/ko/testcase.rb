@@ -1,25 +1,24 @@
 #require 'ko/formats'
 require 'ko/world'
+require 'ko/test'
 require 'ko/context'
 require 'ko/core_ext'
 
 require 'fileutils'
 require 'tmpdir'
 
-#
 module KO
 
-  # TODO: Should we bother with this?
+  # DEPRECATE: Use Test module instead.
   def self.case(desc, &block)
-    c = Class.new(TestCase, &block)
-    c.desc(desc)
-    c
+    Test.case(desc, &block)
   end
 
-  # TestCase
+  # TestCase class encapsulates a group of tests.
   class TestCase
 
-    #
+    # Anything in World is available in test cases, which provides
+    # a proper place to safely extend KO.
     include World
 
     # TestCase DSL
@@ -29,6 +28,12 @@ module KO
       def desc(description=nil)
         @_desc = description.to_s if description
         @_desc
+      end
+
+      # Get or set tags to associate with a test case.
+      def tags(*tags)
+        @_tags = tags unless tags.empty?
+        @_tags
       end
 
       # Works just like #include, but looks up module from context list
@@ -45,21 +50,21 @@ module KO
       def before(type=:each, &block)
         raise ArgumentError, "invalid before-type #{type}" unless [:each, :all].include?(type)
         type_method = "before_#{type}"
-        remove_method(type_method) rescue nil #if method_defined?(:setup)
+        remove_method(type_method) rescue nil #if method_defined?(type_method)
         define_method(type_method, &block)
       end
 
-      # DEPRECATE: Use #before instead.
-      def setup(&block)
-        before(:each, &block)
-      end
-   
       # Define a teardown procedure.
       def after(type=:each, &block)
         raise ArgumentError, "invalid after-type #{type}" unless [:each, :all].include?(type)
         type_method = "after_#{type}"
         remove_method(type_method) rescue nil #if method_defined?(:teardown)
         define_method(type_method, &block)
+      end
+
+      # DEPRECATE: Use #before instead.
+      def setup(&block)
+        before(:each, &block)
       end
 
       # DEPRECATE: Use #after instead.
@@ -88,7 +93,7 @@ module KO
       #
       alias_method :unit, :concern
 
-      # Define a test scenario.
+      # Define a unit test.
       def test(label=nil, &block)
         test_method = "test #{label}"
         count = _get_test_count(test_method)
@@ -141,12 +146,12 @@ module KO
         end
 
         define_method(ok) do
-          before_all
+          before_each
           result = __send__(test, *args)
           unless negate ^ valid.call(expect, result)
             raise Failure.new("#{test} failed", trace)
           end
-          after_all
+          after_each
 
           return trace # return caller ?
         end
@@ -264,6 +269,7 @@ module KO
     def stage_clear
       stage_safe!
       Dir['*'].each do |path|
+        #p path
         FileUtils.rm_r(path)
       end
     end
@@ -285,7 +291,7 @@ module KO
 
     #
     def stage_safe!
-      raise "unsafe test stage directory -- #{Dir.pwd}" unless /#{Dir.tmpdir}/ =~ Dir.pwd
+      raise "unsafe test stage directory -- #{Dir.pwd}" unless /^#{Dir.tmpdir}/ =~ Dir.pwd
     end
 
     # Access to FileUtils. Using this method rather than FileUtils itself
